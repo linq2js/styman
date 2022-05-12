@@ -3,7 +3,6 @@ import { BuildContext } from "./createStyler";
 
 export const sizingModule = <C extends ColorScheme, M extends Modifiers>({
   withModifiers,
-  withVariants,
   withValues,
 }: BuildContext<C, M>) => {
   const sizingVariants = (prop: string) =>
@@ -41,37 +40,25 @@ export const sizingModule = <C extends ColorScheme, M extends Modifiers>({
     };
 
   return {
-    ...withModifiers(
-      "width",
-      withVariants({
-        $number: sizingNumberVariants("width"),
-        $fraction: sizingFractionVariants("width"),
-        ...sizingVariants("width"),
-      })
-    ),
-    ...withModifiers(
-      "min_width",
-      withVariants({
-        $number: sizingNumberVariants("min-width"),
-        $fraction: sizingFractionVariants("min-width"),
-        ...minSizingVariants("min-width"),
-      })
-    ),
-    ...withModifiers(
-      "height",
-      withVariants({
-        $number: sizingNumberVariants("height"),
-        $fraction: sizingFractionVariants("height"),
-        ...sizingVariants("height"),
-      })
-    ),
-    ...withModifiers(
-      "min_height",
-      withVariants({
-        $number: sizingNumberVariants("min-height"),
-        $fraction: sizingFractionVariants("min-height"),
-        ...minSizingVariants("min-height"),
-      })
-    ),
+    ...withModifiers("width", {
+      $number: sizingNumberVariants("width"),
+      $fraction: sizingFractionVariants("width"),
+      ...sizingVariants("width"),
+    }),
+    ...withModifiers("min_width", {
+      $number: sizingNumberVariants("min-width"),
+      $fraction: sizingFractionVariants("min-width"),
+      ...minSizingVariants("min-width"),
+    }),
+    ...withModifiers("height", {
+      $number: sizingNumberVariants("height"),
+      $fraction: sizingFractionVariants("height"),
+      ...sizingVariants("height"),
+    }),
+    ...withModifiers("min_height", {
+      $number: sizingNumberVariants("min-height"),
+      $fraction: sizingFractionVariants("min-height"),
+      ...minSizingVariants("min-height"),
+    }),
   };
 };

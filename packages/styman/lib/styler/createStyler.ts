@@ -11,8 +11,11 @@ export interface StylerOptions<
   build: (context: BuildContext<TColors, TModifiers>) => TResult;
 }
 
+/**
+ * This is the trick to get ReturnType of generic function
+ */
 class CreatePresetWrappedType<T extends Modifiers> {
-  wrapped() {
+  type() {
     return createPreset<T>();
   }
 }
@@ -22,7 +25,7 @@ export type BuildContext<
   TModifiers extends Modifiers
 > = {
   colors: TColors;
-} & ReturnType<CreatePresetWrappedType<TModifiers>["wrapped"]>;
+} & ReturnType<CreatePresetWrappedType<TModifiers>["type"]>;
 
 export const createStyler = <
   TModifiers extends Record<string, string>,

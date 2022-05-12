@@ -22,9 +22,10 @@ export type Shading =
   | 900;
 
 export interface CombinableHandler<P1> {
-  (param: P1, exra?: any): CSSInterpolation;
+  (param: P1, context?: VariantContext): CSSInterpolation;
   combineWith<P2>(
-    other: (param: P2, exra?: any) => CSSInterpolation
+    pattern: RegExp,
+    other: (param: P2, context: VariantContext) => CSSInterpolation
   ): CombinableHandler<P1 | P2>;
 }
 
@@ -70,103 +71,52 @@ export interface WithModifiers {
    * <div class={styles({ hover_bordered: true, active_bordered: true })}></div>
    * ```
    */
-  <TValue extends DynamicRule, TPrefix extends string>(
+  <
+    TRule extends Exclude<DynamicRule, Style> | Variants,
+    TPrefix extends string
+  >(
     prefix: TPrefix,
-    value: TValue
-  ): DynamicResult<DefaultModifierKey, TPrefix, TValue>;
-
-  <TValue extends DynamicRule, TPrefix extends string, T1 extends string>(
-    prefix: TPrefix,
-    value: TValue,
-    p1: readonly T1[]
-  ): DynamicResultWithKey<DefaultModifierKey, TPrefix, TValue, T1>;
+    rule: TRule
+  ): DynamicResult<DefaultModifierKey, TPrefix, TRule>;
 
   <
-    TValue extends DynamicRule,
+    TRule extends Exclude<DynamicRule, Style> | Variants,
+    TPrefix extends string,
+    T1 extends string
+  >(
+    prefix: TPrefix,
+    rule: TRule,
+    p1: readonly T1[]
+  ): DynamicResultWithKey<DefaultModifierKey, TPrefix, TRule, T1>;
+
+  <
+    Rule extends Exclude<DynamicRule, Style> | Variants,
     TPrefix extends string,
     T1 extends string,
     T2 extends string
   >(
     prefix: TPrefix,
-    value: TValue,
+    rule: Rule,
     p1: readonly T1[],
     p2: readonly T2[]
-  ): DynamicResultWithKey<DefaultModifierKey, TPrefix, TValue, `${T1}_${T2}`>;
+  ): DynamicResultWithKey<DefaultModifierKey, TPrefix, Rule, `${T1}_${T2}`>;
 
   <
-    TValue extends DynamicRule,
+    TRule extends Exclude<DynamicRule, Style> | Variants,
     TPrefix extends string,
     T1 extends string,
     T2 extends string,
     T3 extends string
   >(
     prefix: TPrefix,
-    value: TValue,
+    rule: TRule,
     p1: readonly T1[],
     p2: readonly T2[],
     p3: readonly T3[]
   ): DynamicResultWithKey<
     DefaultModifierKey,
     TPrefix,
-    TValue,
-    `${T1}_${T2}_${T3}`
-  >;
-
-  <TModifiers, TValue extends DynamicRule, TPrefix extends string>(
-    modifiers: TModifiers,
-    prefix: TPrefix,
-    value: TValue
-  ): DynamicResult<string & keyof TModifiers, TPrefix, TValue>;
-
-  <
-    TModifiers,
-    TValue extends DynamicRule,
-    TPrefix extends string,
-    T1 extends string
-  >(
-    modifiers: TModifiers,
-    prefix: TPrefix,
-    value: TValue,
-    p1: readonly T1[]
-  ): DynamicResultWithKey<string & keyof TModifiers, TPrefix, TValue, T1>;
-
-  <
-    TModifiers,
-    TValue extends DynamicRule,
-    TPrefix extends string,
-    T1 extends string,
-    T2 extends string
-  >(
-    modifiers: TModifiers,
-    prefix: TPrefix,
-    value: TValue,
-    p1: readonly T1[],
-    p2: readonly T2[]
-  ): DynamicResultWithKey<
-    string & keyof TModifiers,
-    TPrefix,
-    TValue,
-    `${T1}_${T2}`
-  >;
-
-  <
-    TModifiers,
-    TValue extends DynamicRule,
-    TPrefix extends string,
-    T1 extends string,
-    T2 extends string,
-    T3 extends string
-  >(
-    modifiers: TModifiers,
-    prefix: TPrefix,
-    value: TValue,
-    p1: readonly T1[],
-    p2: readonly T2[],
-    p3: readonly T3[]
-  ): DynamicResultWithKey<
-    string & TModifiers,
-    TPrefix,
-    TValue,
+    TRule,
     `${T1}_${T2}_${T3}`
   >;
 }
@@ -174,24 +124,13 @@ export interface WithModifiers {
 export interface WithValues {
   <TGroup extends string, TValue = any>(
     group: TGroup[],
-    handler: (
-      item: any,
-      value: TValue,
-      context: VariantContext
-    ) => CSSInterpolation
+    handler: (item: any, context: VariantContext) => CSSInterpolation
   ): {
-    [key in TGroup]: (
-      value: TValue,
-      context: VariantContext
-    ) => CSSInterpolation;
+    [key in TGroup]: (value: any, context: VariantContext) => CSSInterpolation;
   };
-  <TGroup extends {}, TValue = any>(
+  <TGroup extends { [key: string]: CSSInterpolation }, TValue = any>(
     group: TGroup,
-    handler: (
-      item: any,
-      value: TValue,
-      context: VariantContext
-    ) => CSSInterpolation
+    handler: (item: any, context: VariantContext) => CSSInterpolation
   ): {
     [key in keyof TGroup]: (
       value: TValue,
@@ -243,13 +182,12 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
   const withValues: WithValues = (group: any, handler: Function): any => {
     if (Array.isArray(group)) {
       return group.reduce((result, item) => {
-        result[item] = (value: any, context: any) =>
-          handler(item, value, context);
+        result[item] = (_: any, context: any) => handler(item, context);
         return result;
       }, {} as Record<string, any>);
     }
     return Object.entries(group).reduce((result, [key, item]) => {
-      result[key] = (value: any, context: any) => handler(item, value, context);
+      result[key] = (_: any, context: any) => handler(item, context);
       return result;
     }, {} as Record<string, any>);
   };
@@ -260,27 +198,41 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
     ): any => {
       const params = Array.isArray(param) ? param : [param];
       let sides: Side[] | undefined;
+      let skipping = false;
 
       return mergeStyles(
         params.map((p: any) => {
           // falsy values
-          if (typeof p === "undefined" || p === false || p === null || p === "")
-            return undefined;
+          if (typeof p === "undefined" || p === false || p === null) {
+            return;
+          }
+
           if (Array.isArray(p)) {
-            sides = p;
-            return undefined;
+            sides = p.filter((x) => x !== "--");
+            skipping = false;
+            return;
           }
           if (
             p === "L" ||
             p === "T" ||
             p === "R" ||
             p === "B" ||
+            p === "X" ||
+            p === "Y" ||
             p === "V" ||
             p === "H"
           ) {
             sides = [p];
-            return undefined;
+            skipping = false;
+            return;
           }
+
+          if (p === "--") {
+            skipping = true;
+            return;
+          }
+
+          if (skipping) return;
 
           if (p in variants) {
             const rule = (variants as any)[p];
@@ -330,6 +282,9 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
   ) => {
     const result: Record<string, any> = {};
     const modifierEntries = Object.entries(modifiers);
+    if (typeof rule !== "function" && typeof rule === "object") {
+      rule = withVariants(rule);
+    }
 
     const generate = (
       path: string[],
@@ -404,17 +359,17 @@ const createVariantContext = (sides: Side[] | undefined): VariantContext => {
   if (sides) {
     sides = [
       ...sides.reduce((set, s) => {
-        if (s === "H") {
+        if (s === "H" || s === "X") {
           set.add("L");
           set.add("R");
-        } else if (s === "V") {
+        } else if (s === "V" || s === "Y") {
           set.add("T");
           set.add("B");
-        } else {
+        } else if (s !== "--") {
           set.add(s);
         }
         return set;
-      }, new Set<Exclude<Side, "H" | "V">>()),
+      }, new Set<Exclude<Side, SpecialSide>>()),
     ];
   }
   return {
@@ -444,7 +399,9 @@ const createVariantContext = (sides: Side[] | undefined): VariantContext => {
                 : name + formattedSide
             );
           }
-          return styles(name(formattedSide, side as Exclude<Side, "H" | "V">));
+          return styles(
+            name(formattedSide, side as Exclude<Side, SpecialSide>)
+          );
         })
       );
     },
@@ -454,7 +411,7 @@ const createVariantContext = (sides: Side[] | undefined): VariantContext => {
 export interface VariantContext {
   sides?: Side[];
   withSides(
-    name: (formattedSide: string, side: Exclude<Side, "H" | "V">) => string,
+    name: (formattedSide: string, side: Exclude<Side, SpecialSide>) => string,
     styles: (name: string) => CSSInterpolation,
     noSideStyles?: () => CSSInterpolation
   ): Record<string, any>;
@@ -474,23 +431,50 @@ export type Variants = {
 export type DynamicResultWithKey<
   TModifierKey extends string,
   TPrefix extends string,
-  TValue,
+  TRule,
   TKey extends string
 > = {
-  [key in `${TPrefix}_${TKey}` | `${TModifierKey}_${TPrefix}_${TKey}`]: TValue;
+  [key in
+    | `${TPrefix}_${TKey}`
+    | `${TModifierKey}_${TPrefix}_${TKey}`]: DynamicRuleMapping<TRule>;
 };
+
+export type DynamicRuleMapping<TRule> = TRule extends Function
+  ? TRule
+  : TRule extends Variants
+  ? (param: VariantParam<TRule> | VariantParam<TRule>[]) => any
+  : never;
 
 export type DynamicResult<
   TModifierKey extends string,
   TPrefix extends string,
-  TValue
+  TRule
 > = {
-  [key in TPrefix]: TValue;
+  [key in TPrefix]: DynamicRuleMapping<TRule>;
 } & {
-  [key in `${TModifierKey}_${TPrefix}`]: TValue;
+  [key in `${TModifierKey}_${TPrefix}`]: DynamicRuleMapping<TRule>;
 };
 
-export type Side = "L" | "T" | "R" | "B" | "H" | "V";
+export type SpecialSide = "X" | "Y" | "H" | "V" | "--";
+
+export type Side =
+  /**
+   * left
+   */
+  | "L"
+  /**
+   * top
+   */
+  | "T"
+  /**
+   * right
+   */
+  | "R"
+  /**
+   * bottom
+   */
+  | "B"
+  | SpecialSide;
 
 export type VariantParam<TVariants extends Variants> =
   | Exclude<
@@ -501,9 +485,7 @@ export type VariantParam<TVariants extends Variants> =
   | (TVariants["$fraction"] extends Function ? `${number}/${number}` : never)
   | (TVariants["$custom"] extends (value: infer T) => any ? T : never)
   | (TVariants["$default"] extends Function ? true : never)
-  | (TVariants["$sides"] extends Function
-      ? Side | (Side | FalsyValue)[]
-      : never)
+  | (TVariants["$sides"] extends Function ? Side | Side[] : never)
   | FalsyValue;
 
 const defaultShadings: Shading[] = [

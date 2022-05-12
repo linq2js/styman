@@ -44,7 +44,7 @@ test("withVariants", () => {
     borderRightWidth: 1,
   });
   // contains falsy value
-  expect(variants([["L", undefined, "R"], "bordered"])).toEqual({
+  expect(variants([["L", "--", "R"], "bordered"])).toEqual({
     borderLeftWidth: 1,
     borderRightWidth: 1,
   });

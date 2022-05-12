@@ -1,4 +1,9 @@
+import { createSwatch } from "../dynamic";
+
 export const defaultColorScheme = {
+  black: createSwatch("#000000"),
+  white: createSwatch("#ffffff"),
+  transparent: createSwatch("transparent"),
   slate: {
     "50": "#f8fafc",
     "100": "#f1f5f9",
