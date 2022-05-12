@@ -18,7 +18,15 @@
     "dist/tsc",
     "dynamic"
   ],
-  "keywords": [],
+  "keywords": [
+    "styles",
+    "react",
+    "angular",
+    "vue",
+    "framework",
+    "css",
+    "css-in-js"
+  ],
   "dependencies": {
     "@emotion/css": "11.9.0"
   },

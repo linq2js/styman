@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  css,
-  injectGlobal,
-  keyframes as originalKeyframes,
-  CSSInterpolation,
-} from "@emotion/css";
+import { css, injectGlobal, CSSInterpolation } from "@emotion/css";
 
 export type FalsyValue = false | null | undefined;
 
@@ -39,10 +34,23 @@ const computedStyleCache = new WeakMap<Function, Map<any, string[]>>();
 
 const objectStyleCache = new WeakMap<any, string>();
 
-const root = (...styles: CSSInterpolation[]) => injectGlobal(...styles);
-
-const keyframes = (...styles: CSSInterpolation[]) =>
-  originalKeyframes(...styles);
+const root = (...styles: (CSSInterpolation | string)[]) => {
+  const strings: string[] = [];
+  const objects: CSSInterpolation[] = [];
+  styles.forEach((style) => {
+    if (typeof style === "string") {
+      strings.push(style);
+    } else {
+      objects.push(style);
+    }
+  });
+  if (styles.length) {
+    injectGlobal([strings.join(";")]);
+  }
+  if (objects.length) {
+    injectGlobal(...objects);
+  }
+};
 
 const addClasses = (classSet: Set<string>, classes: any[], rules: RuleSet) => {
   for (let klass of classes) {
@@ -128,5 +136,5 @@ const sheet = <R extends RuleSet>(rules: R | (() => R)) => {
   );
 };
 
-export { use, sheet, root, keyframes };
-export { cx as cs } from "@emotion/css";
+export { use, sheet, root };
+export { cx as cs, keyframes } from "@emotion/css";
