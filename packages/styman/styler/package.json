@@ -1,0 +1,4 @@
+{
+  "main": "../dist/styler/index.js",
+  "types": "../dist/tsc/styler/index.d.ts"
+}

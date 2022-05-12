@@ -1,4 +1,0 @@
-{
-  "main": "../dist/presets/index.js",
-  "types": "../dist/tsc/presets/index.d.ts"
-}

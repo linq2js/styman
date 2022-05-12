@@ -1,6 +1,6 @@
 import type { CSSInterpolation } from "@emotion/css";
 import type { FalsyValue, Style } from "../main";
-import { defaultModifiers } from "./modifiers";
+import { defaultModifiers } from "./defaultModifiers";
 
 export type DefaultModifierKey = keyof typeof defaultModifiers;
 
@@ -51,6 +51,25 @@ const combinableHandler = <P1, TProps>(
 export type DynamicRule = Style | ((param: any) => CSSInterpolation);
 
 export interface WithModifiers {
+  /**
+   * create dynamic rules with specified names and modifiers
+   * ```js
+   * sheet({
+   *  ...withModifiers('bordered', () => ({ borderWidth: 1 }))
+   * });
+   *
+   * // generated rules:
+   * bordered: { borderWidth: 1 }
+   * hover_bordered: { borderWidth: 1 }
+   * active_bordered: { borderWidth: 1 }
+   * ... and so on
+   * // please refer this link to see list of modifiers
+   * // https://tailwindcss.com/docs/hover-focus-and-other-states#quick-reference
+   *
+   * // this means the div has borders when mouse is over or it has active status
+   * <div class={styles({ hover_bordered: true, active_bordered: true })}></div>
+   * ```
+   */
   <TValue extends DynamicRule, TPrefix extends string>(
     prefix: TPrefix,
     value: TValue
@@ -181,6 +200,12 @@ export interface WithValues {
   };
 }
 
+export type Modifiers = Record<string, string>;
+
+export interface PresetOptions<TModifiers extends Modifiers> {
+  modifiers?: TModifiers;
+}
+
 const mergeStyles = (objs: any[]) => {
   return objs.reduce((final, obj) => {
     if (obj) {
@@ -212,18 +237,166 @@ const wrapRule = (rule: any, selector?: any) => {
   return () => rule;
 };
 
-const withValues: WithValues = (group: any, handler: Function): any => {
-  if (Array.isArray(group)) {
-    return group.reduce((result, item) => {
-      result[item] = (value: any, context: any) =>
-        handler(item, value, context);
+const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
+  modifiers = defaultModifiers as any,
+}: PresetOptions<TModifiers> = {}) => {
+  const withValues: WithValues = (group: any, handler: Function): any => {
+    if (Array.isArray(group)) {
+      return group.reduce((result, item) => {
+        result[item] = (value: any, context: any) =>
+          handler(item, value, context);
+        return result;
+      }, {} as Record<string, any>);
+    }
+    return Object.entries(group).reduce((result, [key, item]) => {
+      result[key] = (value: any, context: any) => handler(item, value, context);
       return result;
     }, {} as Record<string, any>);
-  }
-  return Object.entries(group).reduce((result, [key, item]) => {
-    result[key] = (value: any, context: any) => handler(item, value, context);
+  };
+
+  const withVariants = <TVariants extends Variants>(variants: TVariants) => {
+    const handler = (
+      param: VariantParam<TVariants> | VariantParam<TVariants>[]
+    ): any => {
+      const params = Array.isArray(param) ? param : [param];
+      let sides: Side[] | undefined;
+
+      return mergeStyles(
+        params.map((p: any) => {
+          // falsy values
+          if (typeof p === "undefined" || p === false || p === null || p === "")
+            return undefined;
+          if (Array.isArray(p)) {
+            sides = p;
+            return undefined;
+          }
+          if (
+            p === "L" ||
+            p === "T" ||
+            p === "R" ||
+            p === "B" ||
+            p === "V" ||
+            p === "H"
+          ) {
+            sides = [p];
+            return undefined;
+          }
+
+          if (p in variants) {
+            const rule = (variants as any)[p];
+            return typeof rule === "function"
+              ? rule(p, createVariantContext(sides))
+              : rule;
+          }
+          if (p === true)
+            return variants["$default"]?.(true, createVariantContext(sides));
+          if (!isNaN(p))
+            return variants["$number"]?.(
+              parseFloat(p),
+              createVariantContext(sides)
+            );
+          if (typeof p === "string" && p.includes("/")) {
+            const parts = p.split("/");
+            return variants["$fraction"]?.(
+              parts.map(parseFloat),
+              createVariantContext(sides)
+            );
+          }
+          return variants["$custom"]?.(String(p), createVariantContext(sides));
+        })
+      );
+    };
+
+    return combinableHandler(handler);
+  };
+
+  const withColors = <TScheme extends ColorScheme>(
+    colors: TScheme,
+    handler: (color: string, context: VariantContext) => CSSInterpolation
+  ) =>
+    combinableHandler((param: ColorSchemeParam<TScheme>, context) => {
+      const [color, shading = "default"] = (param as string).split("-") as [
+        string,
+        Shading | undefined
+      ];
+      const availColor = colors[color]?.[shading] ?? colors[color]?.[500];
+      return availColor ? handler(availColor, context) : undefined;
+    });
+
+  const withModifiers: WithModifiers = (
+    prefix: string,
+    rule: any,
+    ...names: (readonly string[])[]
+  ) => {
+    const result: Record<string, any> = {};
+    const modifierEntries = Object.entries(modifiers);
+
+    const generate = (
+      path: string[],
+      params: string[],
+      next: (readonly string[])[],
+      callback: (path: string[], params: string[]) => void
+    ) => {
+      if (next.length) {
+        const sub = next.slice(1);
+        next[0].forEach((p) => {
+          generate(path.concat(p), params.concat(p), sub, callback);
+        });
+      } else {
+        callback(path, params);
+      }
+    };
+
+    generate([prefix], [], names, (path) => {
+      modifierEntries.forEach(([modifier, selector]) => {
+        const key = [modifier].concat(path).join("_");
+        result[key] = wrapRule(rule, selector);
+      });
+      result[path.join("_")] = wrapRule(rule);
+    });
+
     return result;
-  }, {} as Record<string, any>);
+  };
+
+  return { withValues, withColors, withVariants, withModifiers };
+};
+
+const createSwatch = (
+  mainColor: string,
+  lighters: string[] = [],
+  darkers: string[] = []
+) => {
+  const lighterColors = 5;
+  const darkerColors = 4;
+  if (!lighters.length) {
+    lighters = new Array(lighterColors).fill(mainColor);
+  }
+  // keep last 5 if availLighters has more than 5 items
+  else if (lighters.length > lighterColors) {
+    lighters = lighters.slice(-lighterColors);
+  } else {
+    lighters = new Array(lighterColors)
+      .fill(0)
+      .map(
+        (_, i) => lighters[Math.floor((lighters.length / lighterColors) * i)]
+      );
+  }
+
+  if (!darkers.length) {
+    darkers = new Array(darkerColors).fill(mainColor);
+  } else if (darkers.length > darkerColors) {
+    darkers = darkers.slice(0, darkerColors);
+  } else {
+    darkers = new Array(darkerColors)
+      .fill(0)
+      .map(
+        (_, i) => lighters[Math.floor((lighters.length / darkerColors) * i)]
+      );
+  }
+  return [...lighters, mainColor, ...darkers].reduce((newSwatch, color, i) => {
+    newSwatch[defaultShadings[i] as Shading] = color;
+    return newSwatch;
+  }, {} as ColorSwatch);
 };
 
 const createVariantContext = (sides: Side[] | undefined): VariantContext => {
@@ -277,75 +450,6 @@ const createVariantContext = (sides: Side[] | undefined): VariantContext => {
     },
   };
 };
-
-const withVariants = <TVariants extends Variants>(variants: TVariants) => {
-  const handler = (
-    param: VariantParam<TVariants> | VariantParam<TVariants>[]
-  ): any => {
-    const params = Array.isArray(param) ? param : [param];
-    let sides: Side[] | undefined;
-
-    return mergeStyles(
-      params.map((p: any) => {
-        // falsy values
-        if (typeof p === "undefined" || p === false || p === null || p === "")
-          return undefined;
-        if (Array.isArray(p)) {
-          sides = p;
-          return undefined;
-        }
-        if (
-          p === "L" ||
-          p === "T" ||
-          p === "R" ||
-          p === "B" ||
-          p === "V" ||
-          p === "H"
-        ) {
-          sides = [p];
-          return undefined;
-        }
-
-        if (p in variants) {
-          const rule = (variants as any)[p];
-          return typeof rule === "function"
-            ? rule(p, createVariantContext(sides))
-            : rule;
-        }
-        if (p === true)
-          return variants["$default"]?.(true, createVariantContext(sides));
-        if (!isNaN(p))
-          return variants["$number"]?.(
-            parseFloat(p),
-            createVariantContext(sides)
-          );
-        if (typeof p === "string" && p.includes("/")) {
-          const parts = p.split("/");
-          return variants["$fraction"]?.(
-            parts.map(parseFloat),
-            createVariantContext(sides)
-          );
-        }
-        return variants["$custom"]?.(String(p), createVariantContext(sides));
-      })
-    );
-  };
-
-  return combinableHandler(handler);
-};
-
-const withColors = <TScheme extends ColorScheme>(
-  scheme: TScheme,
-  handler: (color: string, context: VariantContext) => CSSInterpolation
-) =>
-  combinableHandler((param: ColorSchemeParam<TScheme>, context) => {
-    const [color, shading = "default"] = (param as string).split("-") as [
-      string,
-      Shading | undefined
-    ];
-    const availColor = scheme[color]?.[shading] ?? scheme[color]?.[500];
-    return availColor ? handler(availColor, context) : undefined;
-  });
 
 export interface VariantContext {
   sides?: Side[];
@@ -402,98 +506,23 @@ export type VariantParam<TVariants extends Variants> =
       : never)
   | FalsyValue;
 
-const shadings: Shading[] = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+const defaultShadings: Shading[] = [
+  50, 100, 200, 300, 400, 500, 600, 700, 800, 900,
+];
 
 export type ColorSchemeParam<TScheme> =
   | keyof TScheme
   | `${string & keyof TScheme}-${Exclude<Shading, "default">}`;
 
-const withModifiers: WithModifiers = (...args: any[]) => {
-  let names: (readonly string[])[];
-  let prefix: string;
-  let modifiers: Record<string, string>;
-  let rule: any;
-
-  if (typeof args[0] === "string") {
-    modifiers = defaultModifiers;
-    [prefix, rule, ...names] = args;
-  } else {
-    [modifiers, prefix, rule, ...names] = args;
-  }
-  const result: Record<string, any> = {};
-  const modifierEntries = Object.entries(modifiers);
-
-  const generate = (
-    path: string[],
-    params: string[],
-    next: (readonly string[])[],
-    callback: (path: string[], params: string[]) => void
-  ) => {
-    if (next.length) {
-      const sub = next.slice(1);
-      next[0].forEach((p) => {
-        generate(path.concat(p), params.concat(p), sub, callback);
-      });
-    } else {
-      callback(path, params);
-    }
-  };
-
-  generate([prefix], [], names, (path) => {
-    modifierEntries.forEach(([modifier, selector]) => {
-      const key = [modifier].concat(path).join("_");
-      result[key] = wrapRule(rule, selector);
-    });
-    result[path.join("_")] = wrapRule(rule);
-  });
-
-  return result;
-};
-
-const createSwatch = (
-  mainColor: string,
-  lighters: string[] = [],
-  darkers: string[] = []
-) => {
-  const lighterColors = 5;
-  const darkerColors = 4;
-  if (!lighters.length) {
-    lighters = new Array(lighterColors).fill(mainColor);
-  }
-  // keep last 5 if availLighters has more than 5 items
-  else if (lighters.length > lighterColors) {
-    lighters = lighters.slice(-lighterColors);
-  } else {
-    lighters = new Array(lighterColors)
-      .fill(0)
-      .map(
-        (_, i) => lighters[Math.floor((lighters.length / lighterColors) * i)]
-      );
-  }
-
-  if (!darkers.length) {
-    darkers = new Array(darkerColors).fill(mainColor);
-  } else if (darkers.length > darkerColors) {
-    darkers = darkers.slice(0, darkerColors);
-  } else {
-    darkers = new Array(darkerColors)
-      .fill(0)
-      .map(
-        (_, i) => lighters[Math.floor((lighters.length / darkerColors) * i)]
-      );
-  }
-  return [...lighters, mainColor, ...darkers].reduce((newSwatch, color, i) => {
-    newSwatch[shadings[i] as Shading] = color;
-    return newSwatch;
-  }, {} as ColorSwatch);
-};
+const { withModifiers, withVariants, withColors, withValues } = createPreset();
 
 export {
+  createSwatch,
   withModifiers,
   withVariants,
   withColors,
   withValues,
-  createSwatch,
-  defaultModifiers as modifiers,
-  shadings,
+  createPreset,
+  defaultModifiers,
+  defaultShadings,
 };

@@ -16,7 +16,8 @@
   "files": [
     "lib",
     "dist/tsc",
-    "dynamic"
+    "dynamic",
+    "styler"
   ],
   "keywords": [
     "styles",
