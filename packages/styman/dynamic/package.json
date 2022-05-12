@@ -1,0 +1,4 @@
+{
+  "main": "../dist/dynamic/index.js",
+  "types": "../dist/tsc/dynamic/index.d.ts"
+}

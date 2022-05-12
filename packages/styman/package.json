@@ -1,0 +1,36 @@
+{
+  "name": "styman",
+  "version": "0.0.0",
+  "description": "Styling your app with ease",
+  "author": "linq2js <linqtojs@gmail.com>",
+  "repository": {
+    "url": "https://github.com/linq2js/styman"
+  },
+  "homepage": "https://linq2js.github.io/styman/",
+  "license": "ISC",
+  "main": "dist/tsc/main.js",
+  "types": "dist/tsc/main.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "dist/tsc",
+    "dynamic"
+  ],
+  "keywords": [],
+  "dependencies": {
+    "@emotion/css": "11.9.0"
+  },
+  "peerDependencies": {},
+  "peerDependenciesMeta": {},
+  "scripts": {
+    "prepublishOnly": "yarn test && yarn && yarn build",
+    "lint": "eslint lib/ --ext .js,.jsx,.ts,.tsx",
+    "test": "jest --passWithNoTests",
+    "clean": "rm -rf dist build package",
+    "ts-node": "ts-node",
+    "build": "rimraf dist && tsc"
+  },
+  "gitHead": "8ca5b169e55a6531da7f9b5f4fb8023dc1666bf5"
+}
