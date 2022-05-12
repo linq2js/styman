@@ -1,6 +1,6 @@
 {
   "name": "styman",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Styling your app with ease",
   "author": "linq2js <linqtojs@gmail.com>",
   "repository": {
@@ -22,7 +22,6 @@
   "dependencies": {
     "@emotion/css": "11.9.0"
   },
-  "peerDependencies": {},
   "peerDependenciesMeta": {},
   "scripts": {
     "prepublishOnly": "yarn test && yarn && yarn build",
