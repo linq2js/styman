@@ -23,6 +23,7 @@ yarn add styman
 3. Flexible styling
 4. SSR supported
 5. Fully Typescript supported
+6. No boilerplate, no provider
 
 ## Usages
 

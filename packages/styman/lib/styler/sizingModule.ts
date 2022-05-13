@@ -36,7 +36,7 @@ export const sizingModule = <C extends ColorScheme, M extends Modifiers>({
   const sizingFractionVariants =
     (prop: string) =>
     ([a, b]: [number, number]) => {
-      return { [prop]: a / b + "%" };
+      return { [prop]: (a / b) * 100 + "%" };
     };
 
   return {
