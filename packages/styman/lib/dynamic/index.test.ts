@@ -44,5 +44,20 @@ test("withModifiers", () => {
     solid: () => ({ border: "solid" }),
   });
   sheet({ ...modifiers });
-  expect(modifiers.border1("solid")).toEqual({ border: "solid" });
+  expect(modifiers.border1({ "2xl": { active: "solid" } })).toEqual({
+    "@media (min-width: 1536px)": { "&:active": { border: "solid" } },
+  });
+
+  expect(
+    modifiers.border1({
+      active: "solid",
+      "2xl": { active: "solid", $: "solid" },
+    })
+  ).toEqual({
+    "@media (min-width: 1536px)": {
+      border: "solid",
+      "&:active": { border: "solid" },
+    },
+    "&:active": { border: "solid" },
+  });
 });

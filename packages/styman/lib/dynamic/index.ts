@@ -49,7 +49,7 @@ const combinableHandler = <P1, TProps>(
   }) as any;
 };
 
-export type DynamicRule = Style | ((param: any) => CSSInterpolation);
+export type Rule = Style | ((param: any) => CSSInterpolation);
 
 export interface WithModifiers {
   /**
@@ -71,38 +71,35 @@ export interface WithModifiers {
    * <div class={styles({ hover_bordered: true, active_bordered: true })}></div>
    * ```
    */
-  <
-    TRule extends Exclude<DynamicRule, Style> | Variants,
-    TPrefix extends string
-  >(
+  <TRule extends Exclude<Rule, Style> | Variants, TPrefix extends string>(
     prefix: TPrefix,
     rule: TRule
-  ): DynamicResult<DefaultModifierKey, TPrefix, TRule>;
+  ): DynamicRule<DefaultModifierKey, TPrefix, TRule>;
 
   <
-    TRule extends Exclude<DynamicRule, Style> | Variants,
+    TRule extends Exclude<Rule, Style> | Variants,
     TPrefix extends string,
     T1 extends string
   >(
     prefix: TPrefix,
     rule: TRule,
     p1: readonly T1[]
-  ): DynamicResultWithKey<DefaultModifierKey, TPrefix, TRule, T1>;
+  ): DynamicRuleWithKey<DefaultModifierKey, TPrefix, TRule, T1>;
 
   <
-    Rule extends Exclude<DynamicRule, Style> | Variants,
+    TRule extends Exclude<Rule, Style> | Variants,
     TPrefix extends string,
     T1 extends string,
     T2 extends string
   >(
     prefix: TPrefix,
-    rule: Rule,
+    rule: TRule,
     p1: readonly T1[],
     p2: readonly T2[]
-  ): DynamicResultWithKey<DefaultModifierKey, TPrefix, Rule, `${T1}_${T2}`>;
+  ): DynamicRuleWithKey<DefaultModifierKey, TPrefix, TRule, `${T1}_${T2}`>;
 
   <
-    TRule extends Exclude<DynamicRule, Style> | Variants,
+    TRule extends Exclude<Rule, Style> | Variants,
     TPrefix extends string,
     T1 extends string,
     T2 extends string,
@@ -113,7 +110,7 @@ export interface WithModifiers {
     p1: readonly T1[],
     p2: readonly T2[],
     p3: readonly T3[]
-  ): DynamicResultWithKey<
+  ): DynamicRuleWithKey<
     DefaultModifierKey,
     TPrefix,
     TRule,
@@ -145,35 +142,27 @@ export interface PresetOptions<TModifiers extends Modifiers> {
   modifiers?: TModifiers;
 }
 
-const mergeStyles = (objs: any[]) => {
-  return objs.reduce((final, obj) => {
-    if (obj) {
-      Object.entries(obj).forEach(([key, value]) => {
-        if (key in final && typeof final[key] === "object") {
-          final = { ...final[key], ...(value as any) };
-        } else {
-          final[key] = value;
-        }
-      });
-    }
+const isObject = (item: any) =>
+  item && typeof item === "object" && !Array.isArray(item);
 
-    return final;
-  }, {} as Record<string, any>);
-};
+const mergeDeep = (target: any, ...sources: any[]): any => {
+  if (!sources.length) {
+    return target;
+  }
+  const source = sources.shift();
 
-const wrapRule = (rule: any, selector?: any) => {
-  const isFunc = typeof rule === "function";
-  if (isFunc) {
-    if (!selector) return rule;
-    if (rule.length) {
-      return (param: any) => ({ [selector]: rule(param) });
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, { [key]: {} });
+        mergeDeep(target[key], source[key]);
+      } else {
+        Object.assign(target, { [key]: source[key] });
+      }
     }
-    return () => ({ [selector]: rule() });
   }
-  if (selector) {
-    return () => ({ [selector]: rule });
-  }
-  return () => rule;
+
+  return mergeDeep(target, ...sources);
 };
 
 const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
@@ -200,8 +189,9 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
       let sides: Side[] | undefined;
       let skipping = false;
 
-      return mergeStyles(
-        params.map((p: any) => {
+      return mergeDeep(
+        {},
+        ...params.map((p: any) => {
           // falsy values
           if (typeof p === "undefined" || p === false || p === null) {
             return;
@@ -281,10 +271,12 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
     ...names: (readonly string[])[]
   ) => {
     const result: Record<string, any> = {};
-    const modifierEntries = Object.entries(modifiers);
+
     if (typeof rule !== "function" && typeof rule === "object") {
       rule = withVariants(rule);
     }
+
+    const isFunction = typeof rule === "function";
 
     const generate = (
       path: string[],
@@ -303,11 +295,32 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
     };
 
     generate([prefix], [], names, (path) => {
-      modifierEntries.forEach(([modifier, selector]) => {
-        const key = [modifier].concat(path).join("_");
-        result[key] = wrapRule(rule, selector);
-      });
-      result[path.join("_")] = wrapRule(rule);
+      const wrappedRule = (param: any) => {
+        const processModifiers = (result: any, param: any) => {
+          if (!isObject(param)) {
+            return isFunction ? rule(param) : rule;
+          }
+
+          Object.entries(param).forEach(([key, value]) => {
+            if (key === "$") {
+              return isFunction ? rule(value) : rule;
+            }
+
+            if (!(key in modifiers)) {
+              throw new Error(`Invalid modifier "${key}"`);
+            }
+
+            result[modifiers[key]] = processModifiers({}, value);
+          });
+
+          return result;
+        };
+
+        return processModifiers({}, param);
+      };
+
+      result[path.join("_")] =
+        isFunction && rule.length ? wrappedRule : () => wrappedRule(undefined);
     });
 
     return result;
@@ -381,8 +394,9 @@ const createVariantContext = (sides: Side[] | undefined): VariantContext => {
         return typeof noSideStyles === "function" ? noSideStyles() : undefined;
       }
 
-      return mergeStyles(
-        sides.map((side) => {
+      return mergeDeep(
+        {},
+        ...sides.map((side) => {
           if (!side) return undefined;
           const formattedSide =
             side === "B"
@@ -428,32 +442,50 @@ export type Variants = {
   ) => CSSInterpolation | true;
 };
 
-export type DynamicResultWithKey<
-  TModifierKey extends string,
+export type VariantParamWithModifier<
+  TModifer extends string,
+  TRule extends Variants
+> = {
+  [key in TModifer | "$"]?:
+    | VariantParam<TRule>
+    | VariantParam<TRule>[]
+    | VariantParamWithModifier<TModifer, TRule>;
+};
+
+export type DynamicRuleMapping<
+  TModifier extends string,
+  TRule
+> = TRule extends Function
+  ? TRule
+  : TRule extends Variants
+  ? (
+      param:
+        | VariantParam<TRule>
+        | VariantParam<TRule>[]
+        | VariantParamWithModifier<TModifier, TRule>
+    ) => any
+  : never;
+
+export type DynamicRuleProps<
+  TModifier extends string,
+  TKey extends string,
+  TRule
+> = {
+  [key in TKey]: DynamicRuleMapping<TModifier, TRule>;
+};
+
+export type DynamicRule<
+  TModifier extends string,
+  TPrefix extends string,
+  TRule
+> = DynamicRuleProps<TModifier, TPrefix, TRule>;
+
+export type DynamicRuleWithKey<
+  TModifier extends string,
   TPrefix extends string,
   TRule,
   TKey extends string
-> = {
-  [key in
-    | `${TPrefix}_${TKey}`
-    | `${TModifierKey}_${TPrefix}_${TKey}`]: DynamicRuleMapping<TRule>;
-};
-
-export type DynamicRuleMapping<TRule> = TRule extends Function
-  ? TRule
-  : TRule extends Variants
-  ? (param: VariantParam<TRule> | VariantParam<TRule>[]) => any
-  : never;
-
-export type DynamicResult<
-  TModifierKey extends string,
-  TPrefix extends string,
-  TRule
-> = {
-  [key in TPrefix]: DynamicRuleMapping<TRule>;
-} & {
-  [key in `${TModifierKey}_${TPrefix}`]: DynamicRuleMapping<TRule>;
-};
+> = DynamicRuleProps<TModifier, `${TPrefix}_${TKey}`, TRule>;
 
 export type SpecialSide = "X" | "Y" | "H" | "V" | "--";
 

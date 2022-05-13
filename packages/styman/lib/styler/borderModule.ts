@@ -32,6 +32,7 @@ export const borderModule = <C extends ColorScheme, M extends Modifiers>({
       }),
     }),
     ...withModifiers("rounded", {
+      $custom: (value: string | number) => ({ borderRadius: value }),
       ...withValues(
         {
           none: 0,
