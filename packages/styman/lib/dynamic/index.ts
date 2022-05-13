@@ -303,7 +303,8 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
 
           Object.entries(param).forEach(([key, value]) => {
             if (key === "$") {
-              return isFunction ? rule(value) : rule;
+              Object.assign(result, isFunction ? rule(value) : rule);
+              return;
             }
 
             if (!(key in modifiers)) {
