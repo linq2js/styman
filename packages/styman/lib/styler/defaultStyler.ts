@@ -1,5 +1,4 @@
-import { defaultColorScheme } from "./defaultColorScheme";
-import { BuildContext, createStyler } from "./createStyler";
+import { BuildContext } from "./createStyler";
 import { backgroundModule } from "./backgroundModule";
 import { borderModule } from "./borderModule";
 import { cursorModule } from "./cursorModule";
@@ -25,7 +24,16 @@ export const buildDefaultStyler = <C extends ColorScheme, M extends Modifiers>(
   };
 };
 
-export const defaultStyler = createStyler({
-  colors: defaultColorScheme,
-  build: buildDefaultStyler,
-});
+// export const createDefaultStyler = <C extends ColorScheme, M extends Modifiers>(options: StylerOptions<C, M>) => {
+//   return createStyler({
+//     ,,,options,
+//     build(context) {
+//       return
+//     }
+//   });
+// };
+
+// export const defaultStyler = createStyler({
+//   colors: defaultColorScheme,
+//   build: buildDefaultStyler,
+// });
