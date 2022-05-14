@@ -25,6 +25,7 @@ export type BuildContext<
   TModifiers extends Modifiers
 > = {
   colors: TColors;
+  modifiers?: TModifiers;
 } & ReturnType<CreatePresetWrappedType<TModifiers>["type"]>;
 
 export const createStyler = <

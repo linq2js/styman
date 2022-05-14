@@ -8,6 +8,10 @@ import { spacingModule } from "./spacingModule";
 import { textModule } from "./textModule";
 import { listModule } from "./listModule";
 import { ColorScheme, Modifiers } from "../dynamic";
+import { flexModule } from "./flexModule";
+import { tableModule } from "./tableModule";
+import { transformModule } from "./transformModule";
+import { layoutModule } from "./layoutModule";
 
 export const buildDefaultStyler = <C extends ColorScheme, M extends Modifiers>(
   context: BuildContext<C, M>
@@ -21,19 +25,9 @@ export const buildDefaultStyler = <C extends ColorScheme, M extends Modifiers>(
     ...sizingModule(context),
     ...spacingModule(context),
     ...listModule(context),
+    ...flexModule(context),
+    ...tableModule(context),
+    ...transformModule(context),
+    ...layoutModule(context),
   };
 };
-
-// export const createDefaultStyler = <C extends ColorScheme, M extends Modifiers>(options: StylerOptions<C, M>) => {
-//   return createStyler({
-//     ,,,options,
-//     build(context) {
-//       return
-//     }
-//   });
-// };
-
-// export const defaultStyler = createStyler({
-//   colors: defaultColorScheme,
-//   build: buildDefaultStyler,
-// });

@@ -152,14 +152,14 @@ const mergeDeep = (target: any, ...sources: any[]): any => {
   const source = sources.shift();
 
   if (isObject(target) && isObject(source)) {
-    for (const key in source) {
+    Object.entries(source).forEach(([key, value]) => {
       if (isObject(source[key])) {
-        if (!target[key]) Object.assign(target, { [key]: {} });
-        mergeDeep(target[key], source[key]);
+        if (!target[key]) target[key] = {};
+        mergeDeep(target[key], value);
       } else {
-        Object.assign(target, { [key]: source[key] });
+        target[key] = value;
       }
-    }
+    });
   }
 
   return mergeDeep(target, ...sources);
@@ -188,6 +188,13 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
       const params = Array.isArray(param) ? param : [param];
       let sides: Side[] | undefined;
       let skipping = false;
+
+      if (typeof variants["$param"] === "function") {
+        return variants["$param"](
+          Array.isArray(param) ? param : [param],
+          createVariantContext(sides, false)
+        );
+      }
 
       return mergeDeep(
         {},
@@ -224,27 +231,22 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
 
           if (skipping) return;
 
+          const context = createVariantContext(
+            sides,
+            variants.$sides ? true : variants.$xy ? "xy" : false
+          );
+
           if (p in variants) {
             const rule = (variants as any)[p];
-            return typeof rule === "function"
-              ? rule(p, createVariantContext(sides))
-              : rule;
+            return typeof rule === "function" ? rule(p, context) : rule;
           }
-          if (p === true)
-            return variants["$default"]?.(true, createVariantContext(sides));
-          if (!isNaN(p))
-            return variants["$number"]?.(
-              parseFloat(p),
-              createVariantContext(sides)
-            );
+          if (p === true) return variants["$default"]?.(true, context);
+          if (!isNaN(p)) return variants["$number"]?.(parseFloat(p), context);
           if (typeof p === "string" && p.includes("/")) {
             const parts = p.split("/");
-            return variants["$fraction"]?.(
-              parts.map(parseFloat),
-              createVariantContext(sides)
-            );
+            return variants["$fraction"]?.(parts.map(parseFloat), context);
           }
-          return variants["$custom"]?.(String(p), createVariantContext(sides));
+          return variants["$custom"]?.(String(p), context);
         })
       );
     };
@@ -327,7 +329,7 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
     return result;
   };
 
-  return { withValues, withColors, withVariants, withModifiers };
+  return { withValues, withColors, withVariants, withModifiers, modifiers };
 };
 
 const createSwatch = (
@@ -368,31 +370,49 @@ const createSwatch = (
   }, {} as ColorSwatch);
 };
 
-const createVariantContext = (sides: Side[] | undefined): VariantContext => {
+const createVariantContext = (
+  sides: Side[] | undefined,
+  sideType: boolean | "xy" = false
+): VariantContext => {
   // normalize sides
   if (sides) {
     sides = [
-      ...sides.reduce((set, s) => {
-        if (s === "H" || s === "X") {
-          set.add("L");
-          set.add("R");
-        } else if (s === "V" || s === "Y") {
-          set.add("T");
-          set.add("B");
-        } else if (s !== "--") {
-          set.add(s);
-        }
-        return set;
-      }, new Set<Exclude<Side, SpecialSide>>()),
+      ...sides.reduce(
+        (set, s) => {
+          if (sideType === "xy") {
+            set.add(s);
+            return set;
+          }
+          if (s === "H" || s === "X") {
+            set.add("L");
+            set.add("R");
+          } else if (s === "V" || s === "Y") {
+            set.add("T");
+            set.add("B");
+          } else if (s !== "--") {
+            set.add(s);
+          }
+          return set;
+        },
+        sideType === "xy"
+          ? new Set<Side>()
+          : new Set<Exclude<Side, SpecialSide>>()
+      ),
     ];
   }
   return {
     sides,
-    withSides(name, styles, noSideStyles?) {
+    withSides(name, styles, noSideStyles) {
       if (!sides?.length) {
         if (typeof name === "string")
-          return styles(name.includes("$") ? name.replace("$", "") : name);
+          return styles(
+            (name.includes("$") ? name.replace("$", "") : name) as any
+          );
         return typeof noSideStyles === "function" ? noSideStyles() : undefined;
+      }
+
+      if (!name) {
+        return mergeDeep({}, ...sides.map(styles));
       }
 
       return mergeDeep(
@@ -409,14 +429,12 @@ const createVariantContext = (sides: Side[] | undefined): VariantContext => {
               : "Top";
           if (typeof name === "string") {
             return styles(
-              name.includes("$")
+              (name.includes("$")
                 ? name.replace("$", formattedSide)
-                : name + formattedSide
+                : name + formattedSide) as any
             );
           }
-          return styles(
-            name(formattedSide, side as Exclude<Side, SpecialSide>)
-          );
+          return styles(name?.(formattedSide, side as any) as any);
         })
       );
     },
@@ -426,13 +444,17 @@ const createVariantContext = (sides: Side[] | undefined): VariantContext => {
 export interface VariantContext {
   sides?: Side[];
   withSides(
-    name: (formattedSide: string, side: Exclude<Side, SpecialSide>) => string,
-    styles: (name: string) => CSSInterpolation,
+    name: false,
+    styles: (side: Side) => CSSInterpolation,
     noSideStyles?: () => CSSInterpolation
   ): Record<string, any>;
+
   withSides(
-    name: string,
-    styles: (name: string) => CSSInterpolation
+    name:
+      | string
+      | ((formattedSide: string, side: Exclude<Side, SpecialSide>) => string),
+    styles: (name: string) => CSSInterpolation,
+    noSideStyles?: () => CSSInterpolation
   ): Record<string, any>;
 }
 
@@ -510,15 +532,30 @@ export type Side =
   | SpecialSide;
 
 export type VariantParam<TVariants extends Variants> =
-  | Exclude<
-      keyof TVariants,
-      "$default" | "$number" | "$custom" | "$fraction" | "$sides"
-    >
-  | (TVariants["$number"] extends Function ? number | `${number}` : never)
-  | (TVariants["$fraction"] extends Function ? `${number}/${number}` : never)
-  | (TVariants["$custom"] extends (value: infer T) => any ? T : never)
-  | (TVariants["$default"] extends Function ? true : never)
-  | (TVariants["$sides"] extends Function ? Side | Side[] : never)
+  | (TVariants["$param"] extends (values: Array<infer T>) => any
+      ? T
+      :
+          | Exclude<
+              keyof TVariants,
+              | "$default"
+              | "$number"
+              | "$custom"
+              | "$fraction"
+              | "$sides"
+              | "$xy"
+            >
+          | (TVariants["$number"] extends Function
+              ? number | `${number}`
+              : never)
+          | (TVariants["$fraction"] extends Function
+              ? `${number}/${number}`
+              : never)
+          | (TVariants["$custom"] extends (value: infer T) => any ? T : never)
+          | (TVariants["$default"] extends Function ? true : never)
+          | (TVariants["$sides"] extends Function ? Side | Side[] : never)
+          | (TVariants["$xy"] extends Function
+              ? "X" | "Y" | ("X" | "Y")[]
+              : never))
   | FalsyValue;
 
 const defaultShadings: Shading[] = [

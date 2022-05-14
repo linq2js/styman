@@ -61,3 +61,26 @@ test("withModifiers", () => {
     "&:active": { border: "solid" },
   });
 });
+
+test("xy", () => {
+  const variants = withVariants({
+    px: (_, { withSides }) => {
+      return withSides(
+        false,
+        (side) => ({ [side === "X" ? "columnGap" : "rowGap"]: "1px" }),
+        () => ({ gap: "1px" })
+      );
+    },
+    $xy: () => true,
+    $number: (x: number, { withSides }) => {
+      return withSides(
+        false,
+        (side) => ({
+          [side === "X" ? "columnGap" : "rowGap"]: `${x / 4}rem`,
+        }),
+        () => ({ gap: `${x / 4}rem` })
+      );
+    },
+  });
+  expect(variants(["X", 1])).toEqual({ columnGap: "0.25rem" });
+});

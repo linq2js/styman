@@ -8,3 +8,7 @@ export * from "./fontModule";
 export * from "./sizingModule";
 export * from "./spacingModule";
 export * from "./textModule";
+export * from "./flexModule";
+export * from "./tableModule";
+export * from "./transformModule";
+export * from "./layoutModule";
