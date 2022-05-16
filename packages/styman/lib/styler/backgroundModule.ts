@@ -8,7 +8,7 @@ export const backgroundModule = <C extends ColorScheme, M extends Modifiers>({
   withColors,
 }: BuildContext<C, M>) => {
   return {
-    ...withModifiers("bg", {
+    ...withModifiers("back", {
       ...withValues(["fixed", "local", "scroll"], (x) => ({
         backgroundAttachment: x,
       })),

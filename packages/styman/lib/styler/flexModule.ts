@@ -240,5 +240,17 @@ export const flexModule = <C extends ColorScheme, M extends Modifiers>({
         (x) => ({ placeSelf: x })
       ),
     }),
+
+    ...withModifiers("center", {
+      $default: () => ({
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }),
+      ...withValues(
+        { x: { justifyContent: "center" }, y: { alignItems: "center" } },
+        (x) => ({ display: "flex", ...x })
+      ),
+    }),
   };
 };

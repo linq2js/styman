@@ -1,4 +1,5 @@
 import { withColors, withVariants, createSwatch } from "./dynamic";
+import { sheet } from "./main";
 
 test("withVariants", () => {
   const colors = withColors(
@@ -53,11 +54,13 @@ test("withVariants", () => {
     borderWidth: 1,
     borderLeftStyle: "solid",
   });
+
   // using vertical and horizontal sides
   expect(variants(["H", "bordered"])).toEqual({
     borderLeftWidth: 1,
     borderRightWidth: 1,
   });
+
   expect(variants(["V", "bordered"])).toEqual({
     borderTopWidth: 1,
     borderBottomWidth: 1,
@@ -75,4 +78,20 @@ test("withVariants", () => {
     borderLeftColor: "black",
     borderTopColor: "black",
   });
+});
+
+test("lazy styles", () => {
+  let runCount = 0;
+  const styles = sheet({ primary: { color: "red" } });
+  const cachedStyles = styles(() => {
+    runCount++;
+    return { primary: true };
+  });
+  expect(runCount).toBe(0);
+  expect(cachedStyles(false)).toBe("css-0");
+  expect(runCount).toBe(0);
+  expect(cachedStyles(true)).toBe("css-tokvmb");
+  expect(runCount).toBe(1);
+  expect(cachedStyles(true)).toBe("css-tokvmb");
+  expect(runCount).toBe(1);
 });

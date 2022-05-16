@@ -238,3 +238,42 @@ const styles = sheet({
   })}
 ></div>;
 ```
+
+### Cached rules
+
+```js
+import { keyframes, sheet, once } from "styman";
+
+// create bounce animation factory
+const bounce = once(() =>
+  keyframes({
+    "from, 20%, 53%, 80%, to": {
+      transform: "translate3d(0,0,0)",
+    },
+    "40%, 43%": {
+      transform: "translate3d(0, -30px, 0)",
+    },
+    "70%": {
+      transform: "translate3d(0, -15px, 0)",
+    },
+    "90%": {
+      transform: "translate3d(0, -4px, 0)",
+    },
+  })
+);
+
+const styles = sheet({
+  boxAnimation: (time) => ({
+    // bounce() will run once and the bounce animation will be only created when bounce() is called
+    animation: `${bounce()} ${time} ease infinite`,
+    transformOrigin: "center bottom",
+  }),
+  // rule has no param
+  box: () => ({
+    backgroundColor: "silver",
+    borderRadius: "50%",
+    width: 96,
+    height: 96,
+  }),
+});
+```

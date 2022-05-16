@@ -1,3 +1,5 @@
+export const SPACING_SELECTOR = "&>:not([hidden])~:not([hidden])";
+
 export const toRgb = (
   color: string,
   postfix: string = "",
@@ -15,4 +17,15 @@ export const toRgb = (
   }
   if (fallback) return fallback;
   throw new Error(`Not supported color${color}`);
+};
+
+export const once = <F extends (...args: any[]) => any>(f: F) => {
+  let executed = false;
+  let result: ReturnType<F>;
+  return (...args: Parameters<F>): ReturnType<F> => {
+    if (executed) return result;
+    executed = true;
+    result = f(...args);
+    return result;
+  };
 };

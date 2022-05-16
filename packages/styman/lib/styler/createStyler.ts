@@ -38,5 +38,10 @@ export const createStyler = <
   build,
 }: StylerOptions<TModifiers, TColors, TRuleSet>) => {
   const context = createPreset({ modifiers });
-  return sheet(build({ ...context, colors }));
+  const styler = sheet(build({ ...context, colors }));
+  return Object.assign(styler, {
+    propsBuilder(...args: Parameters<typeof styler>) {
+      return { className: styler(...args) };
+    },
+  });
 };

@@ -241,7 +241,9 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
             return typeof rule === "function" ? rule(p, context) : rule;
           }
           if (p === true) return variants["$default"]?.(true, context);
-          if (!isNaN(p)) return variants["$number"]?.(parseFloat(p), context);
+          if (!isNaN(p) && typeof variants["$number"] === "function") {
+            return variants["$number"]?.(parseFloat(p), context);
+          }
           if (typeof p === "string" && p.includes("/")) {
             const parts = p.split("/");
             return variants["$fraction"]?.(parts.map(parseFloat), context);

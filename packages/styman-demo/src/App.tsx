@@ -5,87 +5,125 @@ import {
   defaultColorScheme,
 } from "styman/styler";
 
-import logo from "./logo.svg";
 import "./App.css";
 
-const styler = createStyler({
+const css = createStyler({
   colors: defaultColorScheme,
   build: buildDefaultStyler,
 });
 
+const PAGES: Record<string, string> = {
+  about: "About",
+  experience: "Experience",
+  work: "Work",
+  contact: "Contact",
+};
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [page, setPage] = useState("about");
 
   return (
-    <div className={styler({ container: true, m: ["X", "auto"] }, "App")}>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p
-          className={styler({
-            bg: "gradient-to-r",
-            from: "indigo-500",
-            to: "red-500",
-          })}
-        >
-          Hello Vite + React!
-        </p>
+    <div
+      className={css({
+        width: "screen",
+        height: "screen",
+        back: "slate-900",
+        text: "white",
+      })}
+    >
+      <div
+        className={css({ container: true, margin: ["X", "auto"], flex: true })}
+      >
         <div
-          className={styler({
-            bg: "amber",
-            w: 20,
-            h: 20,
-            scale: 50,
-            rotate: 30,
-            origin: ["left", "bottom"],
-          })}
-        ></div>
-        <div
-          className={styler({
-            flex: "row",
-            bg: "red",
-            w: 80,
-            s: ["X", 4],
-          })}
+          className={css({ width: 80, height: "screen", back: "slate-800" })}
         >
-          <div className={styler({ w: 10, h: 10, bg: "cyan" })}>01</div>
-          <div className={styler({ w: 10, h: 10, bg: "cyan" })}>02</div>
-          <div className={styler({ w: 10, h: 10, bg: "cyan" })}>03</div>
-          <div className={styler({ w: 10, h: 10, bg: "cyan" })}>04</div>
+          Side bar
         </div>
-        <p>
-          <button
-            type="button"
-            onClick={() => setCount((count) => count + 1)}
-            className={styler({
-              bg: { hover: "amber-100", active: "red", $: "amber" },
+        <div
+          className={css({
+            grow: 1,
+            flex: "col",
+            height: "screen",
+            back: "slate-700",
+          })}
+        >
+          {/* navigation */}
+          <div
+            className={css({
+              text: ["uppercase", "slate-300"],
+              flex: true,
+              font: "xs",
+              space: 4,
             })}
           >
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+            {Object.keys(PAGES).map((key) => (
+              <a
+                key={key}
+                className={css({
+                  text: {
+                    hover: "slate-300",
+                    $: page === key && "white",
+                  },
+                  cursor: "pointer",
+                  transition: ["colors", 300],
+                  padding: ["X", 4, "Y", 2],
+                })}
+                onClick={() => setPage(key)}
+              >
+                {PAGES[key]}
+              </a>
+            ))}
+          </div>
+          <div className={css({ grow: 1, relative: true, overflow: "hidden" })}>
+            <div
+              className={css({
+                back: "red",
+                transition: "all",
+                absolute: true,
+                width: "full",
+                height: "full",
+                left: page === "about" ? 0 : -10000,
+              })}
+            ></div>
+            <div
+              className={css({
+                grow: 1,
+                back: "green",
+                transition: "all",
+                absolute: true,
+                width: "full",
+                height: "full",
+                left: page === "experience" ? 0 : -10000,
+              })}
+            ></div>
+            <div
+              className={css([
+                {
+                  grow: 1,
+                  back: "blue",
+                  transition: "all",
+                  absolute: true,
+                  width: "full",
+                  height: "full",
+                  left: page === "work" ? 0 : -10000,
+                },
+                undefined,
+              ])}
+            ></div>
+            <div
+              className={css({
+                grow: 1,
+                back: "orange",
+                transition: "all",
+                absolute: true,
+                width: "full",
+                height: "full",
+                left: page === "contact" ? 0 : -10000,
+              })}
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

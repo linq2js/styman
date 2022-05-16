@@ -245,5 +245,19 @@ export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
       [modifiers.xl]: { maxWidth: "1280px" },
       [modifiers["2xl"]]: { maxWidth: "1536px" },
     }),
+    ...withModifiers("outline", {
+      none: () => ({ outline: "2px solid transparent", outlineOffset: "2px" }),
+      $default: () => ({ outline: "solid" }),
+      $number: (x: number) => ({ outlineWidth: `${x}px` }),
+      ...withValues(["dotted", "hidden", "solid", "dashed", "double"], (x) => ({
+        outlineStyle: x,
+      })),
+      ...withValues({ inherit: "inherit", current: "currentColor" }, (x) => ({
+        outlineColor: x,
+      })),
+    }),
+    ...withModifiers("outline_offset", {
+      $number: (x: number) => ({ outlineOffset: `${x}px` }),
+    }),
   };
 };
