@@ -117,12 +117,14 @@ const use: Use = (...args: any[]): any => {
           group = new Map<any, string[]>();
           computedStyleCache.set(rule, group);
         }
-        let compiledClass = group.get(param);
+        const serializedParam = JSON.stringify(param);
+        let compiledClass = group.get(serializedParam);
         // compile rule if not any
         if (!compiledClass) {
           const result = rule.call(rules, param);
           compiledClass = Array.isArray(result) ? result : [result];
-          group.set(param, compiledClass);
+          group.set(serializedParam, compiledClass);
+          console.log(group.size);
         }
         addClasses(classNames, compiledClass, rules);
         return;
