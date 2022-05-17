@@ -1,9 +1,4 @@
-import {
-  withColors,
-  withVariants,
-  createSwatch,
-  withModifiers,
-} from "./dynamic";
+import { withColors, withVariants, createSwatch } from "./dynamic";
 import { sheet } from "./main";
 
 test("withVariants", () => {

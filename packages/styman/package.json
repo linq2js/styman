@@ -40,5 +40,5 @@
     "ts-node": "ts-node",
     "build": "rimraf dist && tsc"
   },
-  "gitHead": "505b1de55c06aa7a5183dd3a549927fb8860e626"
+  "gitHead": "9376514e6c73f4153b764f6eeae1f8c76bd870ce"
 }
