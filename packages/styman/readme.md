@@ -277,3 +277,127 @@ const styles = sheet({
   }),
 });
 ```
+
+## Using styler
+
+Styler is utils that helps to generate css class faster, it provides a lot of styling modules. It works similar Tailwind CSS
+
+```js
+// simple style usage
+const className = css({
+  // apply red background color
+  back: "red",
+  // apply multiple styles of background module:
+  // red: background color
+  // fixed: background attachment
+  back: ["red", "fixed"],
+  // apply small font size
+  // style param can be string, number
+  font: "sm",
+});
+```
+
+### Default Styler
+
+Styman provides a default styler that includes pre-defined style modules
+
+```ts
+import {
+  buildDefaultStyler,
+  createStyler,
+  defaultColorScheme,
+} from "styman/styler";
+
+// create a styler with default color scheme
+const css = createStyler({
+  colors: defaultColorScheme,
+  // using buildDefaultStyler to build a styler with common modules
+  build: buildDefaultStyler,
+});
+
+// you implement custom styler with following code
+import {
+  BuildContext,
+  backgroundModule,
+  borderModule,
+  cursorModule,
+  fontModule,
+  sizingModule,
+  textModule,
+  listModule,
+  flexModule,
+  tableModule,
+  transformModule,
+  layoutModule,
+  opacityModule,
+  animationModule,
+  interactivityModule,
+  svgModule,
+  filterModule,
+  divideModule,
+  spaceModule,
+  marginModule,
+  paddingModule,
+  transitionModule,
+  borderRadiusModule,
+  outlineModule,
+  boxShadowModule,
+} from "styman/styler";
+import { ColorScheme, Modifiers } from "styman/dynamic";
+
+export const buildCustomStyler = <C extends ColorScheme, M extends Modifiers>(
+  context: BuildContext<C, M>
+) => {
+  return {
+    ...backgroundModule(context),
+    ...textModule(context),
+    ...fontModule(context),
+    ...cursorModule(context),
+    ...borderModule(context),
+    ...sizingModule(context),
+    ...listModule(context),
+    ...flexModule(context),
+    ...tableModule(context),
+    ...transformModule(context),
+    ...layoutModule(context),
+    ...opacityModule(context),
+    ...animationModule(context),
+    ...interactivityModule(context),
+    ...svgModule(context),
+    ...filterModule(context),
+    ...divideModule(context),
+    ...spaceModule(context),
+    ...marginModule(context),
+    ...paddingModule(context),
+    ...transitionModule(context),
+    ...borderRadiusModule(context),
+    ...outlineModule(context),
+    ...boxShadowModule(context),
+  };
+};
+```
+
+| Style      | Module           | Params                                       | Example                                    | CSS Implmentation                                                 |
+| :--------- | :--------------- | :------------------------------------------- | :----------------------------------------- | ----------------------------------------------------------------- |
+| back       | backgroundModule | fixed \| local \| scroll                     | <code>css({ back: 'fixed' })</code>        | backgroundAttachment: param                                       |
+|            |                  | color \| color-shading                       | <code>css({ back: 'blue-300' })</code>     | backgroundColor: param                                            |
+|            |                  | clip-border                                  | <code>css({ back: 'clip-border' })</code>  | backgroundClip: 'border-box'                                      |
+|            |                  | clip-padding                                 | <code>css({ back: 'clip-padding' })</code> | backgroundClip: 'padding-box'                                     |
+|            |                  | clip-content                                 | <code>css({ back: 'clip-content' })</code> | backgroundClip: 'content-box'                                     |
+|            |                  | clip-text                                    | <code>css({ back: 'clip-text' })</code>    | backgroundClip: 'text'                                            |
+| decoration | textModule       | clip-text                                    | <code>css({ back: 'clip-text' })</code>    | backgroundClip: 'text'                                            |
+|            |                  | no-underline                                 |                                            | textDecorationLine: 'none'                                        |
+|            |                  | underline \| overline \| line-through        |                                            | textDecorationLine: param                                         |
+|            |                  | inherit                                      |                                            | textDecorationColor: 'inherit'                                    |
+|            |                  | current                                      |                                            | textDecorationColor: 'currentColor'                               |
+|            |                  | color \| color-shading                       |                                            | textDecorationColor: param                                        |
+|            |                  | {number}                                     |                                            | textDecorationThickness: `${param}px`                             |
+|            |                  | auto \| from-font                            |                                            | textDecorationThickness: param                                    |
+| text       | textModule       | uppercase \| lowercase \| capitalize \| none |                                            | textTransform: param                                              |
+|            |                  | truncate                                     |                                            | overflow: 'hidden', textOverflow: 'ellipsis',whiteSpace: 'nowrap' |
+|            |                  | ellipsis                                     |                                            | textOverflow: 'ellipsis'                                          |
+|            |                  | clip                                         |                                            | textOverflow: 'clip'                                              |
+|            |                  | left \| right \| center \| justify           |                                            | textAlign: param                                                  |
+|            |                  | xs \| sm \| lg \| xl \| 2xl - 9xl            |                                            | fontSize: param, lineHeight: param                                |
+|            |                  | color \| color-shading                       |                                            | color: param                                                      |
+| indent     | textModule       | px                                           |                                            | textIndent: '1px'                                                 |

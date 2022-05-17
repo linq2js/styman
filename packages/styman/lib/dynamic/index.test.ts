@@ -40,16 +40,16 @@ test("combine handler", () => {
 });
 
 test("withModifiers", () => {
-  const modifiers = withModifiers("border1", {
+  const variants = withModifiers("border1", {
     solid: () => ({ border: "solid" }),
   });
-  sheet({ ...modifiers });
-  expect(modifiers.border1({ "2xl": { active: "solid" } })).toEqual({
+  sheet({ ...variants });
+  expect(variants.border1({ "2xl": { active: "solid" } })).toEqual({
     "@media (min-width: 1536px)": { "&:active": { border: "solid" } },
   });
 
   expect(
-    modifiers.border1({
+    variants.border1({
       active: "solid",
       "2xl": { active: "solid", $: "solid" },
     })
@@ -60,6 +60,16 @@ test("withModifiers", () => {
     },
     "&:active": { border: "solid" },
   });
+});
+
+test("multiple prefixes", () => {
+  const varitants = withModifiers(["left", "top"], {
+    rounded: (_, { path }) => {
+      return { path: path?.slice(-1)[0] + ".rounded" };
+    },
+  });
+  expect(varitants.left("rounded")).toEqual({ path: "left.rounded" });
+  expect(varitants.top("rounded")).toEqual({ path: "top.rounded" });
 });
 
 test("xy", () => {

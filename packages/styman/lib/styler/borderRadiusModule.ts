@@ -8,7 +8,7 @@ export const borderRadiusModule = <C extends ColorScheme, M extends Modifiers>({
   return {
     ...withModifiers("rounded", {
       $number: (x: number) => ({ borderRadius: x }),
-      $fraction: ([a, b]) => ({ borderRadius: `${a / b}%` }),
+      $fraction: ([a, b]) => ({ borderRadius: `${(a / b) * 100}%` }),
       // $custom: (value: string | number) => ({ borderRadius: value }),
       ...withValues(
         {

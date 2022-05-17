@@ -68,21 +68,21 @@ export const transformModule = <C extends ColorScheme, M extends Modifiers>({
           })
         ),
       $xy: () => true,
-      $fraction: ([a, b], { withSides }) =>
-        withSides(
+      $fraction: ([a, b], { withSides }) => {
+        const value = `${(a / b) * 100}%`;
+        return withSides(
           false,
           (side) => ({
-            [side === "X" ? "--sm-translate-x" : "--sm-translate-y"]: `${
-              a / b
-            }%`,
+            [side === "X" ? "--sm-translate-x" : "--sm-translate-y"]: value,
             transform: TRANSFORM,
           }),
           () => ({
-            "--sm-translate-x": `${a / b}%`,
-            "--sm-translate-y": `${a / b}%`,
+            "--sm-translate-x": value,
+            "--sm-translate-y": value,
             transform: TRANSFORM,
           })
-        ),
+        );
+      },
       $number: (x: number, { withSides }) =>
         withSides(
           false,
@@ -106,9 +106,7 @@ export const transformModule = <C extends ColorScheme, M extends Modifiers>({
       }),
     }),
     ...withModifiers("origin", {
-      $param: (
-        values: ("center" | "left" | "top" | "bottom" | "right" | string)[]
-      ) => {
+      $param: (values: ("center" | "left" | "top" | "bottom" | "right")[]) => {
         return { transformOrigin: values.join(" ") };
       },
     }),

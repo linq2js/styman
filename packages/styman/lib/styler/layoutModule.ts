@@ -16,38 +16,30 @@ export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
         })
       ),
     }),
-    ...withModifiers("left", {
-      $fraction: ([a, b]) => ({ left: `${a / b}%` }),
-      $number: (x: number) => ({ left: `${x / 4}rem` }),
+
+    ...withModifiers(["left", "top", "right", "bottom"], {
+      $fraction: ([a, b], { key }) => ({ [key!]: `${(a / b) * 100}%` }),
+      $number: (x: number, { key }) => ({ [key!]: `${x / 4}rem` }),
     }),
-    ...withModifiers("top", {
-      $fraction: ([a, b]) => ({ top: `${a / b}%` }),
-      $number: (x: number) => ({ top: `${x / 4}rem` }),
-    }),
-    ...withModifiers("right", {
-      $fraction: ([a, b]) => ({ right: `${a / b}%` }),
-      $number: (x: number) => ({ right: `${x / 4}rem` }),
-    }),
-    ...withModifiers("bottom", {
-      $fraction: ([a, b]) => ({ bottom: `${a / b}%` }),
-      $number: (x: number) => ({ bottom: `${x / 4}rem` }),
-    }),
+
     ...withModifiers("inset", {
       $xy: () => true,
-      $fraction: ([a, b], { withSides }) =>
-        withSides(
+      $fraction: ([a, b], { withSides }) => {
+        const value = `${(a / b) * 100}%`;
+        return withSides(
           false,
           (side) =>
             side === "X"
-              ? { left: `${a / b}%`, right: `${a / b}%` }
-              : { top: `${a / b}%`, bottom: `${a / b}%` },
+              ? { left: value, right: value }
+              : { top: value, bottom: value },
           () => ({
-            left: `${a / b}%`,
-            top: `${a / b}%`,
-            right: `${a / b}%`,
-            bottom: `${a / b}%`,
+            left: value,
+            top: value,
+            right: value,
+            bottom: value,
           })
-        ),
+        );
+      },
       $number: (x: number, { withSides }) =>
         withSides(
           false,
@@ -74,7 +66,7 @@ export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
     ...withModifiers("absolute", () => ({ position: "absolute" })),
     ...withModifiers("relative", () => ({ position: "relative" })),
     ...withModifiers("sticky", () => ({ position: "sticky" })),
-    ...withModifiers("z", {
+    ...withModifiers("zindex", {
       auto: () => ({ zIndex: "auto" }),
       $number: (x: number) => ({ zIndex: x }),
     }),

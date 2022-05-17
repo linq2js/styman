@@ -72,7 +72,7 @@ export interface WithModifiers {
    * ```
    */
   <TRule extends Exclude<Rule, Style> | Variants, TPrefix extends string>(
-    prefix: TPrefix,
+    prefix: TPrefix | TPrefix[],
     rule: TRule
   ): DynamicRule<DefaultModifierKey, TPrefix, TRule>;
 
@@ -81,7 +81,7 @@ export interface WithModifiers {
     TPrefix extends string,
     T1 extends string
   >(
-    prefix: TPrefix,
+    prefix: TPrefix | TPrefix[],
     rule: TRule,
     p1: readonly T1[]
   ): DynamicRuleWithKey<DefaultModifierKey, TPrefix, TRule, T1>;
@@ -92,7 +92,7 @@ export interface WithModifiers {
     T1 extends string,
     T2 extends string
   >(
-    prefix: TPrefix,
+    prefix: TPrefix | TPrefix[],
     rule: TRule,
     p1: readonly T1[],
     p2: readonly T2[]
@@ -105,7 +105,7 @@ export interface WithModifiers {
     T2 extends string,
     T3 extends string
   >(
-    prefix: TPrefix,
+    prefix: TPrefix | TPrefix[],
     rule: TRule,
     p1: readonly T1[],
     p2: readonly T2[],
@@ -183,16 +183,18 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
 
   const withVariants = <TVariants extends Variants>(variants: TVariants) => {
     const handler = (
-      param: VariantParam<TVariants> | VariantParam<TVariants>[]
+      param: VariantParam<TVariants> | VariantParam<TVariants>[],
+      extra?: any
     ): any => {
       const params = Array.isArray(param) ? param : [param];
+      const path = extra?.path;
       let sides: Side[] | undefined;
       let skipping = false;
 
       if (typeof variants["$param"] === "function") {
         return variants["$param"](
           Array.isArray(param) ? param : [param],
-          createVariantContext(sides, false)
+          createVariantContext(sides, false, path)
         );
       }
 
@@ -233,7 +235,8 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
 
           const context = createVariantContext(
             sides,
-            variants.$sides ? true : variants.$xy ? "xy" : false
+            variants.$sides ? true : variants.$xy ? "xy" : false,
+            path
           );
 
           if (p in variants) {
@@ -298,34 +301,38 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
       }
     };
 
-    generate([prefix], [], names, (path) => {
-      const wrappedRule = (param: any) => {
-        const processModifiers = (result: any, param: any) => {
-          if (!isObject(param)) {
-            return isFunction ? rule(param) : rule;
-          }
-
-          Object.entries(param).forEach(([key, value]) => {
-            if (key === "$") {
-              Object.assign(result, isFunction ? rule(value) : rule);
-              return;
+    (Array.isArray(prefix) ? prefix : [prefix]).forEach((prefix) => {
+      generate([prefix], [], names, (path) => {
+        const wrappedRule = (param: any) => {
+          const processModifiers = (result: any, param: any) => {
+            if (!isObject(param)) {
+              return isFunction ? rule(param, { path }) : rule;
             }
 
-            if (!(key in modifiers)) {
-              throw new Error(`Invalid modifier "${key}"`);
-            }
+            Object.entries(param).forEach(([key, value]) => {
+              if (key === "$") {
+                Object.assign(result, isFunction ? rule(value) : rule);
+                return;
+              }
 
-            result[modifiers[key]] = processModifiers({}, value);
-          });
+              if (!(key in modifiers)) {
+                throw new Error(`Invalid modifier "${key}"`);
+              }
 
-          return result;
+              result[modifiers[key]] = processModifiers({}, value);
+            });
+
+            return result;
+          };
+
+          return processModifiers({}, param);
         };
 
-        return processModifiers({}, param);
-      };
-
-      result[path.join("_")] =
-        isFunction && rule.length ? wrappedRule : () => wrappedRule(undefined);
+        result[path.join("_")] =
+          isFunction && rule.length
+            ? wrappedRule
+            : () => wrappedRule(undefined);
+      });
     });
 
     return result;
@@ -374,7 +381,8 @@ const createSwatch = (
 
 const createVariantContext = (
   sides: Side[] | undefined,
-  sideType: boolean | "xy" = false
+  sideType: boolean | "xy" = false,
+  path?: string[]
 ): VariantContext => {
   // normalize sides
   if (sides) {
@@ -403,6 +411,8 @@ const createVariantContext = (
     ];
   }
   return {
+    key: path?.slice(-1)?.[0],
+    path,
     sides,
     withSides(name, styles, noSideStyles) {
       if (!sides?.length) {
@@ -444,6 +454,8 @@ const createVariantContext = (
 };
 
 export interface VariantContext {
+  key?: string;
+  path?: string[];
   sides?: Side[];
   withSides(
     name: false,

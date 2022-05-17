@@ -14,13 +14,15 @@ export type Rule = Style | ((this: any, ...args: any[]) => Style);
 
 export type RuleSet = { [key: string]: Rule };
 
-export type Styles<T> = {
-  [key in keyof T]?: T[key] extends Style
-    ? any
-    : T[key] extends (param: infer P) => Style
-    ? P | FalsyValue
-    : void;
-};
+export type Styles<T> = T extends Array<any>
+  ? never
+  : {
+      [key in keyof T]?: T[key] extends Style
+        ? any
+        : T[key] extends (param: infer P) => Style
+        ? P | FalsyValue
+        : void;
+    };
 
 export interface DynamicOptions<TPrefix, TSeparator = "_"> {
   prefix: TPrefix;
@@ -68,14 +70,14 @@ const addClasses = (classSet: Set<string>, classes: any[], rules: RuleSet) => {
 export type CustomStyle<T> = string | CSSInterpolation | (() => T);
 
 export interface Use<TBaseRules = RuleSet> {
-  <R extends TBaseRules, S extends Styles<R>>(
+  <R extends TBaseRules>(
     rules: R,
-    styles: S | (S | FalsyValue)[],
-    ...customStyles: CustomStyle<S>[]
+    styles: Styles<R> | (Styles<R> | FalsyValue)[],
+    ...customStyles: CustomStyle<Styles<R>>[]
   ): string;
 
   <R extends TBaseRules, S extends Styles<R>>(rules: R, styles: () => S): (
-    enabled: any
+    enabled?: any
   ) => string;
 }
 
@@ -85,7 +87,8 @@ const use: Use = (...args: any[]): any => {
     const useOnce = once(() => {
       return use(rules, factory());
     });
-    return (enabled: any) => {
+    return (...args: any[]) => {
+      const enabled = !args.length || args[0];
       if (!enabled) return "css-0";
       return useOnce();
     };
@@ -136,11 +139,11 @@ const use: Use = (...args: any[]): any => {
 };
 
 export type Sheet<R extends RuleSet> = {
-  <S extends Styles<R>>(styles: () => S): (enabled: any) => string;
+  (styles: () => Styles<R>): (enabled?: any) => string;
 
-  <S extends Styles<R>>(
-    styles: S | (S | FalsyValue)[],
-    ...customStyles: CustomStyle<S>[]
+  (
+    styles: Styles<R> | (Styles<R> | FalsyValue)[],
+    ...customStyles: CustomStyle<Styles<R>>[]
   ): string;
 
   readonly rules: R;
@@ -149,11 +152,15 @@ export type Sheet<R extends RuleSet> = {
 
 const sheet = <R extends RuleSet>(rules: R | (() => R)): Sheet<R> => {
   const r = typeof rules === "function" ? rules() : rules;
-  return Object.assign((...args: any[]): any => (use as Function)(r, ...args), {
+  const styler = (...args: any[]): any => (use as Function)(r, ...args);
+  return Object.assign(styler, {
     // export input rules for later use or debug
     rules: r,
     extend(newRules: any) {
       return sheet({ ...r, ...newRules });
+    },
+    styled(builder: Function): any {
+      return (props: any) => builder(styler, props);
     },
   });
 };

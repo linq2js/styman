@@ -12,7 +12,7 @@ export const marginModule = <C extends ColorScheme, M extends Modifiers>({
       $number: (value: number, { withSides }) =>
         withSides("margin", (prop) => ({ [prop]: `${value / 4}rem` })),
       $fraction: ([a, b], { withSides }) =>
-        withSides("margin", (prop) => ({ [prop]: `${a / b}%` })),
+        withSides("margin", (prop) => ({ [prop]: `${(a / b) * 100}%` })),
     }),
   };
 };

@@ -33,7 +33,7 @@ export const flexModule = <C extends ColorScheme, M extends Modifiers>({
       full: () => ({ flexBasis: "100%" }),
       px: () => ({ flexBasis: "1px" }),
       $number: (value: number) => ({ flexBasis: `${value / 4}rem` }),
-      $fraction: ([a, b]) => `${a / b}%`,
+      $fraction: ([a, b]) => `${(a / b) * 100}%`,
     }),
     ...withModifiers("grow", {
       $default: () => ({ flexGrow: 1 }),

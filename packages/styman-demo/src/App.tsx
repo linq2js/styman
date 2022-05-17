@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { PropsWithChildren, useState } from "react";
 import {
   buildDefaultStyler,
   createStyler,
@@ -17,6 +17,27 @@ const PAGES: Record<string, string> = {
   experience: "Experience",
   work: "Work",
   contact: "Contact",
+};
+
+type PageProps = PropsWithChildren<{ active?: boolean; className?: string }>;
+
+const Page = ({ active, ...props }: PageProps) => {
+  const className = css(
+    [
+      {
+        transition: ["all", 400, "in-out"],
+        origin: ["left", "top"],
+        absolute: true,
+        width: "full",
+        height: "full",
+      },
+      active
+        ? { opacity: 1, scale: 100, rounded: "none", zindex: 1 }
+        : { opacity: 0, scale: 0, rounded: "full" },
+    ],
+    props.className
+  );
+  return <div {...props} className={className} />;
 };
 
 function App() {
@@ -61,8 +82,8 @@ function App() {
                 key={key}
                 className={css({
                   text: {
-                    hover: "slate-300",
-                    $: page === key && "white",
+                    hover: "slate-400",
+                    $: page === key ? "white" : "slate-500",
                   },
                   cursor: "pointer",
                   transition: ["colors", 300],
@@ -75,52 +96,10 @@ function App() {
             ))}
           </div>
           <div className={css({ grow: 1, relative: true, overflow: "hidden" })}>
-            <div
-              className={css({
-                back: "red",
-                transition: "all",
-                absolute: true,
-                width: "full",
-                height: "full",
-                left: page === "about" ? 0 : -10000,
-              })}
-            ></div>
-            <div
-              className={css({
-                grow: 1,
-                back: "green",
-                transition: "all",
-                absolute: true,
-                width: "full",
-                height: "full",
-                left: page === "experience" ? 0 : -10000,
-              })}
-            ></div>
-            <div
-              className={css([
-                {
-                  grow: 1,
-                  back: "blue",
-                  transition: "all",
-                  absolute: true,
-                  width: "full",
-                  height: "full",
-                  left: page === "work" ? 0 : -10000,
-                },
-                undefined,
-              ])}
-            ></div>
-            <div
-              className={css({
-                grow: 1,
-                back: "orange",
-                transition: "all",
-                absolute: true,
-                width: "full",
-                height: "full",
-                left: page === "contact" ? 0 : -10000,
-              })}
-            ></div>
+            <Page active={page === "about"}>About page</Page>
+            <Page active={page === "experience"}>Experience page</Page>
+            <Page active={page === "work"}>Work page</Page>
+            <Page active={page === "contact"}>Contact page</Page>
           </div>
         </div>
       </div>

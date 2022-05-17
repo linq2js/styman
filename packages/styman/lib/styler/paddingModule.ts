@@ -10,7 +10,7 @@ export const paddingModule = <C extends ColorScheme, M extends Modifiers>({
       $number: (value: number, { withSides }) =>
         withSides("padding", (prop) => ({ [prop]: `${value / 4}rem` })),
       $fraction: ([a, b], { withSides }) =>
-        withSides("padding", (prop) => ({ [prop]: `${a / b}%` })),
+        withSides("padding", (prop) => ({ [prop]: `${(a / b) * 100}%` })),
     }),
   };
 };
