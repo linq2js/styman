@@ -9,7 +9,6 @@
   "homepage": "https://linq2js.github.io/styman/",
   "license": "ISC",
   "main": "dist/tsc/main.js",
-  "type": "module",
   "types": "dist/tsc/main.d.ts",
   "directories": {
     "lib": "lib"
@@ -41,5 +40,5 @@
     "ts-node": "ts-node",
     "build": "rimraf dist && tsc"
   },
-  "gitHead": "9376514e6c73f4153b764f6eeae1f8c76bd870ce"
+  "gitHead": "ba5727dcd44c6f7a01daede877dcdd9da8d71a73"
 }
