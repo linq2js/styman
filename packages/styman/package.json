@@ -9,6 +9,7 @@
   "homepage": "https://linq2js.github.io/styman/",
   "license": "ISC",
   "main": "dist/tsc/main.js",
+  "module": "dist/tsc/main.js",
   "types": "dist/tsc/main.d.ts",
   "directories": {
     "lib": "lib"
