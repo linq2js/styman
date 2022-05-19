@@ -124,7 +124,6 @@ const use: Use = (...args: any[]): any => {
           const result = rule.call(rules, param);
           compiledClass = Array.isArray(result) ? result : [result];
           group.set(serializedParam, compiledClass);
-          console.log(group.size);
         }
         addClasses(classNames, compiledClass, rules);
         return;
