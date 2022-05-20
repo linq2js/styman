@@ -377,4 +377,4 @@ export const buildCustomStyler = <C extends ColorScheme, M extends Modifiers>(
 };
 ```
 
-#### [Default styler references](./styler-docs.md)
+## [Default Styler References](https://github.com/linq2js/styman/blob/main/packages/styman/styler-docs.md)
