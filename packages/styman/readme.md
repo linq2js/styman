@@ -691,6 +691,7 @@ export const buildCustomStyler = <C extends ColorScheme, M extends Modifiers>(
 |                     | decimal              |
 |                     |                      |
 | flex                | **true**             |
+|                     | **number**           |
 |                     | 1                    |
 |                     | none                 |
 |                     | auto                 |

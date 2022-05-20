@@ -11,6 +11,7 @@ export const flexModule = <C extends ColorScheme, M extends Modifiers>({
       auto: () => ({ display: "flex", flex: "1 1 auto" }),
       initial: () => ({ display: "flex", flex: "0 1 auto" }),
       inline: () => ({ display: "inline-flex" }),
+      $number: (x: number) => ({ flex: x }),
       $default: () => ({ display: "flex" }),
       ...withValues(
         {

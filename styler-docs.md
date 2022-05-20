@@ -310,6 +310,7 @@
 |  | decimal |
 |  |  |
 | flex | **true** |
+|  | **number** |
 |  | 1 |
 |  | none |
 |  | auto |
