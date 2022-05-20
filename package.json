@@ -5,6 +5,7 @@
     "build-all": "lerna run build --no-private --parallel",
     "test-all": "lerna run test --no-private --parallel",
     "docs": "npx typedoc --tsconfig ./packages/styman/tsconfig.json --entryPoints ./packages/styman/lib/main.ts --out ./docs",
+    "styler-docs": "ts-node ./packages/styman/lib/scripts/generateStylerDocs.ts --project ./packages/styman/tsconfig.json",
     "publish-all": "lerna publish",
     "bootstrap": "lerna bootstrap"
   },

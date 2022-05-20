@@ -6,6 +6,8 @@ export const marginModule = <C extends ColorScheme, M extends Modifiers>({
 }: BuildContext<C, M>) => {
   return {
     ...withModifiers("margin", {
+      px: (_, { withSides }) =>
+        withSides("padding", (prop) => ({ [prop]: "1px" })),
       $sides: () => true,
       auto: (_, { withSides }) =>
         withSides("margin", (prop) => ({ [prop]: "auto" })),

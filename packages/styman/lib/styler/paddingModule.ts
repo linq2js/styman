@@ -6,6 +6,8 @@ export const paddingModule = <C extends ColorScheme, M extends Modifiers>({
 }: BuildContext<C, M>) => {
   return {
     ...withModifiers("padding", {
+      px: (_, { withSides }) =>
+        withSides("padding", (prop) => ({ [prop]: "1px" })),
       $sides: () => true,
       $number: (value: number, { withSides }) =>
         withSides("padding", (prop) => ({ [prop]: `${value / 4}rem` })),

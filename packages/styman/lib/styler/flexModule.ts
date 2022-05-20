@@ -93,38 +93,38 @@ export const flexModule = <C extends ColorScheme, M extends Modifiers>({
       ),
     }),
     // col
-    ...withModifiers("c", {
+    ...withModifiers("col", {
       auto: () => ({ gridColumn: "auto" }),
       full: () => ({ gridColumn: " 1 / -1" }),
       $number: (value: number) => ({
         gridColumn: `span ${value} / span ${value}`,
       }),
     }),
-    ...withModifiers("cs", {
+    ...withModifiers("col_start", {
       auto: () => ({ gridColumnStart: "auto" }),
       $number: (x: number) => ({ gridColumnStart: x }),
     }),
-    ...withModifiers("ce", {
+    ...withModifiers("col_end", {
       auto: () => ({ gridColumnEnd: "auto" }),
       $number: (x: number) => ({ gridColumnEnd: x }),
     }),
 
     // row
-    ...withModifiers("r", {
+    ...withModifiers("row", {
       auto: () => ({ gridRow: "auto" }),
       full: () => ({ gridRow: " 1 / -1" }),
       $number: (x: number) => ({ gridRow: `span ${x} / span ${x}` }),
     }),
-    ...withModifiers("rs", {
+    ...withModifiers("row_start", {
       auto: () => ({ gridRowStart: "auto" }),
       $number: (value: number) => ({ gridRowStart: value }),
     }),
-    ...withModifiers("re", {
+    ...withModifiers("row_end", {
       auto: () => ({ gridRowEnd: "auto" }),
       $number: (x: number) => ({ gridRowEnd: x }),
     }),
 
-    ...withModifiers("g", {
+    ...withModifiers("gap", {
       px: (_, { withSides }) => {
         return withSides(
           false,

@@ -40,10 +40,18 @@ const combinableHandler = <P1, TProps>(
       otherHandler: (param: P2, context: VariantContext) => CSSInterpolation
     ) =>
       combinableHandler(
-        (param: P2 | P1, context: VariantContext) =>
-          pattern.test(String(param))
-            ? otherHandler(param as any, context)
-            : handler(param as any, context),
+        Object.assign(
+          (param: P2 | P1, context: VariantContext) =>
+            pattern.test(String(param))
+              ? otherHandler(param as any, context)
+              : handler(param as any, context),
+          {
+            variants: [
+              ...((handler as any).variants ?? []),
+              ...((otherHandler as any).variatns ?? []),
+            ],
+          }
+        ),
         props
       ),
   }) as any;
@@ -256,6 +264,27 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
       );
     };
 
+    if (process.env.NODE_ENV !== "production") {
+      const { $default, $number, $fraction, $custom, ...otherVaritants } =
+        variants as any;
+      Object.assign(handler, {
+        variants: [
+          ...($default ? ["`true`"] : []),
+          ...($fraction ? ["`A/B`%"] : []),
+          ...($number?.variants
+            ? $number.variants
+            : $number
+            ? ["`number`"]
+            : []),
+          ...($custom?.variants
+            ? $custom.variants
+            : $custom
+            ? ["`string`"]
+            : []),
+          ...Object.keys(otherVaritants),
+        ],
+      });
+    }
     return combinableHandler(handler);
   };
 
@@ -263,14 +292,19 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
     colors: TScheme,
     handler: (color: string, context: VariantContext) => CSSInterpolation
   ) =>
-    combinableHandler((param: ColorSchemeParam<TScheme>, context) => {
-      const [color, shading = "default"] = (param as string).split("-") as [
-        string,
-        Shading | undefined
-      ];
-      const availColor = colors[color]?.[shading] ?? colors[color]?.[500];
-      return availColor ? handler(availColor, context) : undefined;
-    });
+    combinableHandler(
+      Object.assign(
+        (param: ColorSchemeParam<TScheme>, context: any) => {
+          const [color, shading = "default"] = (param as string).split("-") as [
+            string,
+            Shading | undefined
+          ];
+          const availColor = colors[color]?.[shading] ?? colors[color]?.[500];
+          return availColor ? handler(availColor, context) : undefined;
+        },
+        { variants: ["`color`"] }
+      )
+    );
 
   const withModifiers: WithModifiers = (
     prefix: string,
@@ -327,6 +361,8 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
 
           return processModifiers({}, param);
         };
+
+        wrappedRule.variants = rule.variants;
 
         result[path.join("_")] =
           isFunction && rule.length
