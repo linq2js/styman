@@ -1,4 +1,4 @@
-import { ColorScheme, defaultModifiers, Modifiers } from "../dynamic";
+import { ColorScheme, defaultModifiers, meta, Modifiers } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
@@ -97,49 +97,64 @@ export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
       ),
     }),
     ...withModifiers("object", {
-      $param: (
-        values: // object-position
+      $param: meta(
         (
-          | "center"
-          | "left"
-          | "top"
-          | "bottom"
-          | "right"
-          // object-fit
-          | "contain"
-          | "cover"
-          | "fill"
-          | "none"
-          | "scale-down"
-          | string
-        )[]
-      ) => {
-        let fit: string | undefined;
-        const position: string[] = [];
-        values.forEach((x) => {
-          if (
-            x === "left" ||
-            x === "top" ||
-            x === "right" ||
-            x === "center" ||
-            x === "bottom"
-          ) {
-            position.push(x);
-          } else {
-            fit = x;
+          values: // object-position
+          (
+            | "center"
+            | "left"
+            | "top"
+            | "bottom"
+            | "right"
+            // object-fit
+            | "contain"
+            | "cover"
+            | "fill"
+            | "none"
+            | "scale-down"
+            | string
+          )[]
+        ) => {
+          let fit: string | undefined;
+          const position: string[] = [];
+          values.forEach((x) => {
+            if (
+              x === "left" ||
+              x === "top" ||
+              x === "right" ||
+              x === "center" ||
+              x === "bottom"
+            ) {
+              position.push(x);
+            } else {
+              fit = x;
+            }
+          });
+          if (fit && position.length) {
+            return {
+              objectFit: fit as any,
+              objectPosition: position.join(" "),
+            };
           }
-        });
-        if (fit && position.length) {
-          return {
-            objectFit: fit as any,
-            objectPosition: position.join(" "),
-          };
-        }
-        if (fit) {
-          return { objectFit: fit as any };
-        }
-        return { objectPosition: position.join(" ") };
-      },
+          if (fit) {
+            return { objectFit: fit as any };
+          }
+          return { objectPosition: position.join(" ") };
+        },
+        () => [
+          "center",
+          "left",
+          "top",
+          "bottom",
+          "right",
+          "contain",
+          "cover",
+          "fill",
+          "none",
+          "scale-down",
+          "string",
+        ]
+      ),
     }),
     ...withModifiers("isolate", {
       $default: () => ({ isolation: "isolate" }),

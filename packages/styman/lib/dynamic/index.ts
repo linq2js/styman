@@ -265,22 +265,23 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
     };
 
     if (process.env.NODE_ENV !== "production") {
-      const { $default, $number, $fraction, $custom, ...otherVaritants } =
-        variants as any;
+      const {
+        $default,
+        $number,
+        $fraction,
+        $param,
+        $custom,
+        $sides,
+        $xy,
+        ...otherVaritants
+      } = variants as any;
       Object.assign(handler, {
         variants: [
-          ...($default ? ["**true**"] : []),
-          ...($fraction ? ["**A/B**%"] : []),
-          ...($number?.variants
-            ? $number.variants
-            : $number
-            ? ["**number**"]
-            : []),
-          ...($custom?.variants
-            ? $custom.variants
-            : $custom
-            ? ["**string**"]
-            : []),
+          ...($default ? ["DEFAULT"] : []),
+          ...($fraction ? ["FRACTION"] : []),
+          ...($number?.variants ? $number.variants : $number ? ["NUMBER"] : []),
+          ...($custom?.variants ? $custom.variants : $custom ? ["STRING"] : []),
+          ...($param?.variants ? $param.variants : $param ? ["PARAM"] : []),
           ...Object.keys(otherVaritants),
         ],
       });
@@ -302,7 +303,7 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
           const availColor = colors[color]?.[shading] ?? colors[color]?.[500];
           return availColor ? handler(availColor, context) : undefined;
         },
-        { variants: ["**color**"] }
+        { variants: ["COLOR"] }
       )
     );
 
@@ -376,6 +377,11 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
 
   return { withValues, withColors, withVariants, withModifiers, modifiers };
 };
+
+export const meta = <T>(func: T, variants: any): T =>
+  Object.assign(func, {
+    variants: (typeof variants === "function" ? variants() : variants) ?? [],
+  });
 
 const createSwatch = (
   mainColor: string,

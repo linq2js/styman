@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, meta, Modifiers } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 const TRANSFORM =
@@ -106,9 +106,12 @@ export const transformModule = <C extends ColorScheme, M extends Modifiers>({
       }),
     }),
     ...withModifiers("origin", {
-      $param: (values: ("center" | "left" | "top" | "bottom" | "right")[]) => {
-        return { transformOrigin: values.join(" ") };
-      },
+      $param: meta(
+        (values: ("center" | "left" | "top" | "bottom" | "right")[]) => {
+          return { transformOrigin: values.join(" ") };
+        },
+        () => ["center", "left", "top", "bottom", "right"]
+      ),
     }),
   };
 };

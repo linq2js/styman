@@ -192,7 +192,7 @@ export const flexModule = <C extends ColorScheme, M extends Modifiers>({
     }),
 
     // align-self
-    ...withModifiers("align_self", {
+    ...withModifiers("self", {
       ...withValues(
         ["auto", "start", "end", "center", "stretch", "baseline"],
         (x) => ({ alignSelf: x })
