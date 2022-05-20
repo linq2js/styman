@@ -1,6 +1,6 @@
 | Rule | Variants |
 |:---|:---|
-| back | `color` |
+| back | **color** |
 |  | fixed |
 |  | local |
 |  | scroll |
@@ -41,15 +41,15 @@
 |  | gradient-to-r |
 |  | gradient-to-tr |
 |  |  |
-| from | `color` |
+| from | **color** |
 |  | inherit |
 |  | current |
 |  |  |
-| to | `color` |
+| to | **color** |
 |  | inherit |
 |  | current |
 |  |  |
-| via | `color` |
+| via | **color** |
 |  | inherit |
 |  | current |
 |  |  |
@@ -60,8 +60,8 @@
 |  | wider |
 |  | widest |
 |  |  |
-| decoration | `number` |
-|  | `color` |
+| decoration | **number** |
+|  | **color** |
 |  | no-underline |
 |  | underline |
 |  | overline |
@@ -76,7 +76,7 @@
 |  | auto |
 |  | from-font |
 |  |  |
-| text | `color` |
+| text | **color** |
 |  | uppercase |
 |  | lowercase |
 |  | capitalize |
@@ -102,7 +102,7 @@
 |  | center |
 |  | justify |
 |  |  |
-| indent | `number` |
+| indent | **number** |
 |  | px |
 |  |  |
 | whitespace | normal |
@@ -163,7 +163,7 @@
 |  | 8xl |
 |  | 9xl |
 |  |  |
-| leading | `number` |
+| leading | **number** |
 |  | none |
 |  | tight |
 |  | snug |
@@ -206,8 +206,8 @@
 |  | zoom-in |
 |  | zoom-out |
 |  |  |
-| border | `number` |
-|  | `color` |
+| border | **number** |
+|  | **color** |
 |  | $sides |
 |  | solid |
 |  | dashed |
@@ -215,8 +215,8 @@
 |  | double |
 |  | hidden |
 |  |  |
-| width | `A/B`% |
-|  | `number` |
+| width | **A/B**% |
+|  | **number** |
 |  | screen |
 |  | px |
 |  | auto |
@@ -225,16 +225,16 @@
 |  | max |
 |  | fit |
 |  |  |
-| min_width | `A/B`% |
-|  | `number` |
+| min_width | **A/B**% |
+|  | **number** |
 |  | screen |
 |  | min |
 |  | max |
 |  | fit |
 |  | full |
 |  |  |
-| max_width | `A/B`% |
-|  | `number` |
+| max_width | **A/B**% |
+|  | **number** |
 |  | screen |
 |  | min |
 |  | max |
@@ -259,8 +259,8 @@
 |  | screen-xl |
 |  | screen-2xl |
 |  |  |
-| height | `A/B`% |
-|  | `number` |
+| height | **A/B**% |
+|  | **number** |
 |  | screen |
 |  | px |
 |  | auto |
@@ -269,16 +269,16 @@
 |  | max |
 |  | fit |
 |  |  |
-| min_height | `A/B`% |
-|  | `number` |
+| min_height | **A/B**% |
+|  | **number** |
 |  | screen |
 |  | min |
 |  | max |
 |  | fit |
 |  | full |
 |  |  |
-| max_height | `A/B`% |
-|  | `number` |
+| max_height | **A/B**% |
+|  | **number** |
 |  | screen |
 |  | min |
 |  | max |
@@ -309,7 +309,7 @@
 |  | disc |
 |  | decimal |
 |  |  |
-| flex | `true` |
+| flex | **true** |
 |  | 1 |
 |  | none |
 |  | auto |
@@ -323,65 +323,65 @@
 |  | wrap-reverse |
 |  | nowrap |
 |  |  |
-| basis | `A/B`% |
-|  | `number` |
+| basis | **A/B**% |
+|  | **number** |
 |  | auto |
 |  | full |
 |  | px |
 |  |  |
-| grow | `true` |
-|  | `number` |
+| grow | **true** |
+|  | **number** |
 |  |  |
-| shrink | `true` |
-|  | `number` |
+| shrink | **true** |
+|  | **number** |
 |  |  |
-| order | `number` |
+| order | **number** |
 |  | first |
 |  | last |
 |  | none |
 |  |  |
-| grid | `true` |
+| grid | **true** |
 |  | inline |
 |  | row |
 |  | col |
 |  | row-dense |
 |  | col-dense |
 |  |  |
-| cols | `number` |
+| cols | **number** |
 |  | none |
 |  | auto |
 |  | min |
 |  | max |
 |  | fr |
 |  |  |
-| rows | `number` |
+| rows | **number** |
 |  | none |
 |  | auto |
 |  | min |
 |  | max |
 |  | fr |
 |  |  |
-| col | `number` |
+| col | **number** |
 |  | auto |
 |  | full |
 |  |  |
-| col_start | `number` |
+| col_start | **number** |
 |  | auto |
 |  |  |
-| col_end | `number` |
+| col_end | **number** |
 |  | auto |
 |  |  |
-| row | `number` |
+| row | **number** |
 |  | auto |
 |  | full |
 |  |  |
-| row_start | `number` |
+| row_start | **number** |
 |  | auto |
 |  |  |
-| row_end | `number` |
+| row_end | **number** |
 |  | auto |
 |  |  |
-| gap | `number` |
+| gap | **number** |
 |  | px |
 |  | $xy |
 |  |  |
@@ -442,11 +442,11 @@
 |  | center |
 |  | stretch |
 |  |  |
-| center | `true` |
+| center | **true** |
 |  | x |
 |  | y |
 |  |  |
-| table | `true` |
+| table | **true** |
 |  | column |
 |  | row |
 |  | inline |
@@ -461,53 +461,53 @@
 |  | auto |
 |  | fixed |
 |  |  |
-| scale | `number` |
+| scale | **number** |
 |  | $xy |
 |  |  |
-| skew | `number` |
+| skew | **number** |
 |  | $xy |
 |  |  |
-| translate | `A/B`% |
-|  | `number` |
+| translate | **A/B**% |
+|  | **number** |
 |  | px |
 |  | full |
 |  | $xy |
 |  |  |
-| rotate | `number` |
+| rotate | **number** |
 |  |  |
 | origin | $param |
 |  |  |
-| aspect | `string` |
+| aspect | **string** |
 |  | auto |
 |  | squared |
 |  | video |
 |  |  |
-| left | `A/B`% |
-|  | `number` |
+| left | **A/B**% |
+|  | **number** |
 |  |  |
-| top | `A/B`% |
-|  | `number` |
+| top | **A/B**% |
+|  | **number** |
 |  |  |
-| right | `A/B`% |
-|  | `number` |
+| right | **A/B**% |
+|  | **number** |
 |  |  |
-| bottom | `A/B`% |
-|  | `number` |
+| bottom | **A/B**% |
+|  | **number** |
 |  |  |
-| inset | `A/B`% |
-|  | `number` |
+| inset | **A/B**% |
+|  | **number** |
 |  | $xy |
 |  |  |
-| visible | `true` |
+| visible | **true** |
 |  |  |
-| invisible | `true` |
-|  |  |
-|  |  |
+| invisible | **true** |
 |  |  |
 |  |  |
 |  |  |
 |  |  |
-| zindex | `number` |
+|  |  |
+|  |  |
+| zindex | **number** |
 |  | auto |
 |  |  |
 | overscroll | $xy |
@@ -524,7 +524,7 @@
 |  |  |
 | object | $param |
 |  |  |
-| isolate | `true` |
+| isolate | **true** |
 |  | auto |
 |  |  |
 | clear | left |
@@ -536,19 +536,19 @@
 |  | right |
 |  | none |
 |  |  |
-| block | `true` |
+| block | **true** |
 |  |  |
-| inline | `true` |
+| inline | **true** |
 |  |  |
-| contents | `true` |
+| contents | **true** |
 |  |  |
-| hidden | `true` |
+| hidden | **true** |
 |  |  |
-| list_item | `true` |
+| list_item | **true** |
 |  |  |
-| flow_root | `true` |
+| flow_root | **true** |
 |  |  |
-| inline_block | `true` |
+| inline_block | **true** |
 |  |  |
 | box | border |
 |  | content |
@@ -579,7 +579,7 @@
 |  | right |
 |  | column |
 |  |  |
-| columns | `number` |
+| columns | **number** |
 |  | auto |
 |  | 3xs |
 |  | 2xs |
@@ -596,18 +596,18 @@
 |  | 7xl |
 |  |  |
 |  |  |
-| outline | `true` |
-|  | `number` |
-|  | `color` |
+| outline | **true** |
+|  | **number** |
+|  | **color** |
 |  | dashed |
 |  | dotted |
 |  | double |
 |  | hidden |
 |  | none |
 |  |  |
-| outline_offset | `number` |
+| outline_offset | **number** |
 |  |  |
-| opacity | `number` |
+| opacity | **number** |
 |  |  |
 | animate | none |
 |  | spin |
@@ -615,11 +615,11 @@
 |  | pulse |
 |  | bounce |
 |  |  |
-| accent | `color` |
+| accent | **color** |
 |  | inherit |
 |  | current |
 |  |  |
-| caret | `color` |
+| caret | **color** |
 |  | inherit |
 |  | current |
 |  |  |
@@ -630,9 +630,9 @@
 |  | smooth |
 |  | auto |
 |  |  |
-| scrollp | `number` |
+| scrollp | **number** |
 |  |  |
-| scrollm | `number` |
+| scrollm | **number** |
 |  |  |
 | snap | mandatory |
 |  | proximity |
@@ -658,7 +658,7 @@
 |  | pinch-zoom |
 |  | manipulation |
 |  |  |
-| resize | `true` |
+| resize | **true** |
 |  | none |
 |  | x |
 |  | y |
@@ -699,17 +699,17 @@
 |  | revert-layer |
 |  | unset |
 |  |  |
-| fill | `color` |
+| fill | **color** |
 |  | inherit |
 |  | current |
 |  |  |
-| stroke | `number` |
-|  | `color` |
+| stroke | **number** |
+|  | **color** |
 |  | inherit |
 |  | current |
 |  |  |
-| blur | `true` |
-|  | `number` |
+| blur | **true** |
+|  | **number** |
 |  | none |
 |  | sm |
 |  | md |
@@ -718,24 +718,24 @@
 |  | 2xl |
 |  | 3xl |
 |  |  |
-| brightness | `number` |
+| brightness | **number** |
 |  |  |
-| contrast | `number` |
+| contrast | **number** |
 |  |  |
-| grayscale | `true` |
-|  | `number` |
+| grayscale | **true** |
+|  | **number** |
 |  |  |
-| invert | `true` |
-|  | `number` |
+| invert | **true** |
+|  | **number** |
 |  |  |
-| hue_rotate | `number` |
+| hue_rotate | **number** |
 |  |  |
-| saturate | `number` |
+| saturate | **number** |
 |  |  |
-| sepia | `true` |
-|  | `number` |
+| sepia | **true** |
+|  | **number** |
 |  |  |
-| drop_shadow | `true` |
+| drop_shadow | **true** |
 |  | sm |
 |  | md |
 |  | lg |
@@ -743,8 +743,8 @@
 |  | 2xl |
 |  | none |
 |  |  |
-| backdrop_blur | `true` |
-|  | `number` |
+| backdrop_blur | **true** |
+|  | **number** |
 |  | none |
 |  | sm |
 |  | md |
@@ -753,27 +753,27 @@
 |  | 2xl |
 |  | 3xl |
 |  |  |
-| backdrop_brightness | `number` |
+| backdrop_brightness | **number** |
 |  |  |
-| backdrop_contrast | `number` |
+| backdrop_contrast | **number** |
 |  |  |
-| backdrop_grayscale | `true` |
-|  | `number` |
+| backdrop_grayscale | **true** |
+|  | **number** |
 |  |  |
-| backdrop_invert | `true` |
-|  | `number` |
+| backdrop_invert | **true** |
+|  | **number** |
 |  |  |
-| backdrop_hue_rotate | `number` |
+| backdrop_hue_rotate | **number** |
 |  |  |
-| backdrop_saturate | `number` |
+| backdrop_saturate | **number** |
 |  |  |
-| backdrop_opacity | `number` |
+| backdrop_opacity | **number** |
 |  |  |
-| backdrop_sepia | `true` |
-|  | `number` |
+| backdrop_sepia | **true** |
+|  | **number** |
 |  |  |
-| divide | `number` |
-|  | `color` |
+| divide | **number** |
+|  | **color** |
 |  | $xy |
 |  | reverse |
 |  | px |
@@ -783,26 +783,26 @@
 |  | none |
 |  | double |
 |  |  |
-| space | `number` |
+| space | **number** |
 |  | $xy |
 |  | reverse |
 |  | px |
 |  |  |
-| margin | `A/B`% |
-|  | `number` |
+| margin | **A/B**% |
+|  | **number** |
 |  | px |
 |  | $sides |
 |  | auto |
 |  |  |
-| padding | `A/B`% |
-|  | `number` |
+| padding | **A/B**% |
+|  | **number** |
 |  | px |
 |  | $sides |
 |  |  |
-| delay | `number` |
+| delay | **number** |
 |  |  |
-| transition | `true` |
-|  | `number` |
+| transition | **true** |
+|  | **number** |
 |  | none |
 |  | linear |
 |  | in |
@@ -814,8 +814,8 @@
 |  | transform |
 |  | colors |
 |  |  |
-| rounded | `A/B`% |
-|  | `number` |
+| rounded | **A/B**% |
+|  | **number** |
 |  | none |
 |  | sm |
 |  | md |
@@ -825,7 +825,7 @@
 |  | 3xl |
 |  | full |
 |  |  |
-| shadow | `color` |
+| shadow | **color** |
 |  | sm |
 |  | md |
 |  | lg |

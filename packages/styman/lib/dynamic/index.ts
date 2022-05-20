@@ -269,17 +269,17 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
         variants as any;
       Object.assign(handler, {
         variants: [
-          ...($default ? ["`true`"] : []),
-          ...($fraction ? ["`A/B`%"] : []),
+          ...($default ? ["**true**"] : []),
+          ...($fraction ? ["**A/B**%"] : []),
           ...($number?.variants
             ? $number.variants
             : $number
-            ? ["`number`"]
+            ? ["**number**"]
             : []),
           ...($custom?.variants
             ? $custom.variants
             : $custom
-            ? ["`string`"]
+            ? ["**string**"]
             : []),
           ...Object.keys(otherVaritants),
         ],
@@ -302,7 +302,7 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
           const availColor = colors[color]?.[shading] ?? colors[color]?.[500];
           return availColor ? handler(availColor, context) : undefined;
         },
-        { variants: ["`color`"] }
+        { variants: ["**color**"] }
       )
     );
 
