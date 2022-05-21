@@ -17,6 +17,9 @@ const EXAMPLES = {
   STRING: "`styler({ @style: 'string-value' })`",
   DEFAULT: "`styler({ @style: true })`",
   FRACTION: "`styler({ @style: '1/2' })`",
+  XY: "`styler({ @style: ['X', XVariant, 'Y', YVariant] })`",
+  SIDES:
+    "`styler({ @style: ['L', leftVariant, 'T', topVariant, ['R', 'B'], rightAndBottomVariant] })`",
   PARAM: "",
 };
 

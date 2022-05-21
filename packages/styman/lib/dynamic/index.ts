@@ -282,6 +282,8 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
           ...($number?.variants ? $number.variants : $number ? ["NUMBER"] : []),
           ...($custom?.variants ? $custom.variants : $custom ? ["STRING"] : []),
           ...($param?.variants ? $param.variants : $param ? ["PARAM"] : []),
+          ...($xy ? ["XY"] : []),
+          ...($sides ? ["SIDES"] : []),
           ...Object.keys(otherVaritants),
         ],
       });

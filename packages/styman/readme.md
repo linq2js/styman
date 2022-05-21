@@ -299,9 +299,9 @@ const className = css({
 
 ### Default Styler
 
-Styman provides a default styler that includes pre-defined style modules
+Styman provides a default styler that includes pre-defined style modules. The styler has similar Tailwind classes and modifiers
 
-```ts
+```jsx
 import {
   buildDefaultStyler,
   createStyler,
@@ -326,6 +326,27 @@ const class2 = styler(
   { bg: ["red", "no-repeat"], font: "2xl" },
   { backgroundImage: `url(your-image)` }
 );
+
+const buttonClass = styler({
+  bg: {
+    hover: "blue-400", // background color for hover status
+    active: "blue-600", // background color for active status
+    $: "blue", // background color for normal status
+  },
+  px: 4, // padding horizontal 1rem
+  py: 2, // padding vertical 0.5rem
+  r: "md", // medium border radius
+  shadow: "lg", // box shadow
+  text: "white", // color
+  transition: [
+    "all", // apply transition for all props
+    "in-out", // ease in out
+  ],
+  scale: { hover: 120 }, // apply scale 120% when hover
+});
+
+// easy to apply the styles
+<button className={buttonClass}>Submit</button>;
 ```
 
 ### Custom Styler

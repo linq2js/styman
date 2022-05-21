@@ -4,7 +4,7 @@
 ## bg
 Styles: background
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/background-attachment)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/background-attachment)
 
 | Variant | Example |
 |:---|:---|
@@ -52,7 +52,7 @@ Styles: background
 
 
 ## from
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/gradient-color-stops)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/gradient-color-stops)
 
 | Variant | Example |
 |:---|:---|
@@ -63,7 +63,7 @@ Styles: background
 
 
 ## to
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/gradient-color-stops)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/gradient-color-stops)
 
 | Variant | Example |
 |:---|:---|
@@ -74,7 +74,7 @@ Styles: background
 
 
 ## via
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/gradient-color-stops)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/gradient-color-stops)
 
 | Variant | Example |
 |:---|:---|
@@ -85,7 +85,7 @@ Styles: background
 
 
 ## tracking
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/letter-spacing)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/letter-spacing)
 
 | Variant | Example |
 |:---|:---|
@@ -120,7 +120,7 @@ Styles: background
 
 
 ## text
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/text-color)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/text-color)
 
 | Variant | Example |
 |:---|:---|
@@ -153,7 +153,7 @@ Styles: background
 
 
 ## indent
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/text-indent)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/text-indent)
 
 | Variant | Example |
 |:---|:---|
@@ -163,7 +163,7 @@ Styles: background
 
 
 ## whitespace
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/whitespace)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/whitespace)
 
 | Variant | Example |
 |:---|:---|
@@ -176,7 +176,7 @@ Styles: background
 
 
 ## align
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/vertical-align)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/vertical-align)
 
 | Variant | Example |
 |:---|:---|
@@ -192,7 +192,7 @@ Styles: background
 
 
 ## break
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/word-break)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/word-break)
 
 | Variant | Example |
 |:---|:---|
@@ -203,7 +203,7 @@ Styles: background
 
 
 ## font
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/font-family)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/font-family)
 
 | Variant | Example |
 |:---|:---|
@@ -249,7 +249,7 @@ Styles: background
 
 
 ## leading
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/line-height)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/line-height)
 
 | Variant | Example |
 |:---|:---|
@@ -264,7 +264,7 @@ Styles: background
 
 
 ## cursor
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/cursor)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/cursor)
 
 | Variant | Example |
 |:---|:---|
@@ -308,7 +308,7 @@ Styles: background
 ## b
 Styles: border
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-width)
 
 | Variant | Example |
 |:---|:---|
@@ -325,7 +325,7 @@ Styles: border
 ## bl
 Styles: borderLeft
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-width)
 
 | Variant | Example |
 |:---|:---|
@@ -342,7 +342,7 @@ Styles: borderLeft
 ## br
 Styles: borderRight
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-width)
 
 | Variant | Example |
 |:---|:---|
@@ -359,7 +359,7 @@ Styles: borderRight
 ## bt
 Styles: borderTop
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-width)
 
 | Variant | Example |
 |:---|:---|
@@ -376,7 +376,7 @@ Styles: borderTop
 ## bb
 Styles: borderBottom
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-width)
 
 | Variant | Example |
 |:---|:---|
@@ -393,7 +393,7 @@ Styles: borderBottom
 ## bx
 Styles: borderLeft, borderRight
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-width)
 
 | Variant | Example |
 |:---|:---|
@@ -410,7 +410,7 @@ Styles: borderLeft, borderRight
 ## by
 Styles: borderTop, borderBottom
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-width)
 
 | Variant | Example |
 |:---|:---|
@@ -547,7 +547,7 @@ Styles: height
 
 
 ## list
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/list-style-type)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/list-style-type)
 
 | Variant | Example |
 |:---|:---|
@@ -560,7 +560,7 @@ Styles: height
 
 
 ## flex
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/flex)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/flex)
 
 | Variant | Example |
 |:---|:---|
@@ -582,7 +582,7 @@ Styles: height
 
 
 ## basis
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/flex-basis)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/flex-basis)
 
 | Variant | Example |
 |:---|:---|
@@ -595,7 +595,7 @@ Styles: height
 
 
 ## grow
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/flex-grow)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/flex-grow)
 
 | Variant | Example |
 |:---|:---|
@@ -605,7 +605,7 @@ Styles: height
 
 
 ## shrink
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/flex-shrink)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/flex-shrink)
 
 | Variant | Example |
 |:---|:---|
@@ -615,7 +615,7 @@ Styles: height
 
 
 ## order
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/flex-order)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/flex-order)
 
 | Variant | Example |
 |:---|:---|
@@ -639,7 +639,7 @@ Styles: height
 
 
 ## cols
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/grid-template-columns)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/grid-template-columns)
 
 | Variant | Example |
 |:---|:---|
@@ -653,7 +653,7 @@ Styles: height
 
 
 ## rows
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/grid-template-rows)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/grid-template-rows)
 
 | Variant | Example |
 |:---|:---|
@@ -667,7 +667,7 @@ Styles: height
 
 
 ## col
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/grid-column)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/grid-column)
 
 | Variant | Example |
 |:---|:---|
@@ -678,7 +678,7 @@ Styles: height
 
 
 ## col_start
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/grid-column)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/grid-column)
 
 | Variant | Example |
 |:---|:---|
@@ -688,7 +688,7 @@ Styles: height
 
 
 ## col_end
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/grid-column)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/grid-column)
 
 | Variant | Example |
 |:---|:---|
@@ -698,7 +698,7 @@ Styles: height
 
 
 ## row
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/grid-row)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/grid-row)
 
 | Variant | Example |
 |:---|:---|
@@ -709,7 +709,7 @@ Styles: height
 
 
 ## row_start
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/grid-row)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/grid-row)
 
 | Variant | Example |
 |:---|:---|
@@ -719,7 +719,7 @@ Styles: height
 
 
 ## row_end
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/grid-row)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/grid-row)
 
 | Variant | Example |
 |:---|:---|
@@ -753,7 +753,7 @@ Styles: height
 
 
 ## justify
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/justify-content)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/justify-content)
 
 | Variant | Example |
 |:---|:---|
@@ -767,7 +767,7 @@ Styles: height
 
 
 ## justify_items
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/justify-items)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/justify-items)
 
 | Variant | Example |
 |:---|:---|
@@ -779,7 +779,7 @@ Styles: height
 
 
 ## justify_self
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/justify-self)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/justify-self)
 
 | Variant | Example |
 |:---|:---|
@@ -792,7 +792,7 @@ Styles: height
 
 
 ## content
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/content)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/content)
 
 | Variant | Example |
 |:---|:---|
@@ -806,7 +806,7 @@ Styles: height
 
 
 ## items
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/align-items)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/align-items)
 
 | Variant | Example |
 |:---|:---|
@@ -819,7 +819,7 @@ Styles: height
 
 
 ## self
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/align-self)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/align-self)
 
 | Variant | Example |
 |:---|:---|
@@ -833,7 +833,7 @@ Styles: height
 
 
 ## place_content
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/place-content)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/place-content)
 
 | Variant | Example |
 |:---|:---|
@@ -848,7 +848,7 @@ Styles: height
 
 
 ## place_items
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/place-items)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/place-items)
 
 | Variant | Example |
 |:---|:---|
@@ -880,7 +880,7 @@ Styles: height
 
 
 ## table
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/table-layout)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/table-layout)
 
 | Variant | Example |
 |:---|:---|
@@ -902,37 +902,40 @@ Styles: height
 
 
 ## scale
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/scale)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/scale)
 
 | Variant | Example |
 |:---|:---|
 | **number** | `styler({ scale: 5 })` |
+| XY | `styler({ scale: ['X', XVariant, 'Y', YVariant] })` |
 
 
 
 ## skew
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/skew)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/skew)
 
 | Variant | Example |
 |:---|:---|
 | **number** | `styler({ skew: 5 })` |
+| XY | `styler({ skew: ['X', XVariant, 'Y', YVariant] })` |
 
 
 
 ## translate
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/translate)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/translate)
 
 | Variant | Example |
 |:---|:---|
 | **A/B** | `styler({ translate: '1/2' })` |
 | **number** | `styler({ translate: 5 })` |
+| XY | `styler({ translate: ['X', XVariant, 'Y', YVariant] })` |
 | px | `styler({ translate: 'px' })` |
 | full | `styler({ translate: 'full' })` |
 
 
 
 ## rotate
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/rotate)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/rotate)
 
 | Variant | Example |
 |:---|:---|
@@ -941,7 +944,7 @@ Styles: height
 
 
 ## origin
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/transform-origin)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/transform-origin)
 
 | Variant | Example |
 |:---|:---|
@@ -954,7 +957,7 @@ Styles: height
 
 
 ## aspect
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/aspect-ratio)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/aspect-ratio)
 
 | Variant | Example |
 |:---|:---|
@@ -966,7 +969,7 @@ Styles: height
 
 
 ## left
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/top-right-bottom-left)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/top-right-bottom-left)
 
 | Variant | Example |
 |:---|:---|
@@ -976,7 +979,7 @@ Styles: height
 
 
 ## top
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/top-right-bottom-left)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/top-right-bottom-left)
 
 | Variant | Example |
 |:---|:---|
@@ -986,7 +989,7 @@ Styles: height
 
 
 ## right
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/top-right-bottom-left)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/top-right-bottom-left)
 
 | Variant | Example |
 |:---|:---|
@@ -996,7 +999,7 @@ Styles: height
 
 
 ## bottom
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/top-right-bottom-left)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/top-right-bottom-left)
 
 | Variant | Example |
 |:---|:---|
@@ -1010,11 +1013,12 @@ Styles: height
 |:---|:---|
 | **A/B** | `styler({ inset: '1/2' })` |
 | **number** | `styler({ inset: 5 })` |
+| XY | `styler({ inset: ['X', XVariant, 'Y', YVariant] })` |
 
 
 
 ## visible
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/visibility)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/visibility)
 
 | Variant | Example |
 |:---|:---|
@@ -1023,7 +1027,7 @@ Styles: height
 
 
 ## invisible
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/visibility)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/visibility)
 
 | Variant | Example |
 |:---|:---|
@@ -1032,7 +1036,7 @@ Styles: height
 
 
 ## static
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/position)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/position)
 
 | Variant | Example |
 |:---|:---|
@@ -1041,7 +1045,7 @@ Styles: height
 
 
 ## fixed
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/position)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/position)
 
 | Variant | Example |
 |:---|:---|
@@ -1050,7 +1054,7 @@ Styles: height
 
 
 ## absolute
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/position)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/position)
 
 | Variant | Example |
 |:---|:---|
@@ -1059,7 +1063,7 @@ Styles: height
 
 
 ## relative
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/position)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/position)
 
 | Variant | Example |
 |:---|:---|
@@ -1068,7 +1072,7 @@ Styles: height
 
 
 ## sticky
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/position)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/position)
 
 | Variant | Example |
 |:---|:---|
@@ -1077,7 +1081,7 @@ Styles: height
 
 
 ## zindex
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/z-index)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/z-index)
 
 | Variant | Example |
 |:---|:---|
@@ -1087,10 +1091,11 @@ Styles: height
 
 
 ## overscroll
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/overscroll-behavior)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/overscroll-behavior)
 
 | Variant | Example |
 |:---|:---|
+| XY | `styler({ overscroll: ['X', XVariant, 'Y', YVariant] })` |
 | auto | `styler({ overscroll: 'auto' })` |
 | contain | `styler({ overscroll: 'contain' })` |
 | none | `styler({ overscroll: 'none' })` |
@@ -1098,10 +1103,11 @@ Styles: height
 
 
 ## overflow
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/overflow)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/overflow)
 
 | Variant | Example |
 |:---|:---|
+| XY | `styler({ overflow: ['X', XVariant, 'Y', YVariant] })` |
 | auto | `styler({ overflow: 'auto' })` |
 | hidden | `styler({ overflow: 'hidden' })` |
 | clip | `styler({ overflow: 'clip' })` |
@@ -1111,7 +1117,7 @@ Styles: height
 
 
 ## object
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/object-position)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/object-position)
 
 | Variant | Example |
 |:---|:---|
@@ -1130,7 +1136,7 @@ Styles: height
 
 
 ## isolate
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/isolation)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/isolation)
 
 | Variant | Example |
 |:---|:---|
@@ -1140,7 +1146,7 @@ Styles: height
 
 
 ## clear
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/clear)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/clear)
 
 | Variant | Example |
 |:---|:---|
@@ -1152,7 +1158,7 @@ Styles: height
 
 
 ## float
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/float)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/float)
 
 | Variant | Example |
 |:---|:---|
@@ -1163,7 +1169,7 @@ Styles: height
 
 
 ## block
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/display)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/display)
 
 | Variant | Example |
 |:---|:---|
@@ -1172,7 +1178,7 @@ Styles: height
 
 
 ## inline
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/display)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/display)
 
 | Variant | Example |
 |:---|:---|
@@ -1181,7 +1187,7 @@ Styles: height
 
 
 ## contents
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/display)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/display)
 
 | Variant | Example |
 |:---|:---|
@@ -1190,7 +1196,7 @@ Styles: height
 
 
 ## hidden
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/display)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/display)
 
 | Variant | Example |
 |:---|:---|
@@ -1199,7 +1205,7 @@ Styles: height
 
 
 ## list_item
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/display)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/display)
 
 | Variant | Example |
 |:---|:---|
@@ -1208,7 +1214,7 @@ Styles: height
 
 
 ## flow_root
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/display)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/display)
 
 | Variant | Example |
 |:---|:---|
@@ -1217,7 +1223,7 @@ Styles: height
 
 
 ## inline_block
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/display)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/display)
 
 | Variant | Example |
 |:---|:---|
@@ -1226,7 +1232,7 @@ Styles: height
 
 
 ## box
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/box-sizing)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/box-sizing)
 
 | Variant | Example |
 |:---|:---|
@@ -1236,7 +1242,7 @@ Styles: height
 
 
 ## box_decoration
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/box-decoration-break)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/box-decoration-break)
 
 | Variant | Example |
 |:---|:---|
@@ -1246,7 +1252,7 @@ Styles: height
 
 
 ## break_inside
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/break-inside)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/break-inside)
 
 | Variant | Example |
 |:---|:---|
@@ -1258,7 +1264,7 @@ Styles: height
 
 
 ## break_before
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/break-before)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/break-before)
 
 | Variant | Example |
 |:---|:---|
@@ -1274,7 +1280,7 @@ Styles: height
 
 
 ## break_after
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/break-after)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/break-after)
 
 | Variant | Example |
 |:---|:---|
@@ -1290,7 +1296,7 @@ Styles: height
 
 
 ## columns
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/columns)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/columns)
 
 | Variant | Example |
 |:---|:---|
@@ -1320,7 +1326,7 @@ Styles: height
 
 
 ## outline
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/outline-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/outline-width)
 
 | Variant | Example |
 |:---|:---|
@@ -1336,7 +1342,7 @@ Styles: height
 
 
 ## outline_offset
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/outline-offset)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/outline-offset)
 
 | Variant | Example |
 |:---|:---|
@@ -1345,7 +1351,7 @@ Styles: height
 
 
 ## opacity
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/opacity)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/opacity)
 
 | Variant | Example |
 |:---|:---|
@@ -1354,7 +1360,7 @@ Styles: height
 
 
 ## animate
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/animation)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/animation)
 
 | Variant | Example |
 |:---|:---|
@@ -1367,7 +1373,7 @@ Styles: height
 
 
 ## accent
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/accent-color)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/accent-color)
 
 | Variant | Example |
 |:---|:---|
@@ -1378,7 +1384,7 @@ Styles: height
 
 
 ## caret
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/caret-color)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/caret-color)
 
 | Variant | Example |
 |:---|:---|
@@ -1389,7 +1395,7 @@ Styles: height
 
 
 ## pointer_events
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/pointer-events)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/pointer-events)
 
 | Variant | Example |
 |:---|:---|
@@ -1399,17 +1405,18 @@ Styles: height
 
 
 ## scroll
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/scroll-behavior)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/scroll-behavior)
 
 | Variant | Example |
 |:---|:---|
+| SIDES | `styler({ scroll: ['L', leftVariant, 'T', topVariant, ['R', 'B'], rightAndBottomVariant] })` |
 | smooth | `styler({ scroll: 'smooth' })` |
 | auto | `styler({ scroll: 'auto' })` |
 
 
 
 ## scrollp
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/scroll-padding)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/scroll-padding)
 
 | Variant | Example |
 |:---|:---|
@@ -1418,7 +1425,7 @@ Styles: height
 
 
 ## scrollm
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/scroll-margin)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/scroll-margin)
 
 | Variant | Example |
 |:---|:---|
@@ -1427,7 +1434,7 @@ Styles: height
 
 
 ## snap
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/scroll-snap-align)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/scroll-snap-align)
 
 | Variant | Example |
 |:---|:---|
@@ -1447,7 +1454,7 @@ Styles: height
 
 
 ## touch
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/touch-action)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/touch-action)
 
 | Variant | Example |
 |:---|:---|
@@ -1465,7 +1472,7 @@ Styles: height
 
 
 ## resize
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/resize)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/resize)
 
 | Variant | Example |
 |:---|:---|
@@ -1477,7 +1484,7 @@ Styles: height
 
 
 ## select
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/user-select)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/user-select)
 
 | Variant | Example |
 |:---|:---|
@@ -1489,7 +1496,7 @@ Styles: height
 
 
 ## will_change
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/will-change)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/will-change)
 
 | Variant | Example |
 |:---|:---|
@@ -1532,7 +1539,7 @@ Styles: height
 
 
 ## fill
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/fill)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/fill)
 
 | Variant | Example |
 |:---|:---|
@@ -1543,7 +1550,7 @@ Styles: height
 
 
 ## stroke
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/stroke)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/stroke)
 
 | Variant | Example |
 |:---|:---|
@@ -1555,7 +1562,7 @@ Styles: height
 
 
 ## blur
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/blur)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/blur)
 
 | Variant | Example |
 |:---|:---|
@@ -1572,7 +1579,7 @@ Styles: height
 
 
 ## brightness
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/brightness)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/brightness)
 
 | Variant | Example |
 |:---|:---|
@@ -1581,7 +1588,7 @@ Styles: height
 
 
 ## contrast
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/contrast)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/contrast)
 
 | Variant | Example |
 |:---|:---|
@@ -1590,7 +1597,7 @@ Styles: height
 
 
 ## grayscale
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/grayscale)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/grayscale)
 
 | Variant | Example |
 |:---|:---|
@@ -1600,7 +1607,7 @@ Styles: height
 
 
 ## invert
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/invert)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/invert)
 
 | Variant | Example |
 |:---|:---|
@@ -1610,7 +1617,7 @@ Styles: height
 
 
 ## hue_rotate
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/hue_rotate)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/hue_rotate)
 
 | Variant | Example |
 |:---|:---|
@@ -1619,7 +1626,7 @@ Styles: height
 
 
 ## saturate
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/saturate)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/saturate)
 
 | Variant | Example |
 |:---|:---|
@@ -1628,7 +1635,7 @@ Styles: height
 
 
 ## sepia
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/sepia)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/sepia)
 
 | Variant | Example |
 |:---|:---|
@@ -1638,7 +1645,7 @@ Styles: height
 
 
 ## drop_shadow
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/drop_shadow)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/drop_shadow)
 
 | Variant | Example |
 |:---|:---|
@@ -1653,7 +1660,7 @@ Styles: height
 
 
 ## backdrop_blur
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/backdrop-blur)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/backdrop-blur)
 
 | Variant | Example |
 |:---|:---|
@@ -1670,7 +1677,7 @@ Styles: height
 
 
 ## backdrop_brightness
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/backdrop-brightness)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/backdrop-brightness)
 
 | Variant | Example |
 |:---|:---|
@@ -1679,7 +1686,7 @@ Styles: height
 
 
 ## backdrop_contrast
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/backdrop-contrast)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/backdrop-contrast)
 
 | Variant | Example |
 |:---|:---|
@@ -1688,7 +1695,7 @@ Styles: height
 
 
 ## backdrop_grayscale
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/backdrop-grayscale)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/backdrop-grayscale)
 
 | Variant | Example |
 |:---|:---|
@@ -1698,7 +1705,7 @@ Styles: height
 
 
 ## backdrop_invert
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/backdrop-invert)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/backdrop-invert)
 
 | Variant | Example |
 |:---|:---|
@@ -1708,7 +1715,7 @@ Styles: height
 
 
 ## backdrop_hue_rotate
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/backdrop-hue-rotate)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/backdrop-hue-rotate)
 
 | Variant | Example |
 |:---|:---|
@@ -1717,7 +1724,7 @@ Styles: height
 
 
 ## backdrop_saturate
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/backdrop-saturate)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/backdrop-saturate)
 
 | Variant | Example |
 |:---|:---|
@@ -1726,7 +1733,7 @@ Styles: height
 
 
 ## backdrop_opacity
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/backdrop-opacity)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/backdrop-opacity)
 
 | Variant | Example |
 |:---|:---|
@@ -1735,7 +1742,7 @@ Styles: height
 
 
 ## backdrop_sepia
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/backdrop-sepia)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/backdrop-sepia)
 
 | Variant | Example |
 |:---|:---|
@@ -1747,12 +1754,13 @@ Styles: height
 ## d
 Styles: divide
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/divide-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/divide-width)
 
 | Variant | Example |
 |:---|:---|
 | **number** | `styler({ d: 5 })` |
 | **color** | `styler({ d: 'red' })` or `styler({ d: 'red-500' })` |
+| XY | `styler({ d: ['X', XVariant, 'Y', YVariant] })` |
 | reverse | `styler({ d: 'reverse' })` |
 | px | `styler({ d: 'px' })` |
 | solid | `styler({ d: 'solid' })` |
@@ -1766,12 +1774,13 @@ Styles: divide
 ## dx
 Styles: divide_x
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/divide-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/divide-width)
 
 | Variant | Example |
 |:---|:---|
 | **number** | `styler({ dx: 5 })` |
 | **color** | `styler({ dx: 'red' })` or `styler({ dx: 'red-500' })` |
+| XY | `styler({ dx: ['X', XVariant, 'Y', YVariant] })` |
 | reverse | `styler({ dx: 'reverse' })` |
 | px | `styler({ dx: 'px' })` |
 | solid | `styler({ dx: 'solid' })` |
@@ -1785,12 +1794,13 @@ Styles: divide_x
 ## dy
 Styles: divide_y
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/divide-width)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/divide-width)
 
 | Variant | Example |
 |:---|:---|
 | **number** | `styler({ dy: 5 })` |
 | **color** | `styler({ dy: 'red' })` or `styler({ dy: 'red-500' })` |
+| XY | `styler({ dy: ['X', XVariant, 'Y', YVariant] })` |
 | reverse | `styler({ dy: 'reverse' })` |
 | px | `styler({ dy: 'px' })` |
 | solid | `styler({ dy: 'solid' })` |
@@ -1804,7 +1814,7 @@ Styles: divide_y
 ## s
 Styles: space
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/space)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/space)
 
 | Variant | Example |
 |:---|:---|
@@ -1817,7 +1827,7 @@ Styles: space
 ## sx
 Styles: space_x
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/space)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/space)
 
 | Variant | Example |
 |:---|:---|
@@ -1830,7 +1840,7 @@ Styles: space_x
 ## sy
 Styles: space_y
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/space)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/space)
 
 | Variant | Example |
 |:---|:---|
@@ -1843,7 +1853,7 @@ Styles: space_y
 ## ml
 Styles: marginLeft
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/margin)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/margin)
 
 | Variant | Example |
 |:---|:---|
@@ -1857,7 +1867,7 @@ Styles: marginLeft
 ## mr
 Styles: marginRight
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/margin)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/margin)
 
 | Variant | Example |
 |:---|:---|
@@ -1871,7 +1881,7 @@ Styles: marginRight
 ## mb
 Styles: marginBottom
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/margin)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/margin)
 
 | Variant | Example |
 |:---|:---|
@@ -1885,7 +1895,7 @@ Styles: marginBottom
 ## mt
 Styles: marginTop
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/margin)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/margin)
 
 | Variant | Example |
 |:---|:---|
@@ -1899,7 +1909,7 @@ Styles: marginTop
 ## mx
 Styles: marginLeft, marginRight
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/margin)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/margin)
 
 | Variant | Example |
 |:---|:---|
@@ -1913,7 +1923,7 @@ Styles: marginLeft, marginRight
 ## my
 Styles: marginTop, marginBottom
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/margin)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/margin)
 
 | Variant | Example |
 |:---|:---|
@@ -1927,7 +1937,7 @@ Styles: marginTop, marginBottom
 ## p
 Styles: padding
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/pading)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/pading)
 
 | Variant | Example |
 |:---|:---|
@@ -1940,7 +1950,7 @@ Styles: padding
 ## pl
 Styles: paddingLeft
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/pading)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/pading)
 
 | Variant | Example |
 |:---|:---|
@@ -1953,7 +1963,7 @@ Styles: paddingLeft
 ## pt
 Styles: paddingTop
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/pading)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/pading)
 
 | Variant | Example |
 |:---|:---|
@@ -1966,7 +1976,7 @@ Styles: paddingTop
 ## pr
 Styles: paddingRight
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/pading)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/pading)
 
 | Variant | Example |
 |:---|:---|
@@ -1979,7 +1989,7 @@ Styles: paddingRight
 ## pb
 Styles: paddingBottom
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/pading)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/pading)
 
 | Variant | Example |
 |:---|:---|
@@ -1992,7 +2002,7 @@ Styles: paddingBottom
 ## px
 Styles: paddingLeft, paddingRight
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/pading)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/pading)
 
 | Variant | Example |
 |:---|:---|
@@ -2005,7 +2015,7 @@ Styles: paddingLeft, paddingRight
 ## py
 Styles: paddingTop, paddingBottom
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/pading)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/pading)
 
 | Variant | Example |
 |:---|:---|
@@ -2016,7 +2026,7 @@ Styles: paddingTop, paddingBottom
 
 
 ## delay
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/transition-delay)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/transition-delay)
 
 | Variant | Example |
 |:---|:---|
@@ -2025,7 +2035,7 @@ Styles: paddingTop, paddingBottom
 
 
 ## transition
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/transition-property)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/transition-property)
 
 | Variant | Example |
 |:---|:---|
@@ -2047,7 +2057,7 @@ Styles: paddingTop, paddingBottom
 ## r
 Styles: borderRadius
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-radius)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-radius)
 
 | Variant | Example |
 |:---|:---|
@@ -2139,7 +2149,7 @@ Styles: borderBottomRightRadius
 ## rt
 Styles: borderTopLeftRadius, borderTopRightRadius
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-radius)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-radius)
 
 | Variant | Example |
 |:---|:---|
@@ -2159,7 +2169,7 @@ Styles: borderTopLeftRadius, borderTopRightRadius
 ## rl
 Styles: borderTopLeftRadius, borderBottomLeftRadius
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-radius)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-radius)
 
 | Variant | Example |
 |:---|:---|
@@ -2179,7 +2189,7 @@ Styles: borderTopLeftRadius, borderBottomLeftRadius
 ## rb
 Styles: borderBottomLeftRadius, borderBottomRightRadius
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-radius)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-radius)
 
 | Variant | Example |
 |:---|:---|
@@ -2199,7 +2209,7 @@ Styles: borderBottomLeftRadius, borderBottomRightRadius
 ## rr
 Styles: borderTopRightRadius, borderBottomRightRadius
 
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/border-radius)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/border-radius)
 
 | Variant | Example |
 |:---|:---|
@@ -2217,7 +2227,7 @@ Styles: borderTopRightRadius, borderBottomRightRadius
 
 
 ## shadow
-[Click here to see Tailwind description/implementation/example](https://tailwindcss.com/docs/box-shadow)
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/box-shadow)
 
 | Variant | Example |
 |:---|:---|

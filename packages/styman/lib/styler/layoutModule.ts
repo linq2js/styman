@@ -1,5 +1,21 @@
-import { ColorScheme, defaultModifiers, meta, Modifiers } from "../dynamic";
+import {
+  ColorScheme,
+  defaultModifiers,
+  meta,
+  Modifiers,
+  Side,
+} from "../dynamic";
 import { BuildContext } from "./createStyler";
+
+const getInset = (side: Side, value: string) => {
+  if (side === "X") return { left: value, right: value };
+  if (side === "Y") return { top: value, bottom: value };
+  if (side === "L") return { left: 0, top: 0, bottom: 0, width: value };
+  if (side === "R") return { right: 0, top: 0, bottom: 0, width: value };
+  if (side === "B") return { right: 0, bottom: 0, left: 0, height: value };
+  if (side === "T") return { right: 0, top: 0, left: 0, height: value };
+  return undefined;
+};
 
 export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
   modifiers = defaultModifiers as any,
@@ -23,37 +39,23 @@ export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
     }),
 
     ...withModifiers("inset", {
-      $xy: () => true,
+      $sides: () => true,
       $fraction: ([a, b], { withSides }) => {
         const value = `${(a / b) * 100}%`;
         return withSides(
           false,
-          (side) =>
-            side === "X"
-              ? { left: value, right: value }
-              : { top: value, bottom: value },
-          () => ({
-            left: value,
-            top: value,
-            right: value,
-            bottom: value,
-          })
+          (side) => getInset(side, value),
+          () => ({ left: value, top: value, right: value, bottom: value })
         );
       },
-      $number: (x: number, { withSides }) =>
-        withSides(
+      $number: (x: number, { withSides }) => {
+        const value = `${x / 4}rem`;
+        return withSides(
           false,
-          (side) =>
-            side === "X"
-              ? { left: `${x / 4}rem`, right: `${x / 4}rem` }
-              : { top: `${x / 4}rem`, bottom: `${x / 4}rem` },
-          () => ({
-            left: `${x / 4}rem`,
-            top: `${x / 4}rem`,
-            right: `${x / 4}rem`,
-            bottom: `${x / 4}rem`,
-          })
-        ),
+          (side) => getInset(side, value),
+          () => ({ left: value, top: value, right: value, bottom: value })
+        );
+      },
     }),
     ...withModifiers("visible", {
       $default: () => ({ visibility: "visible" }),
