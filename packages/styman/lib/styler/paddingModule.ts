@@ -7,7 +7,7 @@ const KEYMAP = {
   pl: "paddingLeft",
   pb: "paddingBottom",
   pr: "paddingRight",
-  px: ["paddingLeft", "paddingTop"],
+  px: ["paddingLeft", "paddingRight"],
   py: ["paddingTop", "paddingBottom"],
 };
 

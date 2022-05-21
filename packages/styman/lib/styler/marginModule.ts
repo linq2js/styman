@@ -7,7 +7,7 @@ const KEYMAP = {
   ml: "marginLeft",
   mb: "marginBottom",
   mr: "marginRight",
-  mx: ["marginLeft", "marginTop"],
+  mx: ["marginLeft", "marginRight"],
   my: ["marginTop", "marginBottom"],
 };
 
