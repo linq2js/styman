@@ -2,7 +2,7 @@ import { ColorScheme, Modifiers } from "../dynamic";
 import { SPACING_SELECTOR } from "../utils";
 import { BuildContext } from "./createStyler";
 
-const KEYMAP = {
+export const SPACE_KEYMAP = {
   s: ["x", "y"],
   sx: "x",
   sy: "y",
@@ -33,11 +33,15 @@ export const spaceModule = <C extends ColorScheme, M extends Modifiers>({
   return {
     ...withModifiers(["s", "sx", "sy"], {
       reverse: (_, { withKey }) =>
-        withKey(KEYMAP, (prop) => ({ [`--sm-space-${prop}-reverse`]: 1 })),
+        withKey(SPACE_KEYMAP, (prop) => ({
+          [`--sm-space-${prop}-reverse`]: 1,
+        })),
       px: (_, { withKey }) =>
-        withKey(KEYMAP, (prop) => getSpacing(prop === "x", "1px")),
+        withKey(SPACE_KEYMAP, (prop) => getSpacing(prop === "x", "1px")),
       $number: (x: number, { withKey }) =>
-        withKey(KEYMAP, (prop) => getSpacing(prop === "x", `${x / 4}rem`)),
+        withKey(SPACE_KEYMAP, (prop) =>
+          getSpacing(prop === "x", `${x / 4}rem`)
+        ),
     }),
   };
 };

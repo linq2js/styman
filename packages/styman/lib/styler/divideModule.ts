@@ -2,7 +2,7 @@ import { ColorScheme, Modifiers } from "../dynamic";
 import { BuildContext } from "./createStyler";
 import { SPACING_SELECTOR } from "../utils";
 
-const KEYMAP = {
+export const DIVIDE_KEYMAP = {
   d: ["x", "y"],
   dx: "x",
   dy: "y",
@@ -58,20 +58,20 @@ export const divideModule = <C extends ColorScheme, M extends Modifiers>({
     ...withModifiers(["d", "dx", "dy"], {
       $xy: () => true,
       reverse: (_, { withKey }) =>
-        withKey(KEYMAP, (prop) => ({
+        withKey(DIVIDE_KEYMAP, (prop) => ({
           [SPACING_SELECTOR]: { [`--sm-divide-${prop}-reverse`]: 1 },
         })),
       px: (_, { withKey }) =>
-        withKey(KEYMAP, (prop) => getWidth(prop === "x", "1px")),
+        withKey(DIVIDE_KEYMAP, (prop) => getWidth(prop === "x", "1px")),
       $number: (x: number, { withKey }) =>
-        withKey(KEYMAP, (prop) => getWidth(prop === "x", `${x / 4}rem`)),
+        withKey(DIVIDE_KEYMAP, (prop) => getWidth(prop === "x", `${x / 4}rem`)),
       $custom: withColors(colors, (color, { withKey }) =>
-        withKey(KEYMAP, (prop) => getColor(prop === "x", color))
+        withKey(DIVIDE_KEYMAP, (prop) => getColor(prop === "x", color))
       ),
       ...withValues(
         ["solid", "dotted", "dashed", "none", "double"],
         (style, { withKey }) =>
-          withKey(KEYMAP, (prop) => getStyle(prop === "x", style) as any)
+          withKey(DIVIDE_KEYMAP, (prop) => getStyle(prop === "x", style) as any)
       ),
     }),
   };

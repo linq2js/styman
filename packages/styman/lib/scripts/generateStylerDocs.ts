@@ -1,7 +1,11 @@
 import {
+  BORDER_KEYMAP,
+  BORDER_RADIUS_KEYMAP,
   buildDefaultStyler,
   createStyler,
   defaultColorScheme,
+  MARGIN_KEYMAP,
+  PADDING_KEYMAP,
 } from "../styler";
 import fs from "fs";
 
@@ -29,7 +33,7 @@ const LINKS = Object.entries({
   "|font|": "https://tailwindcss.com/docs/font-family",
   "|leading|": "https://tailwindcss.com/docs/line-height",
   "|cursor|": "https://tailwindcss.com/docs/cursor",
-  "|border|": "https://tailwindcss.com/docs/border-width",
+  "|b|br|bt|bb|bl|bx|by|": "https://tailwindcss.com/docs/border-width",
   "|width|": "https://tailwindcss.com/docs/width",
   "|height|": "https://tailwindcss.com/docs/height",
   "|min_width|": "https://tailwindcss.com/docs/min-width",
@@ -121,11 +125,27 @@ const LINKS = Object.entries({
   "|p|pt|pl|pr|pb|px|py|": "https://tailwindcss.com/docs/pading",
   "|delay|": "https://tailwindcss.com/docs/transition-delay",
   "|transition|": "https://tailwindcss.com/docs/transition-property",
-  "|rounded|": "https://tailwindcss.com/docs/border-radius",
+  "|r|rtl|rbl|rtr|rbr|rt|rl|rb|rr|":
+    "https://tailwindcss.com/docs/border-radius",
   "|shadow|": "https://tailwindcss.com/docs/box-shadow",
   "|block|inline|contents|hidden|list_item|flow_root|inline_block|":
     "https://tailwindcss.com/docs/display",
 });
+
+const LONG_NAMES = {
+  ...MARGIN_KEYMAP,
+  ...BORDER_RADIUS_KEYMAP,
+  ...PADDING_KEYMAP,
+  ...BORDER_KEYMAP,
+  s: "space",
+  sx: "space_x",
+  sy: "space_y",
+  d: "divide",
+  dx: "divide_x",
+  dy: "divide_y",
+  w: "width",
+  h: "height",
+};
 
 const VARITANTS = {
   COLOR: "**color**",
@@ -148,13 +168,20 @@ const lines: string[] = [
   `| Style | Variant | Implementation | Example |`,
   `|:---|:---|:---|:---|`,
 ];
+
+const getLongName = (name: string) => {
+  const value = LONG_NAMES[name as keyof typeof LONG_NAMES];
+  if (!value) return "";
+  return ` (${(Array.isArray(value) ? value : [value]).join(", ")})`;
+};
+
 Object.entries(styler.rules).forEach(([key, rule]: [any, any]) => {
   const variants: string[] = rule.variants ?? [];
   if (!variants.length) variants.push("DEFAULT");
   const link = LINKS.find((x) => x[0].includes(`|${key}|`));
   variants.forEach((variant: string, i) => {
     lines.push(
-      `| ${i === 0 ? key : ""} | ${
+      `| ${i === 0 ? key + getLongName(key) : ""} | ${
         VARITANTS[variant as keyof typeof VARITANTS] ?? variant
       } | ${
         i === 0

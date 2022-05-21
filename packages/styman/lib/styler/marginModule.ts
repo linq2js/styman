@@ -1,7 +1,7 @@
 import { ColorScheme, Modifiers } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
-const KEYMAP = {
+export const MARGIN_KEYMAP = {
   m: "margin",
   mt: "marginTop",
   ml: "marginLeft",
@@ -16,12 +16,14 @@ export const marginModule = <C extends ColorScheme, M extends Modifiers>({
 }: BuildContext<C, M>) => {
   return {
     ...withModifiers(["ml", "mr", "mb", "mt", "mx", "my"], {
-      px: (_, { withKey }) => withKey(KEYMAP, (prop) => ({ [prop]: "1px" })),
-      auto: (_, { withKey }) => withKey(KEYMAP, (prop) => ({ [prop]: "auto" })),
+      px: (_, { withKey }) =>
+        withKey(MARGIN_KEYMAP, (prop) => ({ [prop]: "1px" })),
+      auto: (_, { withKey }) =>
+        withKey(MARGIN_KEYMAP, (prop) => ({ [prop]: "auto" })),
       $number: (value: number, { withKey }) =>
-        withKey(KEYMAP, (prop) => ({ [prop]: `${value / 4}rem` })),
+        withKey(MARGIN_KEYMAP, (prop) => ({ [prop]: `${value / 4}rem` })),
       $fraction: ([a, b], { withKey }) =>
-        withKey(KEYMAP, (prop) => ({ [prop]: `${(a / b) * 100}%` })),
+        withKey(MARGIN_KEYMAP, (prop) => ({ [prop]: `${(a / b) * 100}%` })),
     }),
   };
 };

@@ -1,7 +1,7 @@
 import { ColorScheme, Modifiers } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
-const KEYMAP = {
+export const PADDING_KEYMAP = {
   p: "padding",
   pt: "paddingTop",
   pl: "paddingLeft",
@@ -16,11 +16,12 @@ export const paddingModule = <C extends ColorScheme, M extends Modifiers>({
 }: BuildContext<C, M>) => {
   return {
     ...withModifiers(["p", "pl", "pt", "pr", "pb", "px", "py"], {
-      px: (_, { withKey }) => withKey(KEYMAP, (prop) => ({ [prop]: "1px" })),
+      px: (_, { withKey }) =>
+        withKey(PADDING_KEYMAP, (prop) => ({ [prop]: "1px" })),
       $number: (value: number, { withKey }) =>
-        withKey(KEYMAP, (prop) => ({ [prop]: `${value / 4}rem` })),
+        withKey(PADDING_KEYMAP, (prop) => ({ [prop]: `${value / 4}rem` })),
       $fraction: ([a, b], { withKey }) =>
-        withKey(KEYMAP, (prop) => ({ [prop]: `${(a / b) * 100}%` })),
+        withKey(PADDING_KEYMAP, (prop) => ({ [prop]: `${(a / b) * 100}%` })),
     }),
   };
 };

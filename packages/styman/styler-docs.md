@@ -209,15 +209,63 @@
 |  | zoom-in |  | `styler({ cursor: 'zoom-in' })` |
 |  | zoom-out |  | `styler({ cursor: 'zoom-out' })` |
 |  |  |  |
-| border | **number** | [Click here to see implementation](https://tailwindcss.com/docs/border-width) | `styler({ border: 5 })` |
-|  | **color** |  | `styler({ border: 'red' })` or `styler({ border: 'red-500' })` |
-|  | solid |  | `styler({ border: 'solid' })` |
-|  | dashed |  | `styler({ border: 'dashed' })` |
-|  | dotted |  | `styler({ border: 'dotted' })` |
-|  | double |  | `styler({ border: 'double' })` |
-|  | hidden |  | `styler({ border: 'hidden' })` |
+| b (border) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/border-width) | `styler({ b: 5 })` |
+|  | **color** |  | `styler({ b: 'red' })` or `styler({ b: 'red-500' })` |
+|  | solid |  | `styler({ b: 'solid' })` |
+|  | dashed |  | `styler({ b: 'dashed' })` |
+|  | dotted |  | `styler({ b: 'dotted' })` |
+|  | double |  | `styler({ b: 'double' })` |
+|  | hidden |  | `styler({ b: 'hidden' })` |
 |  |  |  |
-| w | **A/B** |  | `styler({ w: '1/2' })` |
+| bl (borderLeft) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/border-width) | `styler({ bl: 5 })` |
+|  | **color** |  | `styler({ bl: 'red' })` or `styler({ bl: 'red-500' })` |
+|  | solid |  | `styler({ bl: 'solid' })` |
+|  | dashed |  | `styler({ bl: 'dashed' })` |
+|  | dotted |  | `styler({ bl: 'dotted' })` |
+|  | double |  | `styler({ bl: 'double' })` |
+|  | hidden |  | `styler({ bl: 'hidden' })` |
+|  |  |  |
+| br (borderRight) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/border-width) | `styler({ br: 5 })` |
+|  | **color** |  | `styler({ br: 'red' })` or `styler({ br: 'red-500' })` |
+|  | solid |  | `styler({ br: 'solid' })` |
+|  | dashed |  | `styler({ br: 'dashed' })` |
+|  | dotted |  | `styler({ br: 'dotted' })` |
+|  | double |  | `styler({ br: 'double' })` |
+|  | hidden |  | `styler({ br: 'hidden' })` |
+|  |  |  |
+| bt (borderTop) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/border-width) | `styler({ bt: 5 })` |
+|  | **color** |  | `styler({ bt: 'red' })` or `styler({ bt: 'red-500' })` |
+|  | solid |  | `styler({ bt: 'solid' })` |
+|  | dashed |  | `styler({ bt: 'dashed' })` |
+|  | dotted |  | `styler({ bt: 'dotted' })` |
+|  | double |  | `styler({ bt: 'double' })` |
+|  | hidden |  | `styler({ bt: 'hidden' })` |
+|  |  |  |
+| bb (borderBottom) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/border-width) | `styler({ bb: 5 })` |
+|  | **color** |  | `styler({ bb: 'red' })` or `styler({ bb: 'red-500' })` |
+|  | solid |  | `styler({ bb: 'solid' })` |
+|  | dashed |  | `styler({ bb: 'dashed' })` |
+|  | dotted |  | `styler({ bb: 'dotted' })` |
+|  | double |  | `styler({ bb: 'double' })` |
+|  | hidden |  | `styler({ bb: 'hidden' })` |
+|  |  |  |
+| bx (borderLeft, borderRight) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/border-width) | `styler({ bx: 5 })` |
+|  | **color** |  | `styler({ bx: 'red' })` or `styler({ bx: 'red-500' })` |
+|  | solid |  | `styler({ bx: 'solid' })` |
+|  | dashed |  | `styler({ bx: 'dashed' })` |
+|  | dotted |  | `styler({ bx: 'dotted' })` |
+|  | double |  | `styler({ bx: 'double' })` |
+|  | hidden |  | `styler({ bx: 'hidden' })` |
+|  |  |  |
+| by (borderTop, borderBottom) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/border-width) | `styler({ by: 5 })` |
+|  | **color** |  | `styler({ by: 'red' })` or `styler({ by: 'red-500' })` |
+|  | solid |  | `styler({ by: 'solid' })` |
+|  | dashed |  | `styler({ by: 'dashed' })` |
+|  | dotted |  | `styler({ by: 'dotted' })` |
+|  | double |  | `styler({ by: 'double' })` |
+|  | hidden |  | `styler({ by: 'hidden' })` |
+|  |  |  |
+| w (width) | **A/B** |  | `styler({ w: '1/2' })` |
 |  | **number** |  | `styler({ w: 5 })` |
 |  | screen |  | `styler({ w: 'screen' })` |
 |  | px |  | `styler({ w: 'px' })` |
@@ -261,7 +309,7 @@
 |  | screen-xl |  | `styler({ max_w: 'screen-xl' })` |
 |  | screen-2xl |  | `styler({ max_w: 'screen-2xl' })` |
 |  |  |  |
-| h | **A/B** |  | `styler({ h: '1/2' })` |
+| h (height) | **A/B** |  | `styler({ h: '1/2' })` |
 |  | **number** |  | `styler({ h: 5 })` |
 |  | screen |  | `styler({ h: 'screen' })` |
 |  | px |  | `styler({ h: 'px' })` |
@@ -793,7 +841,7 @@
 | backdrop_sepia | **true** | [Click here to see implementation](https://tailwindcss.com/docs/backdrop-sepia) | `styler({ backdrop_sepia: true })` |
 |  | **number** |  | `styler({ backdrop_sepia: 5 })` |
 |  |  |  |
-| d | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ d: 5 })` |
+| d (divide) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ d: 5 })` |
 |  | **color** |  | `styler({ d: 'red' })` or `styler({ d: 'red-500' })` |
 |  | reverse |  | `styler({ d: 'reverse' })` |
 |  | px |  | `styler({ d: 'px' })` |
@@ -803,7 +851,7 @@
 |  | none |  | `styler({ d: 'none' })` |
 |  | double |  | `styler({ d: 'double' })` |
 |  |  |  |
-| dx | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ dx: 5 })` |
+| dx (divide_x) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ dx: 5 })` |
 |  | **color** |  | `styler({ dx: 'red' })` or `styler({ dx: 'red-500' })` |
 |  | reverse |  | `styler({ dx: 'reverse' })` |
 |  | px |  | `styler({ dx: 'px' })` |
@@ -813,7 +861,7 @@
 |  | none |  | `styler({ dx: 'none' })` |
 |  | double |  | `styler({ dx: 'double' })` |
 |  |  |  |
-| dy | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ dy: 5 })` |
+| dy (divide_y) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ dy: 5 })` |
 |  | **color** |  | `styler({ dy: 'red' })` or `styler({ dy: 'red-500' })` |
 |  | reverse |  | `styler({ dy: 'reverse' })` |
 |  | px |  | `styler({ dy: 'px' })` |
@@ -823,73 +871,73 @@
 |  | none |  | `styler({ dy: 'none' })` |
 |  | double |  | `styler({ dy: 'double' })` |
 |  |  |  |
-| s | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ s: 5 })` |
+| s (space) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ s: 5 })` |
 |  | reverse |  | `styler({ s: 'reverse' })` |
 |  | px |  | `styler({ s: 'px' })` |
 |  |  |  |
-| sx | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ sx: 5 })` |
+| sx (space_x) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ sx: 5 })` |
 |  | reverse |  | `styler({ sx: 'reverse' })` |
 |  | px |  | `styler({ sx: 'px' })` |
 |  |  |  |
-| sy | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ sy: 5 })` |
+| sy (space_y) | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ sy: 5 })` |
 |  | reverse |  | `styler({ sy: 'reverse' })` |
 |  | px |  | `styler({ sy: 'px' })` |
 |  |  |  |
-| ml | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ ml: '1/2' })` |
+| ml (marginLeft) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ ml: '1/2' })` |
 |  | **number** |  | `styler({ ml: 5 })` |
 |  | px |  | `styler({ ml: 'px' })` |
 |  | auto |  | `styler({ ml: 'auto' })` |
 |  |  |  |
-| mr | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mr: '1/2' })` |
+| mr (marginRight) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mr: '1/2' })` |
 |  | **number** |  | `styler({ mr: 5 })` |
 |  | px |  | `styler({ mr: 'px' })` |
 |  | auto |  | `styler({ mr: 'auto' })` |
 |  |  |  |
-| mb | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mb: '1/2' })` |
+| mb (marginBottom) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mb: '1/2' })` |
 |  | **number** |  | `styler({ mb: 5 })` |
 |  | px |  | `styler({ mb: 'px' })` |
 |  | auto |  | `styler({ mb: 'auto' })` |
 |  |  |  |
-| mt | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mt: '1/2' })` |
+| mt (marginTop) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mt: '1/2' })` |
 |  | **number** |  | `styler({ mt: 5 })` |
 |  | px |  | `styler({ mt: 'px' })` |
 |  | auto |  | `styler({ mt: 'auto' })` |
 |  |  |  |
-| mx | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mx: '1/2' })` |
+| mx (marginLeft, marginRight) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mx: '1/2' })` |
 |  | **number** |  | `styler({ mx: 5 })` |
 |  | px |  | `styler({ mx: 'px' })` |
 |  | auto |  | `styler({ mx: 'auto' })` |
 |  |  |  |
-| my | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ my: '1/2' })` |
+| my (marginTop, marginBottom) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ my: '1/2' })` |
 |  | **number** |  | `styler({ my: 5 })` |
 |  | px |  | `styler({ my: 'px' })` |
 |  | auto |  | `styler({ my: 'auto' })` |
 |  |  |  |
-| p | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ p: '1/2' })` |
+| p (padding) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ p: '1/2' })` |
 |  | **number** |  | `styler({ p: 5 })` |
 |  | px |  | `styler({ p: 'px' })` |
 |  |  |  |
-| pl | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pl: '1/2' })` |
+| pl (paddingLeft) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pl: '1/2' })` |
 |  | **number** |  | `styler({ pl: 5 })` |
 |  | px |  | `styler({ pl: 'px' })` |
 |  |  |  |
-| pt | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pt: '1/2' })` |
+| pt (paddingTop) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pt: '1/2' })` |
 |  | **number** |  | `styler({ pt: 5 })` |
 |  | px |  | `styler({ pt: 'px' })` |
 |  |  |  |
-| pr | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pr: '1/2' })` |
+| pr (paddingRight) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pr: '1/2' })` |
 |  | **number** |  | `styler({ pr: 5 })` |
 |  | px |  | `styler({ pr: 'px' })` |
 |  |  |  |
-| pb | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pb: '1/2' })` |
+| pb (paddingBottom) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pb: '1/2' })` |
 |  | **number** |  | `styler({ pb: 5 })` |
 |  | px |  | `styler({ pb: 'px' })` |
 |  |  |  |
-| px | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ px: '1/2' })` |
+| px (paddingLeft, paddingRight) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ px: '1/2' })` |
 |  | **number** |  | `styler({ px: 5 })` |
 |  | px |  | `styler({ px: 'px' })` |
 |  |  |  |
-| py | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ py: '1/2' })` |
+| py (paddingTop, paddingBottom) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ py: '1/2' })` |
 |  | **number** |  | `styler({ py: 5 })` |
 |  | px |  | `styler({ py: 'px' })` |
 |  |  |  |
@@ -908,16 +956,104 @@
 |  | transform |  | `styler({ transition: 'transform' })` |
 |  | colors |  | `styler({ transition: 'colors' })` |
 |  |  |  |
-| rounded | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/border-radius) | `styler({ rounded: '1/2' })` |
-|  | **number** |  | `styler({ rounded: 5 })` |
-|  | none |  | `styler({ rounded: 'none' })` |
-|  | sm |  | `styler({ rounded: 'sm' })` |
-|  | md |  | `styler({ rounded: 'md' })` |
-|  | lg |  | `styler({ rounded: 'lg' })` |
-|  | xl |  | `styler({ rounded: 'xl' })` |
-|  | 2xl |  | `styler({ rounded: '2xl' })` |
-|  | 3xl |  | `styler({ rounded: '3xl' })` |
-|  | full |  | `styler({ rounded: 'full' })` |
+| r (borderRadius) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/border-radius) | `styler({ r: '1/2' })` |
+|  | **number** |  | `styler({ r: 5 })` |
+|  | none |  | `styler({ r: 'none' })` |
+|  | sm |  | `styler({ r: 'sm' })` |
+|  | md |  | `styler({ r: 'md' })` |
+|  | lg |  | `styler({ r: 'lg' })` |
+|  | xl |  | `styler({ r: 'xl' })` |
+|  | 2xl |  | `styler({ r: '2xl' })` |
+|  | 3xl |  | `styler({ r: '3xl' })` |
+|  | full |  | `styler({ r: 'full' })` |
+|  |  |  |
+| r_tl (borderTopLeftRadius) | **A/B** |  | `styler({ r_tl: '1/2' })` |
+|  | **number** |  | `styler({ r_tl: 5 })` |
+|  | none |  | `styler({ r_tl: 'none' })` |
+|  | sm |  | `styler({ r_tl: 'sm' })` |
+|  | md |  | `styler({ r_tl: 'md' })` |
+|  | lg |  | `styler({ r_tl: 'lg' })` |
+|  | xl |  | `styler({ r_tl: 'xl' })` |
+|  | 2xl |  | `styler({ r_tl: '2xl' })` |
+|  | 3xl |  | `styler({ r_tl: '3xl' })` |
+|  | full |  | `styler({ r_tl: 'full' })` |
+|  |  |  |
+| r_bl (borderBottomLeftRadius) | **A/B** |  | `styler({ r_bl: '1/2' })` |
+|  | **number** |  | `styler({ r_bl: 5 })` |
+|  | none |  | `styler({ r_bl: 'none' })` |
+|  | sm |  | `styler({ r_bl: 'sm' })` |
+|  | md |  | `styler({ r_bl: 'md' })` |
+|  | lg |  | `styler({ r_bl: 'lg' })` |
+|  | xl |  | `styler({ r_bl: 'xl' })` |
+|  | 2xl |  | `styler({ r_bl: '2xl' })` |
+|  | 3xl |  | `styler({ r_bl: '3xl' })` |
+|  | full |  | `styler({ r_bl: 'full' })` |
+|  |  |  |
+| r_tr (borderTopRightRadius) | **A/B** |  | `styler({ r_tr: '1/2' })` |
+|  | **number** |  | `styler({ r_tr: 5 })` |
+|  | none |  | `styler({ r_tr: 'none' })` |
+|  | sm |  | `styler({ r_tr: 'sm' })` |
+|  | md |  | `styler({ r_tr: 'md' })` |
+|  | lg |  | `styler({ r_tr: 'lg' })` |
+|  | xl |  | `styler({ r_tr: 'xl' })` |
+|  | 2xl |  | `styler({ r_tr: '2xl' })` |
+|  | 3xl |  | `styler({ r_tr: '3xl' })` |
+|  | full |  | `styler({ r_tr: 'full' })` |
+|  |  |  |
+| r_br (borderBottomRightRadius) | **A/B** |  | `styler({ r_br: '1/2' })` |
+|  | **number** |  | `styler({ r_br: 5 })` |
+|  | none |  | `styler({ r_br: 'none' })` |
+|  | sm |  | `styler({ r_br: 'sm' })` |
+|  | md |  | `styler({ r_br: 'md' })` |
+|  | lg |  | `styler({ r_br: 'lg' })` |
+|  | xl |  | `styler({ r_br: 'xl' })` |
+|  | 2xl |  | `styler({ r_br: '2xl' })` |
+|  | 3xl |  | `styler({ r_br: '3xl' })` |
+|  | full |  | `styler({ r_br: 'full' })` |
+|  |  |  |
+| rt (borderTopLeftRadius, borderTopRightRadius) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/border-radius) | `styler({ rt: '1/2' })` |
+|  | **number** |  | `styler({ rt: 5 })` |
+|  | none |  | `styler({ rt: 'none' })` |
+|  | sm |  | `styler({ rt: 'sm' })` |
+|  | md |  | `styler({ rt: 'md' })` |
+|  | lg |  | `styler({ rt: 'lg' })` |
+|  | xl |  | `styler({ rt: 'xl' })` |
+|  | 2xl |  | `styler({ rt: '2xl' })` |
+|  | 3xl |  | `styler({ rt: '3xl' })` |
+|  | full |  | `styler({ rt: 'full' })` |
+|  |  |  |
+| rl (borderTopLeftRadius, borderBottomLeftRadius) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/border-radius) | `styler({ rl: '1/2' })` |
+|  | **number** |  | `styler({ rl: 5 })` |
+|  | none |  | `styler({ rl: 'none' })` |
+|  | sm |  | `styler({ rl: 'sm' })` |
+|  | md |  | `styler({ rl: 'md' })` |
+|  | lg |  | `styler({ rl: 'lg' })` |
+|  | xl |  | `styler({ rl: 'xl' })` |
+|  | 2xl |  | `styler({ rl: '2xl' })` |
+|  | 3xl |  | `styler({ rl: '3xl' })` |
+|  | full |  | `styler({ rl: 'full' })` |
+|  |  |  |
+| rb (borderBottomLeftRadius, borderBottomRightRadius) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/border-radius) | `styler({ rb: '1/2' })` |
+|  | **number** |  | `styler({ rb: 5 })` |
+|  | none |  | `styler({ rb: 'none' })` |
+|  | sm |  | `styler({ rb: 'sm' })` |
+|  | md |  | `styler({ rb: 'md' })` |
+|  | lg |  | `styler({ rb: 'lg' })` |
+|  | xl |  | `styler({ rb: 'xl' })` |
+|  | 2xl |  | `styler({ rb: '2xl' })` |
+|  | 3xl |  | `styler({ rb: '3xl' })` |
+|  | full |  | `styler({ rb: 'full' })` |
+|  |  |  |
+| rr (borderTopRightRadius, borderBottomRightRadius) | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/border-radius) | `styler({ rr: '1/2' })` |
+|  | **number** |  | `styler({ rr: 5 })` |
+|  | none |  | `styler({ rr: 'none' })` |
+|  | sm |  | `styler({ rr: 'sm' })` |
+|  | md |  | `styler({ rr: 'md' })` |
+|  | lg |  | `styler({ rr: 'lg' })` |
+|  | xl |  | `styler({ rr: 'xl' })` |
+|  | 2xl |  | `styler({ rr: '2xl' })` |
+|  | 3xl |  | `styler({ rr: '3xl' })` |
+|  | full |  | `styler({ rr: 'full' })` |
 |  |  |  |
 | shadow | **color** | [Click here to see implementation](https://tailwindcss.com/docs/box-shadow) | `styler({ shadow: 'red' })` or `styler({ shadow: 'red-500' })` |
 |  | sm |  | `styler({ shadow: 'sm' })` |
