@@ -7,14 +7,37 @@ import {
 } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
-const getInset = (side: Side, value: string) => {
-  if (side === "X") return { left: value, right: value };
-  if (side === "Y") return { top: value, bottom: value };
-  if (side === "L") return { left: 0, top: 0, bottom: 0, width: value };
-  if (side === "R") return { right: 0, top: 0, bottom: 0, width: value };
-  if (side === "B") return { right: 0, bottom: 0, left: 0, height: value };
-  if (side === "T") return { right: 0, top: 0, left: 0, height: value };
-  return undefined;
+const getInset = (sides: Side[] | undefined, value: string) => {
+  const hasLeft = sides?.includes("L");
+  const hasRight = sides?.includes("R");
+  const hasBottom = sides?.includes("B");
+  const hasTop = sides?.includes("T");
+
+  if (hasLeft && hasRight && !hasBottom && !hasTop)
+    return { left: value, right: value };
+
+  if (hasTop && hasBottom && !hasLeft && !hasRight)
+    return { top: value, bottom: value };
+
+  if (hasLeft && !hasBottom && !hasTop && !hasRight) {
+    return { left: 0, top: 0, bottom: 0, width: value };
+  }
+  if (!hasLeft && !hasBottom && !hasTop && hasRight) {
+    return { right: 0, top: 0, bottom: 0, width: value };
+  }
+  if (!hasLeft && hasBottom && !hasTop && !hasRight) {
+    return { right: 0, bottom: 0, left: 0, height: value };
+  }
+  if (hasLeft && hasBottom && hasTop && !hasRight) {
+    return { right: 0, top: 0, left: 0, height: value };
+  }
+
+  return {
+    left: value,
+    top: value,
+    right: value,
+    bottom: value,
+  };
 };
 
 export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
@@ -40,21 +63,13 @@ export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
 
     ...withModifiers("inset", {
       $sides: () => true,
-      $fraction: ([a, b], { withSides }) => {
+      $fraction: ([a, b], { sides }) => {
         const value = `${(a / b) * 100}%`;
-        return withSides(
-          false,
-          (side) => getInset(side, value),
-          () => ({ left: value, top: value, right: value, bottom: value })
-        );
+        return getInset(sides, value);
       },
-      $number: (x: number, { withSides }) => {
+      $number: (x: number, { sides }) => {
         const value = `${x / 4}rem`;
-        return withSides(
-          false,
-          (side) => getInset(side, value),
-          () => ({ left: value, top: value, right: value, bottom: value })
-        );
+        return getInset(sides, value);
       },
     }),
     ...withModifiers("visible", {
