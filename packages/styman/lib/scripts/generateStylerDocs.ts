@@ -180,10 +180,10 @@ Object.entries(styler.rules).forEach(([key, rule]: [any, any]) => {
   toc.push(`[${key}](#${key})`);
   const longName = getLongName(key);
   if (longName) {
-    contents.push(`Styles: ${longName}`);
+    contents.push(`Styles: ${longName}\n`);
   }
   if (link) {
-    contents.push(`[Click here to see Tailwind implementation](${link[1]})`);
+    contents.push(`[Click here to see Tailwind implementation](${link[1]})\n`);
   }
   // befin of table
   contents.push(`| Variant | Example |`, `|:---|:---|`);
