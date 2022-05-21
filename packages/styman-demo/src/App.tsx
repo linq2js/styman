@@ -32,8 +32,8 @@ const Page = ({ active, ...props }: PageProps) => {
         h: "full",
       },
       active
-        ? { opacity: 1, scale: 100, rounded: "none", zindex: 1 }
-        : { opacity: 0, scale: 0, rounded: "full" },
+        ? { opacity: 1, scale: 100, r: "none", zindex: 1 }
+        : { opacity: 0, scale: 0, r: "full" },
     ],
     props.className
   );
@@ -69,7 +69,7 @@ function App() {
               text: ["uppercase", "slate-300"],
               flex: true,
               font: "xs",
-              s: 4,
+              sx: 4,
             })}
           >
             {Object.keys(PAGES).map((key) => (
@@ -92,7 +92,9 @@ function App() {
             ))}
           </div>
           <div className={css({ grow: 1, relative: true, overflow: "hidden" })}>
-            <Page active={page === "about"}>About page</Page>
+            <Page active={page === "about"}>
+              <div className={css({ inset: ["L", 10] })}></div>
+            </Page>
             <Page active={page === "experience"}>Experience page</Page>
             <Page active={page === "work"}>Work page</Page>
             <Page active={page === "contact"}>Contact page</Page>
