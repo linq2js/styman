@@ -28,8 +28,8 @@ const Page = ({ active, ...props }: PageProps) => {
         transition: ["all", 400, "in-out"],
         origin: ["left", "top"],
         absolute: true,
-        width: "full",
-        height: "full",
+        w: "full",
+        h: "full",
       },
       active
         ? { opacity: 1, scale: 100, rounded: "none", zindex: 1 }
@@ -46,26 +46,21 @@ function App() {
   return (
     <div
       className={css({
-        width: "screen",
-        height: "screen",
-        back: "slate-900",
+        w: "screen",
+        h: "screen",
+        bg: "slate-900",
         text: "white",
       })}
     >
-      <div
-        className={css({ container: true, margin: ["X", "auto"], flex: true })}
-      >
-        <div
-          className={css({ width: 80, height: "screen", back: "slate-800" })}
-        >
+      <div className={css({ container: true, mx: "auto", flex: true })}>
+        <div className={css({ w: 80, h: "screen", bg: "slate-800" })}>
           Side bar
         </div>
         <div
           className={css({
-            grow: 1,
-            flex: "col",
-            height: "screen",
-            back: "slate-700",
+            flex: ["col", 1],
+            h: "screen",
+            bg: "slate-700",
           })}
         >
           {/* navigation */}
@@ -74,7 +69,7 @@ function App() {
               text: ["uppercase", "slate-300"],
               flex: true,
               font: "xs",
-              space: 4,
+              s: 4,
             })}
           >
             {Object.keys(PAGES).map((key) => (
@@ -87,7 +82,8 @@ function App() {
                   },
                   cursor: "pointer",
                   transition: ["colors", 300],
-                  padding: ["X", 4, "Y", 2],
+                  px: 4,
+                  py: 2,
                 })}
                 onClick={() => setPage(key)}
               >
