@@ -137,6 +137,7 @@ const LONG_NAMES = {
   ...BORDER_RADIUS_KEYMAP,
   ...PADDING_KEYMAP,
   ...BORDER_KEYMAP,
+  bg: "background",
   s: "space",
   sx: "space_x",
   sy: "space_y",
@@ -161,35 +162,34 @@ const styler = createStyler({
   build: buildDefaultStyler,
 });
 
-const lines: string[] = [
-  "# `Default Styler Styles`",
-  `[See Tailwind implementations for further info](https://tailwindcss.com/docs/installation)`,
-  "",
-  `| Style | Variant | Implementation | Example |`,
-  `|:---|:---|:---|:---|`,
-];
+const toc: string[] = [];
+const contents: string[] = [];
 
 const getLongName = (name: string) => {
   const value = LONG_NAMES[name as keyof typeof LONG_NAMES];
   if (!value) return "";
-  return ` (${(Array.isArray(value) ? value : [value]).join(", ")})`;
+  return `${(Array.isArray(value) ? value : [value]).join(", ")}`;
 };
 
 Object.entries(styler.rules).forEach(([key, rule]: [any, any]) => {
   const variants: string[] = rule.variants ?? [];
   if (!variants.length) variants.push("DEFAULT");
   const link = LINKS.find((x) => x[0].includes(`|${key}|`));
-  variants.forEach((variant: string, i) => {
-    lines.push(
-      `| ${i === 0 ? key + getLongName(key) : ""} | ${
-        VARITANTS[variant as keyof typeof VARITANTS] ?? variant
-      } | ${
-        i === 0
-          ? link
-            ? `[Click here to see implementation](${link[1]})`
-            : ""
-          : ""
-      } | ${
+
+  contents.push(`## ${key}`);
+  toc.push(`[${key}](#${key})`);
+  const longName = getLongName(key);
+  if (longName) {
+    contents.push(`Styles: ${longName}`);
+  }
+  if (link) {
+    contents.push(`[Click here to see Tailwind implementation](${link[1]})`);
+  }
+  // befin of table
+  contents.push(`| Variant | Example |`, `|:---|:---|`);
+  variants.forEach((variant: string) => {
+    contents.push(
+      `| ${VARITANTS[variant as keyof typeof VARITANTS] ?? variant} | ${
         EXAMPLES[variant as keyof typeof EXAMPLES]
           ?.replace(/@style/g, key)
           ?.replace(/@variant/g, variant) ??
@@ -197,7 +197,16 @@ Object.entries(styler.rules).forEach(([key, rule]: [any, any]) => {
       } |`
     );
   });
-  lines.push("|  |  |  |");
+  contents.push("\n\n");
 });
 
-fs.writeFileSync("./packages/styman/styler-docs.md", lines.join("\n"), "utf-8");
+fs.writeFileSync(
+  "./packages/styman/styler-docs.md",
+  [
+    "# `Default Styler Styles`",
+    `## All styles`,
+    toc.join(", "),
+    ...contents,
+  ].join("\n"),
+  "utf-8"
+);
