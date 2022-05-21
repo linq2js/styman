@@ -309,13 +309,28 @@ import {
 } from "styman/styler";
 
 // create a styler with default color scheme
-const css = createStyler({
+const styler = createStyler({
   colors: defaultColorScheme,
   // using buildDefaultStyler to build a styler with common modules
   build: buildDefaultStyler,
 });
 
-// you implement custom styler with following code
+// single variant
+const class1 = styler({ bg: "red" });
+
+// multiple variants
+const class2 = styler({ bg: ["red", "scroll"] });
+
+// combine with normal CSS props
+const class2 = styler(
+  { bg: ["red", "no-repeat"], font: "2xl" },
+  { backgroundImage: `url(your-image)` }
+);
+```
+
+### Custom Styler
+
+```js
 import {
   BuildContext,
   backgroundModule,
@@ -342,12 +357,13 @@ import {
   borderRadiusModule,
   outlineModule,
   boxShadowModule,
+  red,
+  green,
+  blue,
+  orange,
 } from "styman/styler";
-import { ColorScheme, Modifiers } from "styman/dynamic";
 
-export const buildCustomStyler = <C extends ColorScheme, M extends Modifiers>(
-  context: BuildContext<C, M>
-) => {
+const buildCustomStyler = (context) => {
   return {
     ...backgroundModule(context),
     ...textModule(context),
@@ -375,6 +391,17 @@ export const buildCustomStyler = <C extends ColorScheme, M extends Modifiers>(
     ...boxShadowModule(context),
   };
 };
+
+const styler = createStyler({
+  // custom color scheme
+  colors: {
+    primary: blue,
+    success: green,
+    danger: red,
+    wraning: orange,
+  },
+  build: buildCustomStyler,
+});
 ```
 
 ## [Default Styler References](https://github.com/linq2js/styman/blob/main/packages/styman/styler-docs.md)
