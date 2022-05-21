@@ -17,7 +17,7 @@ const EXAMPLES = {
 };
 
 const LINKS = Object.entries({
-  "|back|": "https://tailwindcss.com/docs/background-attachment",
+  "|bg|": "https://tailwindcss.com/docs/background-attachment",
   "|from|to|via|": "https://tailwindcss.com/docs/gradient-color-stops",
   "|tracking|": "https://tailwindcss.com/docs/letter-spacing",
   "|decoration": "https://tailwindcss.com/docs/text-decoration",
@@ -115,10 +115,10 @@ const LINKS = Object.entries({
   "|backdrop_saturate|": "https://tailwindcss.com/docs/backdrop-saturate",
   "|backdrop_opacity|": "https://tailwindcss.com/docs/backdrop-opacity",
   "|backdrop_sepia|": "https://tailwindcss.com/docs/backdrop-sepia",
-  "|divide|": "https://tailwindcss.com/docs/divide-width",
-  "|space|": "https://tailwindcss.com/docs/space",
-  "|margin|": "https://tailwindcss.com/docs/margin",
-  "|padding|": "https://tailwindcss.com/docs/pading",
+  "|d|dx|dy|": "https://tailwindcss.com/docs/divide-width",
+  "|s|sx|sy|": "https://tailwindcss.com/docs/space",
+  "|m|mt|ml|mr|mb|mx|my|": "https://tailwindcss.com/docs/margin",
+  "|p|pt|pl|pr|pb|px|py|": "https://tailwindcss.com/docs/pading",
   "|delay|": "https://tailwindcss.com/docs/transition-delay",
   "|transition|": "https://tailwindcss.com/docs/transition-property",
   "|rounded|": "https://tailwindcss.com/docs/border-radius",
@@ -150,6 +150,7 @@ const lines: string[] = [
 ];
 Object.entries(styler.rules).forEach(([key, rule]: [any, any]) => {
   const variants: string[] = rule.variants ?? [];
+  if (!variants.length) variants.push("DEFAULT");
   const link = LINKS.find((x) => x[0].includes(`|${key}|`));
   variants.forEach((variant: string, i) => {
     lines.push(

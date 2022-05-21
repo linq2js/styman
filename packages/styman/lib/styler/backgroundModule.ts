@@ -8,7 +8,7 @@ export const backgroundModule = <C extends ColorScheme, M extends Modifiers>({
   withColors,
 }: BuildContext<C, M>) => {
   return {
-    ...withModifiers("back", {
+    ...withModifiers("bg", {
       ...withValues(["fixed", "local", "scroll"], (x) => ({
         backgroundAttachment: x,
       })),
@@ -88,9 +88,7 @@ export const backgroundModule = <C extends ColorScheme, M extends Modifiers>({
         },
         (x) => ({ backgroundImage: x })
       ),
-      $custom: withColors(colors, (color, { withSides }) =>
-        withSides("background", (name) => ({ [name]: color }))
-      ),
+      $custom: withColors(colors, (color) => ({ backgroundColor: color })),
     }),
     ...withModifiers("from", {
       inherit: () => ({

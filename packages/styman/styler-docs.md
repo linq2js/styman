@@ -3,46 +3,46 @@
 
 | Style | Variant | Implementation | Example |
 |:---|:---|:---|:---|
-| back | **color** | [Click here to see implementation](https://tailwindcss.com/docs/background-attachment) | `styler({ back: 'red' })` or `styler({ back: 'red-500' })` |
-|  | fixed |  | `styler({ back: 'fixed' })` |
-|  | local |  | `styler({ back: 'local' })` |
-|  | scroll |  | `styler({ back: 'scroll' })` |
-|  | clip-border |  | `styler({ back: 'clip-border' })` |
-|  | clip-padding |  | `styler({ back: 'clip-padding' })` |
-|  | clip-content |  | `styler({ back: 'clip-content' })` |
-|  | clip-text |  | `styler({ back: 'clip-text' })` |
-|  | origin-border |  | `styler({ back: 'origin-border' })` |
-|  | origin-padding |  | `styler({ back: 'origin-padding' })` |
-|  | origin-content |  | `styler({ back: 'origin-content' })` |
-|  | inherit |  | `styler({ back: 'inherit' })` |
-|  | current |  | `styler({ back: 'current' })` |
-|  | bottom |  | `styler({ back: 'bottom' })` |
-|  | center |  | `styler({ back: 'center' })` |
-|  | left |  | `styler({ back: 'left' })` |
-|  | left-bottom |  | `styler({ back: 'left-bottom' })` |
-|  | left-top |  | `styler({ back: 'left-top' })` |
-|  | right |  | `styler({ back: 'right' })` |
-|  | right-bottom |  | `styler({ back: 'right-bottom' })` |
-|  | right-top |  | `styler({ back: 'right-top' })` |
-|  | top |  | `styler({ back: 'top' })` |
-|  | repeat |  | `styler({ back: 'repeat' })` |
-|  | no-repeat |  | `styler({ back: 'no-repeat' })` |
-|  | repeat-x |  | `styler({ back: 'repeat-x' })` |
-|  | repeat-y |  | `styler({ back: 'repeat-y' })` |
-|  | repeat-round |  | `styler({ back: 'repeat-round' })` |
-|  | repeat-space |  | `styler({ back: 'repeat-space' })` |
-|  | auto |  | `styler({ back: 'auto' })` |
-|  | cover |  | `styler({ back: 'cover' })` |
-|  | contain |  | `styler({ back: 'contain' })` |
-|  | none |  | `styler({ back: 'none' })` |
-|  | gradient-to-t |  | `styler({ back: 'gradient-to-t' })` |
-|  | gradient-to-tl |  | `styler({ back: 'gradient-to-tl' })` |
-|  | gradient-to-l |  | `styler({ back: 'gradient-to-l' })` |
-|  | gradient-to-bl |  | `styler({ back: 'gradient-to-bl' })` |
-|  | gradient-to-b |  | `styler({ back: 'gradient-to-b' })` |
-|  | gradient-to-br |  | `styler({ back: 'gradient-to-br' })` |
-|  | gradient-to-r |  | `styler({ back: 'gradient-to-r' })` |
-|  | gradient-to-tr |  | `styler({ back: 'gradient-to-tr' })` |
+| bg | **color** | [Click here to see implementation](https://tailwindcss.com/docs/background-attachment) | `styler({ bg: 'red' })` or `styler({ bg: 'red-500' })` |
+|  | fixed |  | `styler({ bg: 'fixed' })` |
+|  | local |  | `styler({ bg: 'local' })` |
+|  | scroll |  | `styler({ bg: 'scroll' })` |
+|  | clip-border |  | `styler({ bg: 'clip-border' })` |
+|  | clip-padding |  | `styler({ bg: 'clip-padding' })` |
+|  | clip-content |  | `styler({ bg: 'clip-content' })` |
+|  | clip-text |  | `styler({ bg: 'clip-text' })` |
+|  | origin-border |  | `styler({ bg: 'origin-border' })` |
+|  | origin-padding |  | `styler({ bg: 'origin-padding' })` |
+|  | origin-content |  | `styler({ bg: 'origin-content' })` |
+|  | inherit |  | `styler({ bg: 'inherit' })` |
+|  | current |  | `styler({ bg: 'current' })` |
+|  | bottom |  | `styler({ bg: 'bottom' })` |
+|  | center |  | `styler({ bg: 'center' })` |
+|  | left |  | `styler({ bg: 'left' })` |
+|  | left-bottom |  | `styler({ bg: 'left-bottom' })` |
+|  | left-top |  | `styler({ bg: 'left-top' })` |
+|  | right |  | `styler({ bg: 'right' })` |
+|  | right-bottom |  | `styler({ bg: 'right-bottom' })` |
+|  | right-top |  | `styler({ bg: 'right-top' })` |
+|  | top |  | `styler({ bg: 'top' })` |
+|  | repeat |  | `styler({ bg: 'repeat' })` |
+|  | no-repeat |  | `styler({ bg: 'no-repeat' })` |
+|  | repeat-x |  | `styler({ bg: 'repeat-x' })` |
+|  | repeat-y |  | `styler({ bg: 'repeat-y' })` |
+|  | repeat-round |  | `styler({ bg: 'repeat-round' })` |
+|  | repeat-space |  | `styler({ bg: 'repeat-space' })` |
+|  | auto |  | `styler({ bg: 'auto' })` |
+|  | cover |  | `styler({ bg: 'cover' })` |
+|  | contain |  | `styler({ bg: 'contain' })` |
+|  | none |  | `styler({ bg: 'none' })` |
+|  | gradient-to-t |  | `styler({ bg: 'gradient-to-t' })` |
+|  | gradient-to-tl |  | `styler({ bg: 'gradient-to-tl' })` |
+|  | gradient-to-l |  | `styler({ bg: 'gradient-to-l' })` |
+|  | gradient-to-bl |  | `styler({ bg: 'gradient-to-bl' })` |
+|  | gradient-to-b |  | `styler({ bg: 'gradient-to-b' })` |
+|  | gradient-to-br |  | `styler({ bg: 'gradient-to-br' })` |
+|  | gradient-to-r |  | `styler({ bg: 'gradient-to-r' })` |
+|  | gradient-to-tr |  | `styler({ bg: 'gradient-to-tr' })` |
 |  |  |  |
 | from | **color** | [Click here to see implementation](https://tailwindcss.com/docs/gradient-color-stops) | `styler({ from: 'red' })` or `styler({ from: 'red-500' })` |
 |  | inherit |  | `styler({ from: 'inherit' })` |
@@ -217,93 +217,93 @@
 |  | double |  | `styler({ border: 'double' })` |
 |  | hidden |  | `styler({ border: 'hidden' })` |
 |  |  |  |
-| width | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/width) | `styler({ width: '1/2' })` |
-|  | **number** |  | `styler({ width: 5 })` |
-|  | screen |  | `styler({ width: 'screen' })` |
-|  | px |  | `styler({ width: 'px' })` |
-|  | auto |  | `styler({ width: 'auto' })` |
-|  | full |  | `styler({ width: 'full' })` |
-|  | min |  | `styler({ width: 'min' })` |
-|  | max |  | `styler({ width: 'max' })` |
-|  | fit |  | `styler({ width: 'fit' })` |
+| w | **A/B** |  | `styler({ w: '1/2' })` |
+|  | **number** |  | `styler({ w: 5 })` |
+|  | screen |  | `styler({ w: 'screen' })` |
+|  | px |  | `styler({ w: 'px' })` |
+|  | auto |  | `styler({ w: 'auto' })` |
+|  | full |  | `styler({ w: 'full' })` |
+|  | min |  | `styler({ w: 'min' })` |
+|  | max |  | `styler({ w: 'max' })` |
+|  | fit |  | `styler({ w: 'fit' })` |
 |  |  |  |
-| min_width | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/min-width) | `styler({ min_width: '1/2' })` |
-|  | **number** |  | `styler({ min_width: 5 })` |
-|  | screen |  | `styler({ min_width: 'screen' })` |
-|  | min |  | `styler({ min_width: 'min' })` |
-|  | max |  | `styler({ min_width: 'max' })` |
-|  | fit |  | `styler({ min_width: 'fit' })` |
-|  | full |  | `styler({ min_width: 'full' })` |
+| min_w | **A/B** |  | `styler({ min_w: '1/2' })` |
+|  | **number** |  | `styler({ min_w: 5 })` |
+|  | screen |  | `styler({ min_w: 'screen' })` |
+|  | min |  | `styler({ min_w: 'min' })` |
+|  | max |  | `styler({ min_w: 'max' })` |
+|  | fit |  | `styler({ min_w: 'fit' })` |
+|  | full |  | `styler({ min_w: 'full' })` |
 |  |  |  |
-| max_width | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/max-width) | `styler({ max_width: '1/2' })` |
-|  | **number** |  | `styler({ max_width: 5 })` |
-|  | screen |  | `styler({ max_width: 'screen' })` |
-|  | min |  | `styler({ max_width: 'min' })` |
-|  | max |  | `styler({ max_width: 'max' })` |
-|  | fit |  | `styler({ max_width: 'fit' })` |
-|  | full |  | `styler({ max_width: 'full' })` |
-|  | none |  | `styler({ max_width: 'none' })` |
-|  | prose |  | `styler({ max_width: 'prose' })` |
-|  | xs |  | `styler({ max_width: 'xs' })` |
-|  | sm |  | `styler({ max_width: 'sm' })` |
-|  | md |  | `styler({ max_width: 'md' })` |
-|  | lg |  | `styler({ max_width: 'lg' })` |
-|  | xl |  | `styler({ max_width: 'xl' })` |
-|  | 2xl |  | `styler({ max_width: '2xl' })` |
-|  | 3xl |  | `styler({ max_width: '3xl' })` |
-|  | 4xl |  | `styler({ max_width: '4xl' })` |
-|  | 5xl |  | `styler({ max_width: '5xl' })` |
-|  | 6xl |  | `styler({ max_width: '6xl' })` |
-|  | 7xl |  | `styler({ max_width: '7xl' })` |
-|  | screen-sm |  | `styler({ max_width: 'screen-sm' })` |
-|  | screen-md |  | `styler({ max_width: 'screen-md' })` |
-|  | screen-lg |  | `styler({ max_width: 'screen-lg' })` |
-|  | screen-xl |  | `styler({ max_width: 'screen-xl' })` |
-|  | screen-2xl |  | `styler({ max_width: 'screen-2xl' })` |
+| max_w | **A/B** |  | `styler({ max_w: '1/2' })` |
+|  | **number** |  | `styler({ max_w: 5 })` |
+|  | screen |  | `styler({ max_w: 'screen' })` |
+|  | min |  | `styler({ max_w: 'min' })` |
+|  | max |  | `styler({ max_w: 'max' })` |
+|  | fit |  | `styler({ max_w: 'fit' })` |
+|  | full |  | `styler({ max_w: 'full' })` |
+|  | none |  | `styler({ max_w: 'none' })` |
+|  | prose |  | `styler({ max_w: 'prose' })` |
+|  | xs |  | `styler({ max_w: 'xs' })` |
+|  | sm |  | `styler({ max_w: 'sm' })` |
+|  | md |  | `styler({ max_w: 'md' })` |
+|  | lg |  | `styler({ max_w: 'lg' })` |
+|  | xl |  | `styler({ max_w: 'xl' })` |
+|  | 2xl |  | `styler({ max_w: '2xl' })` |
+|  | 3xl |  | `styler({ max_w: '3xl' })` |
+|  | 4xl |  | `styler({ max_w: '4xl' })` |
+|  | 5xl |  | `styler({ max_w: '5xl' })` |
+|  | 6xl |  | `styler({ max_w: '6xl' })` |
+|  | 7xl |  | `styler({ max_w: '7xl' })` |
+|  | screen-sm |  | `styler({ max_w: 'screen-sm' })` |
+|  | screen-md |  | `styler({ max_w: 'screen-md' })` |
+|  | screen-lg |  | `styler({ max_w: 'screen-lg' })` |
+|  | screen-xl |  | `styler({ max_w: 'screen-xl' })` |
+|  | screen-2xl |  | `styler({ max_w: 'screen-2xl' })` |
 |  |  |  |
-| height | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/height) | `styler({ height: '1/2' })` |
-|  | **number** |  | `styler({ height: 5 })` |
-|  | screen |  | `styler({ height: 'screen' })` |
-|  | px |  | `styler({ height: 'px' })` |
-|  | auto |  | `styler({ height: 'auto' })` |
-|  | full |  | `styler({ height: 'full' })` |
-|  | min |  | `styler({ height: 'min' })` |
-|  | max |  | `styler({ height: 'max' })` |
-|  | fit |  | `styler({ height: 'fit' })` |
+| h | **A/B** |  | `styler({ h: '1/2' })` |
+|  | **number** |  | `styler({ h: 5 })` |
+|  | screen |  | `styler({ h: 'screen' })` |
+|  | px |  | `styler({ h: 'px' })` |
+|  | auto |  | `styler({ h: 'auto' })` |
+|  | full |  | `styler({ h: 'full' })` |
+|  | min |  | `styler({ h: 'min' })` |
+|  | max |  | `styler({ h: 'max' })` |
+|  | fit |  | `styler({ h: 'fit' })` |
 |  |  |  |
-| min_height | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/min-height) | `styler({ min_height: '1/2' })` |
-|  | **number** |  | `styler({ min_height: 5 })` |
-|  | screen |  | `styler({ min_height: 'screen' })` |
-|  | min |  | `styler({ min_height: 'min' })` |
-|  | max |  | `styler({ min_height: 'max' })` |
-|  | fit |  | `styler({ min_height: 'fit' })` |
-|  | full |  | `styler({ min_height: 'full' })` |
+| min_h | **A/B** |  | `styler({ min_h: '1/2' })` |
+|  | **number** |  | `styler({ min_h: 5 })` |
+|  | screen |  | `styler({ min_h: 'screen' })` |
+|  | min |  | `styler({ min_h: 'min' })` |
+|  | max |  | `styler({ min_h: 'max' })` |
+|  | fit |  | `styler({ min_h: 'fit' })` |
+|  | full |  | `styler({ min_h: 'full' })` |
 |  |  |  |
-| max_height | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/max-height) | `styler({ max_height: '1/2' })` |
-|  | **number** |  | `styler({ max_height: 5 })` |
-|  | screen |  | `styler({ max_height: 'screen' })` |
-|  | min |  | `styler({ max_height: 'min' })` |
-|  | max |  | `styler({ max_height: 'max' })` |
-|  | fit |  | `styler({ max_height: 'fit' })` |
-|  | full |  | `styler({ max_height: 'full' })` |
-|  | none |  | `styler({ max_height: 'none' })` |
-|  | prose |  | `styler({ max_height: 'prose' })` |
-|  | xs |  | `styler({ max_height: 'xs' })` |
-|  | sm |  | `styler({ max_height: 'sm' })` |
-|  | md |  | `styler({ max_height: 'md' })` |
-|  | lg |  | `styler({ max_height: 'lg' })` |
-|  | xl |  | `styler({ max_height: 'xl' })` |
-|  | 2xl |  | `styler({ max_height: '2xl' })` |
-|  | 3xl |  | `styler({ max_height: '3xl' })` |
-|  | 4xl |  | `styler({ max_height: '4xl' })` |
-|  | 5xl |  | `styler({ max_height: '5xl' })` |
-|  | 6xl |  | `styler({ max_height: '6xl' })` |
-|  | 7xl |  | `styler({ max_height: '7xl' })` |
-|  | screen-sm |  | `styler({ max_height: 'screen-sm' })` |
-|  | screen-md |  | `styler({ max_height: 'screen-md' })` |
-|  | screen-lg |  | `styler({ max_height: 'screen-lg' })` |
-|  | screen-xl |  | `styler({ max_height: 'screen-xl' })` |
-|  | screen-2xl |  | `styler({ max_height: 'screen-2xl' })` |
+| max_h | **A/B** |  | `styler({ max_h: '1/2' })` |
+|  | **number** |  | `styler({ max_h: 5 })` |
+|  | screen |  | `styler({ max_h: 'screen' })` |
+|  | min |  | `styler({ max_h: 'min' })` |
+|  | max |  | `styler({ max_h: 'max' })` |
+|  | fit |  | `styler({ max_h: 'fit' })` |
+|  | full |  | `styler({ max_h: 'full' })` |
+|  | none |  | `styler({ max_h: 'none' })` |
+|  | prose |  | `styler({ max_h: 'prose' })` |
+|  | xs |  | `styler({ max_h: 'xs' })` |
+|  | sm |  | `styler({ max_h: 'sm' })` |
+|  | md |  | `styler({ max_h: 'md' })` |
+|  | lg |  | `styler({ max_h: 'lg' })` |
+|  | xl |  | `styler({ max_h: 'xl' })` |
+|  | 2xl |  | `styler({ max_h: '2xl' })` |
+|  | 3xl |  | `styler({ max_h: '3xl' })` |
+|  | 4xl |  | `styler({ max_h: '4xl' })` |
+|  | 5xl |  | `styler({ max_h: '5xl' })` |
+|  | 6xl |  | `styler({ max_h: '6xl' })` |
+|  | 7xl |  | `styler({ max_h: '7xl' })` |
+|  | screen-sm |  | `styler({ max_h: 'screen-sm' })` |
+|  | screen-md |  | `styler({ max_h: 'screen-md' })` |
+|  | screen-lg |  | `styler({ max_h: 'screen-lg' })` |
+|  | screen-xl |  | `styler({ max_h: 'screen-xl' })` |
+|  | screen-2xl |  | `styler({ max_h: 'screen-2xl' })` |
 |  |  |  |
 | list | inside | [Click here to see implementation](https://tailwindcss.com/docs/list-style-type) | `styler({ list: 'inside' })` |
 |  | outside |  | `styler({ list: 'outside' })` |
@@ -384,8 +384,14 @@
 | row_end | **number** | [Click here to see implementation](https://tailwindcss.com/docs/grid-row) | `styler({ row_end: 5 })` |
 |  | auto |  | `styler({ row_end: 'auto' })` |
 |  |  |  |
-| gap | **number** |  | `styler({ gap: 5 })` |
-|  | px |  | `styler({ gap: 'px' })` |
+| g | **number** |  | `styler({ g: 5 })` |
+|  | px |  | `styler({ g: 'px' })` |
+|  |  |  |
+| gx | **number** |  | `styler({ gx: 5 })` |
+|  | px |  | `styler({ gx: 'px' })` |
+|  |  |  |
+| gy | **number** |  | `styler({ gy: 5 })` |
+|  | px |  | `styler({ gy: 'px' })` |
 |  |  |  |
 | justify | start | [Click here to see implementation](https://tailwindcss.com/docs/justify-content) | `styler({ justify: 'start' })` |
 |  | end |  | `styler({ justify: 'end' })` |
@@ -504,10 +510,15 @@
 |  |  |  |
 | invisible | **true** | [Click here to see implementation](https://tailwindcss.com/docs/visibility) | `styler({ invisible: true })` |
 |  |  |  |
+| static | **true** |  | `styler({ static: true })` |
 |  |  |  |
+| fixed | **true** |  | `styler({ fixed: true })` |
 |  |  |  |
+| absolute | **true** |  | `styler({ absolute: true })` |
 |  |  |  |
+| relative | **true** |  | `styler({ relative: true })` |
 |  |  |  |
+| sticky | **true** |  | `styler({ sticky: true })` |
 |  |  |  |
 | zindex | **number** | [Click here to see implementation](https://tailwindcss.com/docs/z-index) | `styler({ zindex: 5 })` |
 |  | auto |  | `styler({ zindex: 'auto' })` |
@@ -605,6 +616,7 @@
 |  | 6xl |  | `styler({ columns: '6xl' })` |
 |  | 7xl |  | `styler({ columns: '7xl' })` |
 |  |  |  |
+| container | **true** |  | `styler({ container: true })` |
 |  |  |  |
 | outline | **true** | [Click here to see implementation](https://tailwindcss.com/docs/outline-width) | `styler({ outline: true })` |
 |  | **number** |  | `styler({ outline: 5 })` |
@@ -781,28 +793,105 @@
 | backdrop_sepia | **true** | [Click here to see implementation](https://tailwindcss.com/docs/backdrop-sepia) | `styler({ backdrop_sepia: true })` |
 |  | **number** |  | `styler({ backdrop_sepia: 5 })` |
 |  |  |  |
-| divide | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ divide: 5 })` |
-|  | **color** |  | `styler({ divide: 'red' })` or `styler({ divide: 'red-500' })` |
-|  | reverse |  | `styler({ divide: 'reverse' })` |
-|  | px |  | `styler({ divide: 'px' })` |
-|  | solid |  | `styler({ divide: 'solid' })` |
-|  | dotted |  | `styler({ divide: 'dotted' })` |
-|  | dashed |  | `styler({ divide: 'dashed' })` |
-|  | none |  | `styler({ divide: 'none' })` |
-|  | double |  | `styler({ divide: 'double' })` |
+| d | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ d: 5 })` |
+|  | **color** |  | `styler({ d: 'red' })` or `styler({ d: 'red-500' })` |
+|  | reverse |  | `styler({ d: 'reverse' })` |
+|  | px |  | `styler({ d: 'px' })` |
+|  | solid |  | `styler({ d: 'solid' })` |
+|  | dotted |  | `styler({ d: 'dotted' })` |
+|  | dashed |  | `styler({ d: 'dashed' })` |
+|  | none |  | `styler({ d: 'none' })` |
+|  | double |  | `styler({ d: 'double' })` |
 |  |  |  |
-| space | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ space: 5 })` |
-|  | reverse |  | `styler({ space: 'reverse' })` |
-|  | px |  | `styler({ space: 'px' })` |
+| dx | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ dx: 5 })` |
+|  | **color** |  | `styler({ dx: 'red' })` or `styler({ dx: 'red-500' })` |
+|  | reverse |  | `styler({ dx: 'reverse' })` |
+|  | px |  | `styler({ dx: 'px' })` |
+|  | solid |  | `styler({ dx: 'solid' })` |
+|  | dotted |  | `styler({ dx: 'dotted' })` |
+|  | dashed |  | `styler({ dx: 'dashed' })` |
+|  | none |  | `styler({ dx: 'none' })` |
+|  | double |  | `styler({ dx: 'double' })` |
 |  |  |  |
-| margin | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ margin: '1/2' })` |
-|  | **number** |  | `styler({ margin: 5 })` |
-|  | px |  | `styler({ margin: 'px' })` |
-|  | auto |  | `styler({ margin: 'auto' })` |
+| dy | **number** | [Click here to see implementation](https://tailwindcss.com/docs/divide-width) | `styler({ dy: 5 })` |
+|  | **color** |  | `styler({ dy: 'red' })` or `styler({ dy: 'red-500' })` |
+|  | reverse |  | `styler({ dy: 'reverse' })` |
+|  | px |  | `styler({ dy: 'px' })` |
+|  | solid |  | `styler({ dy: 'solid' })` |
+|  | dotted |  | `styler({ dy: 'dotted' })` |
+|  | dashed |  | `styler({ dy: 'dashed' })` |
+|  | none |  | `styler({ dy: 'none' })` |
+|  | double |  | `styler({ dy: 'double' })` |
 |  |  |  |
-| padding | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ padding: '1/2' })` |
-|  | **number** |  | `styler({ padding: 5 })` |
-|  | px |  | `styler({ padding: 'px' })` |
+| s | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ s: 5 })` |
+|  | reverse |  | `styler({ s: 'reverse' })` |
+|  | px |  | `styler({ s: 'px' })` |
+|  |  |  |
+| sx | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ sx: 5 })` |
+|  | reverse |  | `styler({ sx: 'reverse' })` |
+|  | px |  | `styler({ sx: 'px' })` |
+|  |  |  |
+| sy | **number** | [Click here to see implementation](https://tailwindcss.com/docs/space) | `styler({ sy: 5 })` |
+|  | reverse |  | `styler({ sy: 'reverse' })` |
+|  | px |  | `styler({ sy: 'px' })` |
+|  |  |  |
+| ml | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ ml: '1/2' })` |
+|  | **number** |  | `styler({ ml: 5 })` |
+|  | px |  | `styler({ ml: 'px' })` |
+|  | auto |  | `styler({ ml: 'auto' })` |
+|  |  |  |
+| mr | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mr: '1/2' })` |
+|  | **number** |  | `styler({ mr: 5 })` |
+|  | px |  | `styler({ mr: 'px' })` |
+|  | auto |  | `styler({ mr: 'auto' })` |
+|  |  |  |
+| mb | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mb: '1/2' })` |
+|  | **number** |  | `styler({ mb: 5 })` |
+|  | px |  | `styler({ mb: 'px' })` |
+|  | auto |  | `styler({ mb: 'auto' })` |
+|  |  |  |
+| mt | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mt: '1/2' })` |
+|  | **number** |  | `styler({ mt: 5 })` |
+|  | px |  | `styler({ mt: 'px' })` |
+|  | auto |  | `styler({ mt: 'auto' })` |
+|  |  |  |
+| mx | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ mx: '1/2' })` |
+|  | **number** |  | `styler({ mx: 5 })` |
+|  | px |  | `styler({ mx: 'px' })` |
+|  | auto |  | `styler({ mx: 'auto' })` |
+|  |  |  |
+| my | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/margin) | `styler({ my: '1/2' })` |
+|  | **number** |  | `styler({ my: 5 })` |
+|  | px |  | `styler({ my: 'px' })` |
+|  | auto |  | `styler({ my: 'auto' })` |
+|  |  |  |
+| p | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ p: '1/2' })` |
+|  | **number** |  | `styler({ p: 5 })` |
+|  | px |  | `styler({ p: 'px' })` |
+|  |  |  |
+| pl | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pl: '1/2' })` |
+|  | **number** |  | `styler({ pl: 5 })` |
+|  | px |  | `styler({ pl: 'px' })` |
+|  |  |  |
+| pt | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pt: '1/2' })` |
+|  | **number** |  | `styler({ pt: 5 })` |
+|  | px |  | `styler({ pt: 'px' })` |
+|  |  |  |
+| pr | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pr: '1/2' })` |
+|  | **number** |  | `styler({ pr: 5 })` |
+|  | px |  | `styler({ pr: 'px' })` |
+|  |  |  |
+| pb | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ pb: '1/2' })` |
+|  | **number** |  | `styler({ pb: 5 })` |
+|  | px |  | `styler({ pb: 'px' })` |
+|  |  |  |
+| px | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ px: '1/2' })` |
+|  | **number** |  | `styler({ px: 5 })` |
+|  | px |  | `styler({ px: 'px' })` |
+|  |  |  |
+| py | **A/B** | [Click here to see implementation](https://tailwindcss.com/docs/pading) | `styler({ py: '1/2' })` |
+|  | **number** |  | `styler({ py: 5 })` |
+|  | px |  | `styler({ py: 'px' })` |
 |  |  |  |
 | delay | **number** | [Click here to see implementation](https://tailwindcss.com/docs/transition-delay) | `styler({ delay: 5 })` |
 |  |  |  |

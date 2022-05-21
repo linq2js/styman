@@ -2,6 +2,12 @@ import { ColorScheme, Modifiers } from "../dynamic";
 import { SPACING_SELECTOR } from "../utils";
 import { BuildContext } from "./createStyler";
 
+const KEYMAP = {
+  s: ["x", "y"],
+  sx: "x",
+  sy: "y",
+};
+
 const getSpacing = (isX: boolean, value: string) => {
   if (isX) {
     return {
@@ -25,19 +31,13 @@ export const spaceModule = <C extends ColorScheme, M extends Modifiers>({
   withModifiers,
 }: BuildContext<C, M>) => {
   return {
-    ...withModifiers("space", {
-      $xy: () => true,
-      reverse: (_, { sides }) => {
-        const isX = !sides?.includes("Y");
-        return {
-          [SPACING_SELECTOR]: {
-            [isX ? "--sm-space-x-reverse" : "--sm-space-y-reverse"]: 1,
-          },
-        };
-      },
-      px: (_, { sides }) => getSpacing(!sides?.includes("Y"), "1px"),
-      $number: (x: number, { sides }) =>
-        getSpacing(!sides?.includes("Y"), `${x / 4}rem`),
+    ...withModifiers(["s", "sx", "sy"], {
+      reverse: (_, { withKey }) =>
+        withKey(KEYMAP, (prop) => ({ [`--sm-space-${prop}-reverse`]: 1 })),
+      px: (_, { withKey }) =>
+        withKey(KEYMAP, (prop) => getSpacing(prop === "x", "1px")),
+      $number: (x: number, { withKey }) =>
+        withKey(KEYMAP, (prop) => getSpacing(prop === "x", `${x / 4}rem`)),
     }),
   };
 };

@@ -1,6 +1,12 @@
 import { ColorScheme, Modifiers, withValues } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
+const GAP_KEYMAP = {
+  g: "gap",
+  gx: "columnGap",
+  gy: "rowGap",
+};
+
 export const flexModule = <C extends ColorScheme, M extends Modifiers>({
   withModifiers,
 }: BuildContext<C, M>) => {
@@ -125,24 +131,11 @@ export const flexModule = <C extends ColorScheme, M extends Modifiers>({
       $number: (x: number) => ({ gridRowEnd: x }),
     }),
 
-    ...withModifiers("gap", {
-      px: (_, { withSides }) => {
-        return withSides(
-          false,
-          (side) => ({ [side === "X" ? "columnGap" : "rowGap"]: "1px" }),
-          () => ({ gap: "1px" })
-        );
-      },
-      $xy: () => true,
-      $number: (x: number, { withSides }) => {
-        return withSides(
-          false,
-          (side) => ({
-            [side === "X" ? "columnGap" : "rowGap"]: `${x / 4}rem`,
-          }),
-          () => ({ gap: `${x / 4}rem` })
-        );
-      },
+    ...withModifiers(["g", "gx", "gy"], {
+      px: (_, { withKey }) =>
+        withKey(GAP_KEYMAP, (prop) => ({ [prop]: "1px" })),
+      $number: (x: number, { withKey }) =>
+        withKey(GAP_KEYMAP, (prop) => ({ [prop]: `${x / 4}rem` })),
     }),
 
     ...withModifiers("justify", {

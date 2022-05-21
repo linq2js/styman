@@ -69,37 +69,37 @@ export const sizingModule = <C extends ColorScheme, M extends Modifiers>({
     };
 
   return {
-    ...withModifiers("width", {
+    ...withModifiers("w", {
       $number: sizingNumberVariants("width"),
       $fraction: sizingFractionVariants("width"),
       screen: () => ({ width: "100vw" }),
       ...sizingVariants("width"),
     }),
-    ...withModifiers("min_width", {
+    ...withModifiers("min_w", {
       $number: sizingNumberVariants("min-width"),
       $fraction: sizingFractionVariants("min-width"),
       screen: () => ({ minWidth: "100vw" }),
       ...minSizingVariants("min-width"),
     }),
-    ...withModifiers("max_width", {
+    ...withModifiers("max_w", {
       $number: sizingNumberVariants("max-width"),
       $fraction: sizingFractionVariants("max-width"),
       screen: () => ({ maxWidth: "110vw" }),
       ...maxSizingVariants("max-width"),
     }),
-    ...withModifiers("height", {
+    ...withModifiers("h", {
       $number: sizingNumberVariants("height"),
       $fraction: sizingFractionVariants("height"),
       screen: () => ({ height: "100vh" }),
       ...sizingVariants("height"),
     }),
-    ...withModifiers("min_height", {
+    ...withModifiers("min_h", {
       $number: sizingNumberVariants("min-height"),
       $fraction: sizingFractionVariants("min-height"),
       screen: () => ({ minHeight: "100vh" }),
       ...minSizingVariants("min-height"),
     }),
-    ...withModifiers("max_height", {
+    ...withModifiers("max_h", {
       $number: sizingNumberVariants("max-height"),
       $fraction: sizingFractionVariants("max-height"),
       screen: () => ({ maxHeight: "100vh" }),

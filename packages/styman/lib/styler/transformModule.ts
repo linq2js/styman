@@ -110,7 +110,7 @@ export const transformModule = <C extends ColorScheme, M extends Modifiers>({
         (values: ("center" | "left" | "top" | "bottom" | "right")[]) => {
           return { transformOrigin: values.join(" ") };
         },
-        () => ["center", "left", "top", "bottom", "right"]
+        { variants: () => ["center", "left", "top", "bottom", "right"] }
       ),
     }),
   };

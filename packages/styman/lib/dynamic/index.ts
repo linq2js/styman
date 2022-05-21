@@ -378,7 +378,9 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
   return { withValues, withColors, withVariants, withModifiers, modifiers };
 };
 
-export const meta = <T>(func: T, variants: any): T =>
+export type MetaOptions = { variants?: any; description?: string };
+
+export const meta = <T>(func: T, { variants }: MetaOptions): T =>
   Object.assign(func, {
     variants: (typeof variants === "function" ? variants() : variants) ?? [],
   });
@@ -426,6 +428,7 @@ const createVariantContext = (
   sideType: boolean | "xy" = false,
   path?: string[]
 ): VariantContext => {
+  const key = path?.slice(-1)?.[0];
   // normalize sides
   if (sides) {
     sides = [
@@ -453,9 +456,17 @@ const createVariantContext = (
     ];
   }
   return {
-    key: path?.slice(-1)?.[0],
+    key,
     path,
     sides,
+    withKey(keyMap, styles, noKeyStyles) {
+      if (!key) return mergeDeep({}, noKeyStyles?.());
+      const mappedKey = keyMap[key] ?? key;
+      return mergeDeep(
+        {},
+        ...(Array.isArray(mappedKey) ? mappedKey : [mappedKey]).map(styles)
+      );
+    },
     withSides(name, styles, noSideStyles) {
       if (!sides?.length) {
         if (typeof name === "string")
@@ -509,6 +520,12 @@ export interface VariantContext {
     name:
       | string
       | ((formattedSide: string, side: Exclude<Side, SpecialSide>) => string),
+    styles: (name: string) => CSSInterpolation,
+    noSideStyles?: () => CSSInterpolation
+  ): Record<string, any>;
+
+  withKey(
+    keyMap: Record<string, string | string[]>,
     styles: (name: string) => CSSInterpolation,
     noSideStyles?: () => CSSInterpolation
   ): Record<string, any>;

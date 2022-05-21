@@ -2,7 +2,13 @@ import { ColorScheme, Modifiers } from "../dynamic";
 import { BuildContext } from "./createStyler";
 import { SPACING_SELECTOR } from "../utils";
 
-const getDivide = (isX: boolean, value: string) => {
+const KEYMAP = {
+  d: ["x", "y"],
+  dx: "x",
+  dy: "y",
+};
+
+const getWidth = (isX: boolean, value: string) => {
   if (isX) {
     return {
       [SPACING_SELECTOR]: {
@@ -19,6 +25,28 @@ const getDivide = (isX: boolean, value: string) => {
   };
 };
 
+const getColor = (isX: boolean, color: string) => {
+  if (isX) {
+    return {
+      [SPACING_SELECTOR]: { borderLeftColor: color, borderRightColor: color },
+    };
+  }
+  return {
+    [SPACING_SELECTOR]: { borderTopColor: color, borderBottomColor: color },
+  };
+};
+
+const getStyle = (isX: boolean, style: string) => {
+  if (isX) {
+    return {
+      [SPACING_SELECTOR]: { borderLeftStyle: style, borderRightStyle: style },
+    };
+  }
+  return {
+    [SPACING_SELECTOR]: { borderTopStyle: style, borderBottomStyle: style },
+  };
+};
+
 // divide https://tailwindcss.com/docs/divide-style
 export const divideModule = <C extends ColorScheme, M extends Modifiers>({
   withModifiers,
@@ -27,43 +55,23 @@ export const divideModule = <C extends ColorScheme, M extends Modifiers>({
   colors,
 }: BuildContext<C, M>) => {
   return {
-    ...withModifiers("divide", {
+    ...withModifiers(["d", "dx", "dy"], {
       $xy: () => true,
-      reverse: (_, { sides }) => {
-        const isX = !sides?.includes("Y");
-        return {
-          [SPACING_SELECTOR]: {
-            [isX ? "--sm-divide-x-reverse" : "--sm-divide-y-reverse"]: 1,
-          },
-        };
-      },
-      px: (_, { sides }) => getDivide(!sides?.includes("Y"), "1px"),
-      $number: (x: number, { sides }) =>
-        getDivide(!sides?.includes("Y"), `${x / 4}rem`),
-      $custom: withColors(colors, (x, { sides }) => {
-        const isX = !sides?.includes("Y");
-        if (isX) {
-          return {
-            [SPACING_SELECTOR]: { borderLeftColor: x, borderRightColor: x },
-          };
-        }
-        return {
-          [SPACING_SELECTOR]: { borderTopColor: x, borderBottomColor: x },
-        };
-      }),
+      reverse: (_, { withKey }) =>
+        withKey(KEYMAP, (prop) => ({
+          [SPACING_SELECTOR]: { [`--sm-divide-${prop}-reverse`]: 1 },
+        })),
+      px: (_, { withKey }) =>
+        withKey(KEYMAP, (prop) => getWidth(prop === "x", "1px")),
+      $number: (x: number, { withKey }) =>
+        withKey(KEYMAP, (prop) => getWidth(prop === "x", `${x / 4}rem`)),
+      $custom: withColors(colors, (color, { withKey }) =>
+        withKey(KEYMAP, (prop) => getColor(prop === "x", color))
+      ),
       ...withValues(
         ["solid", "dotted", "dashed", "none", "double"],
-        (x, { sides }) => {
-          const isX = !sides?.includes("Y");
-          if (isX) {
-            return {
-              [SPACING_SELECTOR]: { borderLeftStyle: x, borderRightStyle: x },
-            };
-          }
-          return {
-            [SPACING_SELECTOR]: { borderTopStyle: x, borderBottomStyle: x },
-          };
-        }
+        (style, { withKey }) =>
+          withKey(KEYMAP, (prop) => getStyle(prop === "x", style) as any)
       ),
     }),
   };

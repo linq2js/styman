@@ -141,19 +141,21 @@ export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
           }
           return { objectPosition: position.join(" ") };
         },
-        () => [
-          "center",
-          "left",
-          "top",
-          "bottom",
-          "right",
-          "contain",
-          "cover",
-          "fill",
-          "none",
-          "scale-down",
-          "string",
-        ]
+        {
+          variants: () => [
+            "center",
+            "left",
+            "top",
+            "bottom",
+            "right",
+            "contain",
+            "cover",
+            "fill",
+            "none",
+            "scale-down",
+            "string",
+          ],
+        }
       ),
     }),
     ...withModifiers("isolate", {
