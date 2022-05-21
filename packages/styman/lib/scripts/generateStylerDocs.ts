@@ -130,6 +130,8 @@ const LINKS = Object.entries({
   "|shadow|": "https://tailwindcss.com/docs/box-shadow",
   "|block|inline|contents|hidden|list_item|flow_root|inline_block|":
     "https://tailwindcss.com/docs/display",
+  "|static|fixed|absolute|relative|sticky|":
+    "https://tailwindcss.com/docs/position",
 });
 
 const LONG_NAMES = {
@@ -183,7 +185,9 @@ Object.entries(styler.rules).forEach(([key, rule]: [any, any]) => {
     contents.push(`Styles: ${longName}\n`);
   }
   if (link) {
-    contents.push(`[Click here to see Tailwind implementation](${link[1]})\n`);
+    contents.push(
+      `[Click here to see Tailwind description/implementation/example](${link[1]})\n`
+    );
   }
   // befin of table
   contents.push(`| Variant | Example |`, `|:---|:---|`);
