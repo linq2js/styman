@@ -186,7 +186,7 @@ Object.entries(styler.rules).forEach(([key, rule]: [any, any]) => {
   }
   if (link) {
     contents.push(
-      `[Click here to see Tailwind description/implementation/example](${link[1]})\n`
+      `[Click here to see Tailwind description / implementation / example](${link[1]})\n`
     );
   }
   // befin of table
