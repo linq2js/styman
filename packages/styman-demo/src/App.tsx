@@ -93,7 +93,11 @@ function App() {
           </div>
           <div className={css({ grow: 1, relative: true, overflow: "hidden" })}>
             <Page active={page === "about"}>
-              <div className={css({ inset: ["L", 10] })}></div>
+              <div
+                className={css({ inset: ["L", 40], bg: "red", absolute: true })}
+              >
+                sdadas
+              </div>
             </Page>
             <Page active={page === "experience"}>Experience page</Page>
             <Page active={page === "work"}>Work page</Page>

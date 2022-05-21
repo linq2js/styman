@@ -27,7 +27,7 @@ export const interactivityModule = <
     }),
 
     ...withModifiers("scroll", {
-      $sides: () => true,
+      // $sides: () => true,
       ...withValues(["smooth", "auto"], (x) => ({ scrollBehavior: x })),
     }),
     ...withModifiers("scrollp", {

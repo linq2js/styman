@@ -896,10 +896,10 @@ stylis@4.0.13:
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.0.13.tgz#f5db332e376d13cc84ecfe5dace9a2a51d954c91"
   integrity sha512-xGPXiFVl4YED9Jh7Euv2V220mriG9u4B2TA6Ybjc1catrstKD2PpIdU3U0RKpkVBC2EhmL/F0sPCr9vrFTNRag==
 
-styman@^0.0.32:
-  version "0.0.32"
-  resolved "https://registry.yarnpkg.com/styman/-/styman-0.0.32.tgz#2d608ad05a486f6badf5d62701ba72a5ae0979c0"
-  integrity sha512-ZSDTIlFwsR/uoP4YPlFAxawQLKPEEMo12VXFCxpED5lKIJYcCPProgM8rlqeYWF4SzHkQv4IYJzZRvkP4aKmEQ==
+styman@^0.0.33:
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/styman/-/styman-0.0.33.tgz#ed066f7d42272843d4e8300ed5b66f889dfcfad0"
+  integrity sha512-BT5OdO5vHq/7l1KzGKkH76UB9IF2TVko4wSBwmHMPfqQfxZ3CuONV0Fl5dP6v8ANdLgwoCb/HpD0OND0IfjBuw==
   dependencies:
     "@emotion/css" "11.9.0"
 
