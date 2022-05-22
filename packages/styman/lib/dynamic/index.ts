@@ -353,7 +353,7 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
               }
 
               // custom modifiers
-              if (key[0] === "&") {
+              if (key.includes("&")) {
                 result[key] = processModifiers({}, value);
                 return;
               }
