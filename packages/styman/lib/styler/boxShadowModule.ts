@@ -10,9 +10,14 @@ export const boxShadowModule = <C extends ColorScheme, M extends Modifiers>({
 }: BuildContext<C, M>) => {
   return {
     ...withModifiers("shadow", {
-      sm: () => ({
+      $default: () => ({
         "--sm-shadow": "0 1px 2px 0 rgb(0 0 0/0.05)",
         "--sm-shadow-colored": "0 1px 2px 0 var(--sm-shadow-color)",
+        boxShadow: BOX_SHADOW,
+      }),
+      sm: () => ({
+        "--sm-shadow": "0 1px 1px 0 rgb(0 0 0/0.05)",
+        "--sm-shadow-colored": "0 1px 1px 0 var(--sm-shadow-color)",
         boxShadow: BOX_SHADOW,
       }),
       md: () => ({
