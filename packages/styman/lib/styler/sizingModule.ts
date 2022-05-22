@@ -76,16 +76,16 @@ export const sizingModule = <C extends ColorScheme, M extends Modifiers>({
       ...sizingVariants("width"),
     }),
     ...withModifiers("min_w", {
-      $number: sizingNumberVariants("min-width"),
-      $fraction: sizingFractionVariants("min-width"),
+      $number: sizingNumberVariants("minWidth"),
+      $fraction: sizingFractionVariants("minWidth"),
       screen: () => ({ minWidth: "100vw" }),
-      ...minSizingVariants("min-width"),
+      ...minSizingVariants("minWidth"),
     }),
     ...withModifiers("max_w", {
-      $number: sizingNumberVariants("max-width"),
-      $fraction: sizingFractionVariants("max-width"),
+      $number: sizingNumberVariants("maxWidth"),
+      $fraction: sizingFractionVariants("maxWidth"),
       screen: () => ({ maxWidth: "110vw" }),
-      ...maxSizingVariants("max-width"),
+      ...maxSizingVariants("maxWidth"),
     }),
     ...withModifiers("h", {
       $number: sizingNumberVariants("height"),
@@ -94,16 +94,16 @@ export const sizingModule = <C extends ColorScheme, M extends Modifiers>({
       ...sizingVariants("height"),
     }),
     ...withModifiers("min_h", {
-      $number: sizingNumberVariants("min-height"),
-      $fraction: sizingFractionVariants("min-height"),
+      $number: sizingNumberVariants("minHeight"),
+      $fraction: sizingFractionVariants("minHeight"),
       screen: () => ({ minHeight: "100vh" }),
-      ...minSizingVariants("min-height"),
+      ...minSizingVariants("minHeight"),
     }),
     ...withModifiers("max_h", {
-      $number: sizingNumberVariants("max-height"),
-      $fraction: sizingFractionVariants("max-height"),
+      $number: sizingNumberVariants("maxHeight"),
+      $fraction: sizingFractionVariants("maxHeight"),
       screen: () => ({ maxHeight: "100vh" }),
-      ...maxSizingVariants("max-height"),
+      ...maxSizingVariants("maxHeight"),
     }),
   };
 };
