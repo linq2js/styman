@@ -352,6 +352,12 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
                 return;
               }
 
+              // custom modifiers
+              if (key[0] === "&") {
+                result[key] = processModifiers({}, value);
+                return;
+              }
+
               if (!(key in modifiers)) {
                 throw new Error(`Invalid modifier "${key}"`);
               }
@@ -544,7 +550,7 @@ export type VariantParamWithModifier<
   TModifer extends string,
   TRule extends Variants
 > = {
-  [key in TModifer | "$"]?:
+  [key in TModifer | "$" | `&${string}`]?:
     | VariantParam<TRule>
     | VariantParam<TRule>[]
     | VariantParamWithModifier<TModifer, TRule>;

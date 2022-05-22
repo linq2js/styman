@@ -122,7 +122,13 @@ const use: Use = (...args: any[]): any => {
         // compile rule if not any
         if (!compiledClass) {
           const result = rule.call(rules, param);
-          compiledClass = Array.isArray(result) ? result : [result];
+          const tempClasses = new Set<string>();
+          addClasses(
+            tempClasses,
+            Array.isArray(result) ? result : [result],
+            rules
+          );
+          compiledClass = [...tempClasses];
           group.set(serializedParam, compiledClass);
         }
         addClasses(classNames, compiledClass, rules);
