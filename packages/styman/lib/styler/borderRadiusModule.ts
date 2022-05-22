@@ -21,6 +21,8 @@ export const borderRadiusModule = <C extends ColorScheme, M extends Modifiers>({
     ...withModifiers(
       ["r", "r_tl", "r_bl", "r_tr", "r_br", "rt", "rl", "rb", "rr"],
       {
+        $default: (_, { withKey }) =>
+          withKey(BORDER_RADIUS_KEYMAP, (prop) => ({ [prop]: "0.25rem" })),
         $number: (x: number, { withKey }) =>
           withKey(BORDER_RADIUS_KEYMAP, (prop) => ({ [prop]: x })),
         $fraction: ([a, b], { withKey }) =>
