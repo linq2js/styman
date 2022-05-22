@@ -56,7 +56,7 @@ export const fontModule = <C extends ColorScheme, M extends Modifiers>({
           light: 300,
           normal: 400,
           medium: 500,
-          semiBold: 600,
+          semibold: 600,
           bold: 700,
           extrabold: 800,
           black: 900,
