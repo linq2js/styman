@@ -278,26 +278,18 @@ const styles = sheet({
 });
 ```
 
-## Using styler
+## Styler
 
 Styler is utils that helps to generate css class faster, it provides a lot of styling modules. It works similar Tailwind CSS
 
-```js
-// simple style usage
-const className = css({
-  // apply red background color
-  back: "red",
-  // apply multiple styles of background module:
-  // red: background color
-  // fixed: background attachment
-  back: ["red", "fixed"],
-  // apply small font size
-  // style param can be string, number
-  font: "sm",
-});
-```
+**Styler features:**
 
-### Default Styler
+- Easy to customize (colors, modifiers, utils)
+- No purging needed
+- Fully Typescript supported
+- SSR supported
+
+### Creating default Styler
 
 Styman provides a default styler that includes pre-defined style modules. The styler has similar Tailwind classes and modifiers
 
@@ -349,7 +341,9 @@ const buttonClass = styler({
 <button className={buttonClass}>Submit</button>;
 ```
 
-### Custom Styler
+**[Default Styler References](https://github.com/linq2js/styman/blob/main/packages/styman/styler-docs.md)**
+
+### Creating custom Styler
 
 ```js
 import {
@@ -424,5 +418,3 @@ const styler = createStyler({
   build: buildCustomStyler,
 });
 ```
-
-## [Default Styler References](https://github.com/linq2js/styman/blob/main/packages/styman/styler-docs.md)
