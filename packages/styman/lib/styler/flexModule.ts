@@ -236,6 +236,8 @@ export const flexModule = <C extends ColorScheme, M extends Modifiers>({
     }),
 
     ...withModifiers("center", {
+      $number: (x: number) => getCenter(x, x),
+      $fraction: ([w, h]) => getCenter(w, h),
       $default: () => ({
         display: "flex",
         alignItems: "center",
@@ -246,5 +248,14 @@ export const flexModule = <C extends ColorScheme, M extends Modifiers>({
         (x) => ({ display: "flex", ...x })
       ),
     }),
+  };
+};
+
+const getCenter = (width: number, height: number) => {
+  return {
+    marginLeft: `${-width / 8}rem`,
+    marginTop: `${-height / 8}rem`,
+    width: `${width / 4}rem`,
+    height: `${height / 4}rem`,
   };
 };
