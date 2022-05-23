@@ -257,5 +257,7 @@ const getCenter = (width: number, height: number) => {
     marginTop: `${-height / 8}rem`,
     width: `${width / 4}rem`,
     height: `${height / 4}rem`,
+    left: "50%",
+    top: "50%",
   };
 };
