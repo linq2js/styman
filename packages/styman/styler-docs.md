@@ -1,6 +1,6 @@
 # `Default Styler Styles`
 ## All styles
-[bg](#bg), [from](#from), [to](#to), [via](#via), [tracking](#tracking), [decoration](#decoration), [text](#text), [indent](#indent), [whitespace](#whitespace), [align](#align), [break](#break), [font](#font), [leading](#leading), [cursor](#cursor), [b](#b), [bl](#bl), [br](#br), [bt](#bt), [bb](#bb), [bx](#bx), [by](#by), [w](#w), [min_w](#min_w), [max_w](#max_w), [h](#h), [min_h](#min_h), [max_h](#max_h), [list](#list), [flex](#flex), [basis](#basis), [grow](#grow), [shrink](#shrink), [order](#order), [grid](#grid), [cols](#cols), [rows](#rows), [col](#col), [col_start](#col_start), [col_end](#col_end), [row](#row), [row_start](#row_start), [row_end](#row_end), [g](#g), [gx](#gx), [gy](#gy), [justify](#justify), [justify_items](#justify_items), [justify_self](#justify_self), [content](#content), [items](#items), [self](#self), [place_content](#place_content), [place_items](#place_items), [place_self](#place_self), [center](#center), [table](#table), [scale](#scale), [skew](#skew), [translate](#translate), [rotate](#rotate), [origin](#origin), [aspect](#aspect), [left](#left), [top](#top), [right](#right), [bottom](#bottom), [inset](#inset), [visible](#visible), [invisible](#invisible), [static](#static), [fixed](#fixed), [absolute](#absolute), [relative](#relative), [sticky](#sticky), [zindex](#zindex), [overscroll](#overscroll), [overflow](#overflow), [object](#object), [isolate](#isolate), [clear](#clear), [float](#float), [block](#block), [inline](#inline), [contents](#contents), [hidden](#hidden), [list_item](#list_item), [flow_root](#flow_root), [inline_block](#inline_block), [box](#box), [box_decoration](#box_decoration), [break_inside](#break_inside), [break_before](#break_before), [break_after](#break_after), [columns](#columns), [container](#container), [outline](#outline), [outline_offset](#outline_offset), [opacity](#opacity), [animate](#animate), [accent](#accent), [caret](#caret), [pointer_events](#pointer_events), [scroll](#scroll), [scrollp](#scrollp), [scrollm](#scrollm), [snap](#snap), [touch](#touch), [resize](#resize), [select](#select), [will_change](#will_change), [appearance](#appearance), [fill](#fill), [stroke](#stroke), [blur](#blur), [brightness](#brightness), [contrast](#contrast), [grayscale](#grayscale), [invert](#invert), [hue_rotate](#hue_rotate), [saturate](#saturate), [sepia](#sepia), [drop_shadow](#drop_shadow), [backdrop_blur](#backdrop_blur), [backdrop_brightness](#backdrop_brightness), [backdrop_contrast](#backdrop_contrast), [backdrop_grayscale](#backdrop_grayscale), [backdrop_invert](#backdrop_invert), [backdrop_hue_rotate](#backdrop_hue_rotate), [backdrop_saturate](#backdrop_saturate), [backdrop_opacity](#backdrop_opacity), [backdrop_sepia](#backdrop_sepia), [d](#d), [dx](#dx), [dy](#dy), [s](#s), [sx](#sx), [sy](#sy), [ml](#ml), [mr](#mr), [mb](#mb), [mt](#mt), [mx](#mx), [my](#my), [p](#p), [pl](#pl), [pt](#pt), [pr](#pr), [pb](#pb), [px](#px), [py](#py), [delay](#delay), [transition](#transition), [r](#r), [r_tl](#r_tl), [r_bl](#r_bl), [r_tr](#r_tr), [r_br](#r_br), [rt](#rt), [rl](#rl), [rb](#rb), [rr](#rr), [shadow](#shadow)
+[bg](#bg), [from](#from), [to](#to), [via](#via), [tracking](#tracking), [decoration](#decoration), [text](#text), [indent](#indent), [whitespace](#whitespace), [align](#align), [break](#break), [font](#font), [leading](#leading), [cursor](#cursor), [b](#b), [bl](#bl), [br](#br), [bt](#bt), [bb](#bb), [bx](#bx), [by](#by), [w](#w), [min_w](#min_w), [max_w](#max_w), [h](#h), [min_h](#min_h), [max_h](#max_h), [list](#list), [flex](#flex), [basis](#basis), [grow](#grow), [shrink](#shrink), [order](#order), [grid](#grid), [cols](#cols), [rows](#rows), [col](#col), [col_start](#col_start), [col_end](#col_end), [row](#row), [row_start](#row_start), [row_end](#row_end), [g](#g), [gx](#gx), [gy](#gy), [justify](#justify), [justify_items](#justify_items), [justify_self](#justify_self), [content](#content), [items](#items), [self](#self), [place_content](#place_content), [place_items](#place_items), [place_self](#place_self), [center](#center), [table](#table), [scale](#scale), [skew](#skew), [translate](#translate), [rotate](#rotate), [origin](#origin), [aspect](#aspect), [left](#left), [top](#top), [right](#right), [bottom](#bottom), [inset](#inset), [visible](#visible), [invisible](#invisible), [static](#static), [fixed](#fixed), [absolute](#absolute), [relative](#relative), [sticky](#sticky), [zindex](#zindex), [overscroll](#overscroll), [overflow](#overflow), [object](#object), [isolate](#isolate), [clear](#clear), [float](#float), [block](#block), [inline](#inline), [contents](#contents), [hidden](#hidden), [list_item](#list_item), [flow_root](#flow_root), [inline_block](#inline_block), [box](#box), [box_decoration](#box_decoration), [break_inside](#break_inside), [break_before](#break_before), [break_after](#break_after), [columns](#columns), [container](#container), [outline](#outline), [outline_offset](#outline_offset), [opacity](#opacity), [animate](#animate), [accent](#accent), [caret](#caret), [pointer_events](#pointer_events), [scroll](#scroll), [scrollp](#scrollp), [scrollm](#scrollm), [snap](#snap), [touch](#touch), [resize](#resize), [select](#select), [will_change](#will_change), [appearance](#appearance), [fill](#fill), [stroke](#stroke), [blur](#blur), [brightness](#brightness), [contrast](#contrast), [grayscale](#grayscale), [invert](#invert), [hue_rotate](#hue_rotate), [saturate](#saturate), [sepia](#sepia), [drop_shadow](#drop_shadow), [backdrop_blur](#backdrop_blur), [backdrop_brightness](#backdrop_brightness), [backdrop_contrast](#backdrop_contrast), [backdrop_grayscale](#backdrop_grayscale), [backdrop_invert](#backdrop_invert), [backdrop_hue_rotate](#backdrop_hue_rotate), [backdrop_saturate](#backdrop_saturate), [backdrop_opacity](#backdrop_opacity), [backdrop_sepia](#backdrop_sepia), [d](#d), [dx](#dx), [dy](#dy), [s](#s), [sx](#sx), [sy](#sy), [m](#m), [ml](#ml), [mr](#mr), [mb](#mb), [mt](#mt), [mx](#mx), [my](#my), [p](#p), [pl](#pl), [pt](#pt), [pr](#pr), [pb](#pb), [px](#px), [py](#py), [delay](#delay), [transition](#transition), [r](#r), [r_tl](#r_tl), [r_bl](#r_bl), [r_tr](#r_tr), [r_br](#r_br), [rt](#rt), [rl](#rl), [rb](#rb), [rr](#rr), [shadow](#shadow)
 ## bg
 Styles: background
 
@@ -224,13 +224,13 @@ Styles: background
 | italic | `styler({ font: 'italic' })` |
 | non-italic | `styler({ font: 'non-italic' })` |
 | thin | `styler({ font: 'thin' })` |
-| extraLight | `styler({ font: 'extraLight' })` |
+| extralight | `styler({ font: 'extralight' })` |
 | light | `styler({ font: 'light' })` |
 | normal | `styler({ font: 'normal' })` |
 | medium | `styler({ font: 'medium' })` |
-| semiBold | `styler({ font: 'semiBold' })` |
+| semibold | `styler({ font: 'semibold' })` |
 | bold | `styler({ font: 'bold' })` |
-| extraBold | `styler({ font: 'extraBold' })` |
+| extrabold | `styler({ font: 'extrabold' })` |
 | black | `styler({ font: 'black' })` |
 | xs | `styler({ font: 'xs' })` |
 | sm | `styler({ font: 'sm' })` |
@@ -874,6 +874,8 @@ Styles: height
 | Variant | Example |
 |:---|:---|
 | **true** | `styler({ center: true })` |
+| **A/B** | `styler({ center: '1/2' })` |
+| **number** | `styler({ center: 5 })` |
 | x | `styler({ center: 'x' })` |
 | y | `styler({ center: 'y' })` |
 
@@ -1013,7 +1015,7 @@ Styles: height
 |:---|:---|
 | **A/B** | `styler({ inset: '1/2' })` |
 | **number** | `styler({ inset: 5 })` |
-| XY | `styler({ inset: ['X', XVariant, 'Y', YVariant] })` |
+| SIDES | `styler({ inset: ['L', leftVariant, 'T', topVariant, ['R', 'B'], rightAndBottomVariant] })` |
 
 
 
@@ -1409,7 +1411,6 @@ Styles: height
 
 | Variant | Example |
 |:---|:---|
-| SIDES | `styler({ scroll: ['L', leftVariant, 'T', topVariant, ['R', 'B'], rightAndBottomVariant] })` |
 | smooth | `styler({ scroll: 'smooth' })` |
 | auto | `styler({ scroll: 'auto' })` |
 
@@ -1850,6 +1851,20 @@ Styles: space_y
 
 
 
+## m
+Styles: margin
+
+[Click here to see Tailwind description / implementation / example](https://tailwindcss.com/docs/margin)
+
+| Variant | Example |
+|:---|:---|
+| **A/B** | `styler({ m: '1/2' })` |
+| **number** | `styler({ m: 5 })` |
+| px | `styler({ m: 'px' })` |
+| auto | `styler({ m: 'auto' })` |
+
+
+
 ## ml
 Styles: marginLeft
 
@@ -2061,6 +2076,7 @@ Styles: borderRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ r: true })` |
 | **A/B** | `styler({ r: '1/2' })` |
 | **number** | `styler({ r: 5 })` |
 | none | `styler({ r: 'none' })` |
@@ -2079,6 +2095,7 @@ Styles: borderTopLeftRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ r_tl: true })` |
 | **A/B** | `styler({ r_tl: '1/2' })` |
 | **number** | `styler({ r_tl: 5 })` |
 | none | `styler({ r_tl: 'none' })` |
@@ -2097,6 +2114,7 @@ Styles: borderBottomLeftRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ r_bl: true })` |
 | **A/B** | `styler({ r_bl: '1/2' })` |
 | **number** | `styler({ r_bl: 5 })` |
 | none | `styler({ r_bl: 'none' })` |
@@ -2115,6 +2133,7 @@ Styles: borderTopRightRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ r_tr: true })` |
 | **A/B** | `styler({ r_tr: '1/2' })` |
 | **number** | `styler({ r_tr: 5 })` |
 | none | `styler({ r_tr: 'none' })` |
@@ -2133,6 +2152,7 @@ Styles: borderBottomRightRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ r_br: true })` |
 | **A/B** | `styler({ r_br: '1/2' })` |
 | **number** | `styler({ r_br: 5 })` |
 | none | `styler({ r_br: 'none' })` |
@@ -2153,6 +2173,7 @@ Styles: borderTopLeftRadius, borderTopRightRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ rt: true })` |
 | **A/B** | `styler({ rt: '1/2' })` |
 | **number** | `styler({ rt: 5 })` |
 | none | `styler({ rt: 'none' })` |
@@ -2173,6 +2194,7 @@ Styles: borderTopLeftRadius, borderBottomLeftRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ rl: true })` |
 | **A/B** | `styler({ rl: '1/2' })` |
 | **number** | `styler({ rl: 5 })` |
 | none | `styler({ rl: 'none' })` |
@@ -2193,6 +2215,7 @@ Styles: borderBottomLeftRadius, borderBottomRightRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ rb: true })` |
 | **A/B** | `styler({ rb: '1/2' })` |
 | **number** | `styler({ rb: 5 })` |
 | none | `styler({ rb: 'none' })` |
@@ -2213,6 +2236,7 @@ Styles: borderTopRightRadius, borderBottomRightRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ rr: true })` |
 | **A/B** | `styler({ rr: '1/2' })` |
 | **number** | `styler({ rr: 5 })` |
 | none | `styler({ rr: 'none' })` |
@@ -2231,6 +2255,7 @@ Styles: borderTopRightRadius, borderBottomRightRadius
 
 | Variant | Example |
 |:---|:---|
+| **true** | `styler({ shadow: true })` |
 | **color** | `styler({ shadow: 'red' })` or `styler({ shadow: 'red-500' })` |
 | sm | `styler({ shadow: 'sm' })` |
 | md | `styler({ shadow: 'md' })` |
