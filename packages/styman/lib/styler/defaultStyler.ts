@@ -24,6 +24,7 @@ import { transitionModule } from "./transitionModule";
 import { borderRadiusModule } from "./borderRadiusModule";
 import { outlineModule } from "./outlineModule";
 import { boxShadowModule } from "./boxShadowModule";
+import { mixBlendModeModule } from "./mixBlendModeModule";
 
 export const buildDefaultStyler = <C extends ColorScheme, M extends Modifiers>(
   context: BuildContext<C, M>
@@ -54,5 +55,7 @@ export const buildDefaultStyler = <C extends ColorScheme, M extends Modifiers>(
     ...borderRadiusModule(context),
     ...outlineModule(context),
     ...boxShadowModule(context),
+
+    ...mixBlendModeModule(context),
   };
 };
