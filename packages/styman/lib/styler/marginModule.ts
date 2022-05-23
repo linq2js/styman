@@ -15,7 +15,7 @@ export const marginModule = <C extends ColorScheme, M extends Modifiers>({
   withModifiers,
 }: BuildContext<C, M>) => {
   return {
-    ...withModifiers(["ml", "mr", "mb", "mt", "mx", "my"], {
+    ...withModifiers(["m", "ml", "mr", "mb", "mt", "mx", "my"], {
       px: (_, { withKey }) =>
         withKey(MARGIN_KEYMAP, (prop) => ({ [prop]: "1px" })),
       auto: (_, { withKey }) =>
