@@ -278,10 +278,20 @@ const styles = sheet({
 });
 ```
 
-## Quick styling component
+## Generating class from CSS text
 
 ```js
 import { css } from "styman";
+import { createElement } from "react";
+
+const Button = (props) => (
+  <button
+    {...props}
+    className={css`
+      color: ${props.disabled ? "gray" : "black"};
+    `}
+  />
+);
 
 <div className={css({ fontWeight: "bold", backgroundColor: "red" })}></div>;
 
@@ -291,6 +301,23 @@ import { css } from "styman";
     background-color: red;
   `}
 ></div>;
+
+// create styled component factory
+const styled =
+  (tag) =>
+  (template, ...args) =>
+  (props) =>
+    createElement(props.as || tag, {
+      ...props,
+      className: css(
+        template,
+        ...args.map((x) => (typeof x === "function" ? x(props) : x))
+      ),
+    });
+
+const StyledButton = styled("button")`
+  color: red;
+`;
 ```
 
 ## Styler
