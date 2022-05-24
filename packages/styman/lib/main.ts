@@ -173,4 +173,4 @@ const sheet = <R extends RuleSet>(rules: R | (() => R)): Sheet<R> => {
 };
 
 export { use, sheet, root, once };
-export { cx as cs, keyframes, cache, flush, hydrate } from "@emotion/css";
+export { cx as cs, keyframes, cache, flush, css, hydrate } from "@emotion/css";

@@ -278,6 +278,21 @@ const styles = sheet({
 });
 ```
 
+## Quick styling component
+
+```js
+import { css } from "styman";
+
+<div className={css({ fontWeight: "bold", backgroundColor: "red" })}></div>;
+
+<div
+  className={css`
+    font-weight: bold;
+    background-color: red;
+  `}
+></div>;
+```
+
 ## Styler
 
 Styler is utils that helps to generate css class faster, it provides a lot of styling modules. It works similar Tailwind CSS
