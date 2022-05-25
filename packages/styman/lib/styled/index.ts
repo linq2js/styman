@@ -1,4 +1,4 @@
-import { RuleSet, Sheet, css } from "../main";
+import { RuleSet, Sheet, css, sheet as originalSheet } from "../main";
 import { ReactHTML, HTMLAttributes, FC, createElement } from "react";
 
 export type Styled<R extends RuleSet> = {
@@ -13,7 +13,9 @@ export type Styled<R extends RuleSet> = {
   (...args: Parameters<Sheet<R>>): { className: string };
 };
 
-export const createStyled = <R extends RuleSet>(sheet: Sheet<R>) => {
+export const createStyled = <R extends RuleSet>(input: Sheet<R> | R) => {
+  const sheet = typeof input === "function" ? input : originalSheet(input);
+
   return ((...args: any[]) => {
     if (typeof args[0] === "string") {
       if (args.length === 1) {
