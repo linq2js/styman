@@ -14,6 +14,7 @@
     "@types/jest": "^27.4.1",
     "@types/node-fetch": "^2.6.1",
     "@types/react": "^17.0.42",
+    "react": "~18.1.0",
     "axios": "^0.27.2",
     "dataloader": "^2.1.0",
     "deepmerge": "^4.2.2",

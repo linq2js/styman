@@ -18,7 +18,8 @@
     "dist/tsc",
     "dynamic",
     "styler",
-    "server"
+    "server",
+    "styled"
   ],
   "keywords": [
     "styles",
