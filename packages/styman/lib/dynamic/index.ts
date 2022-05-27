@@ -258,7 +258,13 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
           }
           if (typeof p === "string" && p.includes("/")) {
             const parts = p.split("/");
-            return variants["$fraction"]?.(parts.map(parseFloat), context);
+            const firstPart = parseFloat(parts[0]);
+            if (!isNaN(firstPart)) {
+              return variants["$fraction"]?.(
+                [firstPart, parseFloat(parts[1])],
+                context
+              );
+            }
           }
           return variants["$custom"]?.(String(p), context);
         })
