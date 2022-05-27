@@ -654,8 +654,8 @@ const defaultShadings: Shading[] = [
 
 export type ColorSchemeParam<TScheme> =
   | keyof TScheme
-  | `${string & keyof TScheme}-${Exclude<Shading, "default">}`
-  | `${string & keyof TScheme}-${Exclude<Shading, "default">}/${number}`
+  | `${string & keyof TScheme}-${number}`
+  | `${string & keyof TScheme}-${number}/${number}`
   | `${string & keyof TScheme}/${number}`;
 
 const { withModifiers, withVariants, withColors, withValues } = createPreset();
