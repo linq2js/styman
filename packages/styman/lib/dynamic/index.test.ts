@@ -8,6 +8,16 @@ import {
 import { sheet } from "../main";
 // import { sheet } from "../main";
 
+test("withColors", () => {
+  const colors = withColors({ red: createSwatch("#ff0000") }, (color) => ({
+    color,
+  }));
+  const v1 = colors("red/50");
+  const v2 = colors("red-100/80");
+  expect(v1).toEqual({ color: "rgb(255 0 0/0.5)" });
+  expect(v2).toEqual({ color: "rgb(255 0 0/0.8)" });
+});
+
 test("ignore specified side variants", () => {
   const variants = withVariants({
     $sides: () => true,

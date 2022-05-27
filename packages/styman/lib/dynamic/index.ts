@@ -1,5 +1,6 @@
 import type { CSSInterpolation } from "@emotion/css";
 import type { FalsyValue, Style } from "../main";
+import { toRgb } from "../utils";
 import { defaultModifiers } from "./defaultModifiers";
 
 export type DefaultModifierKey = keyof typeof defaultModifiers;
@@ -298,12 +299,20 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
     combinableHandler(
       Object.assign(
         (param: ColorSchemeParam<TScheme>, context: any) => {
-          const [color, shading = "default"] = (param as string).split("-") as [
+          const [colorWithShading, opacity] = (param as string).split("/");
+          const [color, shading = "default"] = colorWithShading.split("-") as [
             string,
             Shading | undefined
           ];
           const availColor = colors[color]?.[shading] ?? colors[color]?.[500];
-          return availColor ? handler(availColor, context) : undefined;
+          return availColor
+            ? handler(
+                opacity
+                  ? toRgb(availColor, "/" + parseFloat(opacity) / 100)
+                  : availColor,
+                context
+              )
+            : undefined;
         },
         { variants: ["COLOR"] }
       )
@@ -645,7 +654,9 @@ const defaultShadings: Shading[] = [
 
 export type ColorSchemeParam<TScheme> =
   | keyof TScheme
-  | `${string & keyof TScheme}-${Exclude<Shading, "default">}`;
+  | `${string & keyof TScheme}-${Exclude<Shading, "default">}`
+  | `${string & keyof TScheme}-${Exclude<Shading, "default">}/${number}`
+  | `${string & keyof TScheme}/${number}`;
 
 const { withModifiers, withVariants, withColors, withValues } = createPreset();
 
