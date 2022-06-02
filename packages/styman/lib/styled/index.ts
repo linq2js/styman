@@ -1,16 +1,38 @@
-import { RuleSet, Sheet, css, sheet as originalSheet } from "../main";
 import { ReactHTML, HTMLAttributes, FC, createElement } from "react";
+import {
+  RuleSet,
+  Sheet,
+  css,
+  sheet as originalSheet,
+  Styles,
+  CustomStyle,
+  FalsyValue,
+} from "../main";
 
 export type Styled<R extends RuleSet> = {
+  /**
+   * create styled component from predefined rules
+   */
+  (
+    styles: Styles<R> | (Styles<R> | FalsyValue)[],
+    ...customStyles: CustomStyle<Styles<R>>[]
+  ): { className: string };
+
+  /**
+   * create styled component from CSS string
+   */
   <T extends keyof ReactHTML>(element: T): (
     template: TemplateStringsArray,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...args: any[]
   ) => FC<HTMLAttributes<T>>;
+
+  /**
+   * create styled component from specified tag name
+   */
   <T extends keyof ReactHTML>(element: T, ...args: Parameters<typeof css>): FC<
     HTMLAttributes<T>
   >;
-  (...args: Parameters<Sheet<R>>): { className: string };
 };
 
 export const createStyled = <R extends RuleSet>(input: Sheet<R> | R) => {
