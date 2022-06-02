@@ -1,7 +1,7 @@
 {
   "name": "styman-demo",
   "private": true,
-  "version": "0.0.59",
+  "version": "0.0.60",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,7 +11,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
-    "styman": "^0.0.59"
+    "styman": "^0.0.60"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
