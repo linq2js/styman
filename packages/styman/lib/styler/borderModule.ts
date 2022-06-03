@@ -20,7 +20,7 @@ export const borderModule = <C extends ColorScheme, M extends Modifiers>({
   return {
     ...withModifiers(["b", "bl", "br", "bt", "bb", "bx", "by"], {
       $custom: withColors(colors, (color, { withKey }) =>
-        withKey(BORDER_KEYMAP, (prop) => ({ [prop]: color }))
+        withKey(BORDER_KEYMAP, (prop) => ({ [prop + "Color"]: color }))
       ),
       $number: (x: number, { withKey }) =>
         withKey(BORDER_KEYMAP, (prop) => ({ [prop + "Width"]: x })),
