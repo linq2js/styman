@@ -363,7 +363,8 @@ const createPreset = <TModifiers extends Modifiers = typeof defaultModifiers>({
 
             Object.entries(param).forEach(([key, value]) => {
               if (key === "$") {
-                Object.assign(result, isFunction ? rule(value) : rule);
+                const defaultState = isFunction ? rule(value, { path }) : rule;
+                Object.assign(result, defaultState);
                 return;
               }
 
