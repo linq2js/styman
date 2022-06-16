@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers, Spacings } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { SPACING_SELECTOR } from "../utils";
 import { BuildContext } from "./createStyler";
 
@@ -30,12 +30,13 @@ const getSpacing = (isX: boolean, value: string) => {
 export const spaceModule = <
   C extends ColorScheme,
   M extends Modifiers,
+  T extends TextSizes,
   S extends Spacings
 >({
   withModifiers,
   withValues,
   spacings,
-}: BuildContext<C, M, S>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers(["s", "sx", "sy"], {
       reverse: (_, { withKey }) =>

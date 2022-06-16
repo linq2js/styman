@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers, Spacings } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 export const PADDING_KEYMAP = {
@@ -14,12 +14,13 @@ export const PADDING_KEYMAP = {
 export const paddingModule = <
   C extends ColorScheme,
   M extends Modifiers,
+  T extends TextSizes,
   S extends Spacings
 >({
   withModifiers,
   withValues,
   spacings,
-}: BuildContext<C, M, S>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers(["p", "pl", "pt", "pr", "pb", "px", "py"], {
       px: (_, { withKey }) =>

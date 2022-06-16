@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 import { SPACING_SELECTOR } from "../utils";
 
@@ -48,12 +48,17 @@ const getStyle = (isX: boolean, style: string) => {
 };
 
 // divide https://tailwindcss.com/docs/divide-style
-export const divideModule = <C extends ColorScheme, M extends Modifiers>({
+export const divideModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   withModifiers,
   withValues,
   withColors,
   colors,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers(["d", "dx", "dy"], {
       $xy: () => true,

@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 export const BORDER_KEYMAP = {
@@ -11,12 +11,17 @@ export const BORDER_KEYMAP = {
   by: ["borderTop", "borderBottom"],
 };
 
-export const borderModule = <C extends ColorScheme, M extends Modifiers>({
+export const borderModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   colors,
   withModifiers,
   withColors,
   withValues,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers(["b", "bl", "br", "bt", "bb", "bx", "by"], {
       $custom: withColors(colors, (color, { withKey }) =>

@@ -1,5 +1,5 @@
 import { keyframes } from "@emotion/css";
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { once } from "../utils";
 import { BuildContext } from "./createStyler";
 
@@ -36,9 +36,14 @@ const ANIMATION_TYPES = {
   })),
 };
 
-export const animationModule = <C extends ColorScheme, M extends Modifiers>({
+export const animationModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   withModifiers,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("animate", {
       ...ANIMATION_TYPES,

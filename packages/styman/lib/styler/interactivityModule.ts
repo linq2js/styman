@@ -1,14 +1,22 @@
-import { ColorScheme, Modifiers, withValues } from "../dynamic";
+import {
+  ColorScheme,
+  Modifiers,
+  Spacings,
+  TextSizes,
+  withValues,
+} from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 export const interactivityModule = <
   C extends ColorScheme,
-  M extends Modifiers
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
 >({
   colors,
   withModifiers,
   withColors,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("accent", {
       inherit: () => ({ accentColor: "inherit" }),

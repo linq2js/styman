@@ -1,13 +1,18 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 const BOX_SHADOW = `var(--sm-ring-offset-shadow,0 0 #0000),var(--sm-ring-shadow,0 0 #0000),var(--sm-shadow)`;
 
-export const boxShadowModule = <C extends ColorScheme, M extends Modifiers>({
+export const boxShadowModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   withModifiers,
   withColors,
   colors,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("shadow", {
       $default: () => ({

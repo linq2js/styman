@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers, Spacings } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 export const MARGIN_KEYMAP = {
@@ -14,12 +14,13 @@ export const MARGIN_KEYMAP = {
 export const marginModule = <
   C extends ColorScheme,
   M extends Modifiers,
+  T extends TextSizes,
   S extends Spacings
 >({
   spacings,
   withModifiers,
   withValues,
-}: BuildContext<C, M, S>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers(["m", "ml", "mr", "mb", "mt", "mx", "my"], {
       px: (_, { withKey }) =>

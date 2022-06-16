@@ -6,7 +6,7 @@ import { fontModule } from "./fontModule";
 import { sizingModule } from "./sizingModule";
 import { textModule } from "./textModule";
 import { listModule } from "./listModule";
-import { ColorScheme, Modifiers, Spacings } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { flexModule } from "./flexModule";
 import { tableModule } from "./tableModule";
 import { transformModule } from "./transformModule";
@@ -29,9 +29,10 @@ import { mixBlendModeModule } from "./mixBlendModeModule";
 export const buildDefaultStyler = <
   C extends ColorScheme,
   M extends Modifiers,
+  T extends TextSizes,
   S extends Spacings
 >(
-  context: BuildContext<C, M, S>
+  context: BuildContext<C, M, T, S>
 ) => {
   return {
     ...backgroundModule(context),

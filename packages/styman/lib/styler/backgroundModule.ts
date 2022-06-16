@@ -1,12 +1,23 @@
-import { ColorScheme, Modifiers, withValues } from "../dynamic";
+import {
+  ColorScheme,
+  Modifiers,
+  Spacings,
+  TextSizes,
+  withValues,
+} from "../dynamic";
 import { toRgb } from "../utils";
 import { BuildContext } from "./createStyler";
 
-export const backgroundModule = <C extends ColorScheme, M extends Modifiers>({
+export const backgroundModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   colors,
   withModifiers,
   withColors,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("bg", {
       ...withValues(["fixed", "local", "scroll"], (x) => ({

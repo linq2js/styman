@@ -1,12 +1,17 @@
-import { ColorScheme, meta, Modifiers } from "../dynamic";
+import { ColorScheme, meta, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 const TRANSFORM =
   "translate(var(--sm-translate-x,0),var(--sm-translate-y,0)) rotate(var(--sm-rotate,0)) skewX(var(--sm-skew-x,0)) skewY(var(--sm-skew-y,0)) scaleX(var(--sm-scale-x,1)) scaleY(var(--sm-scale-y,1))";
 
-export const transformModule = <C extends ColorScheme, M extends Modifiers>({
+export const transformModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   withModifiers,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("scale", {
       $xy: () => true,

@@ -1,4 +1,10 @@
-import { ColorScheme, Modifiers, withValues } from "../dynamic";
+import {
+  ColorScheme,
+  Modifiers,
+  Spacings,
+  TextSizes,
+  withValues,
+} from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 const GAP_KEYMAP = {
@@ -7,9 +13,14 @@ const GAP_KEYMAP = {
   gy: "rowGap",
 };
 
-export const flexModule = <C extends ColorScheme, M extends Modifiers>({
+export const flexModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   withModifiers,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("flex", {
       "1": () => ({ display: "flex", flex: "1 1 0%" }),

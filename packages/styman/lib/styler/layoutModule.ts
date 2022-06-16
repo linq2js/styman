@@ -4,6 +4,8 @@ import {
   meta,
   Modifiers,
   Side,
+  Spacings,
+  TextSizes,
 } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
@@ -40,11 +42,16 @@ const getInset = (sides: Side[] | undefined, value: string) => {
   };
 };
 
-export const layoutModule = <C extends ColorScheme, M extends Modifiers>({
+export const layoutModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   modifiers = defaultModifiers as any,
   withModifiers,
   withValues,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("aspect", {
       $custom: (x: string) => ({ aspectRatio: x }),

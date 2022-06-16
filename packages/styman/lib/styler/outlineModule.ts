@@ -1,12 +1,17 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
-export const outlineModule = <C extends ColorScheme, M extends Modifiers>({
+export const outlineModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   withModifiers,
   withColors,
   withValues,
   colors,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("outline", {
       $number: (value: number) => ({ outlineWidth: value }),

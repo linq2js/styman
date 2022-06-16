@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 export const BORDER_RADIUS_KEYMAP = {
@@ -13,10 +13,15 @@ export const BORDER_RADIUS_KEYMAP = {
   rr: ["borderTopRightRadius", "borderBottomRightRadius"],
 };
 
-export const borderRadiusModule = <C extends ColorScheme, M extends Modifiers>({
+export const borderRadiusModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   withModifiers,
   withValues,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers(
       ["r", "r_tl", "r_bl", "r_tr", "r_br", "rt", "rl", "rb", "rr"],

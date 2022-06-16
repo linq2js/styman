@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 const DEFAULT_TRANSITION_SETTINGS = {
@@ -6,10 +6,15 @@ const DEFAULT_TRANSITION_SETTINGS = {
   transitionDuration: "150ms",
 };
 
-export const transitionModule = <C extends ColorScheme, M extends Modifiers>({
+export const transitionModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   withModifiers,
   withValues,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("delay", {
       $number: (x: number) => ({ transitionDelay: x + "ms" }),

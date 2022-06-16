@@ -1,10 +1,15 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
-export const cursorModule = <C extends ColorScheme, M extends Modifiers>({
+export const cursorModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  T extends TextSizes,
+  S extends Spacings
+>({
   withValues,
   withModifiers,
-}: BuildContext<C, M>) => {
+}: BuildContext<C, M, T, S>) => {
   return withModifiers("cursor", {
     ...withValues(
       [
