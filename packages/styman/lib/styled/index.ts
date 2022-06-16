@@ -19,6 +19,11 @@ export type Styled<R extends RuleSet> = {
   ): { className: string };
 
   /**
+   * for Typescript styping only
+   */
+  readonly styles: Styles<R>;
+
+  /**
    * create styled component from CSS string
    */
   <T extends keyof ReactHTML>(element: T): (

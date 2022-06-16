@@ -154,6 +154,7 @@ export type Sheet<R extends RuleSet> = {
   ): string;
 
   readonly rules: R;
+
   extend<R2 extends R>(rules: R2): Sheet<R & R2>;
 };
 
