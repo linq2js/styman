@@ -31,7 +31,7 @@ export const borderModule = <
         withKey(BORDER_KEYMAP, (prop) => ({ [prop + "Width"]: x })),
       // border style
       ...withValues(
-        ["solid", "dashed", "dotted", "double", "hidden"],
+        ["solid", "dashed", "dotted", "double", "hidden", "none"],
         (x, { withKey }) =>
           withKey(BORDER_KEYMAP, (prop) => ({ [prop + "Style"]: x }))
       ),

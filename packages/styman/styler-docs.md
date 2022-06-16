@@ -319,6 +319,7 @@ Styles: border
 | dotted | `styler({ b: 'dotted' })` |
 | double | `styler({ b: 'double' })` |
 | hidden | `styler({ b: 'hidden' })` |
+| none | `styler({ b: 'none' })` |
 
 
 
@@ -336,6 +337,7 @@ Styles: borderLeft
 | dotted | `styler({ bl: 'dotted' })` |
 | double | `styler({ bl: 'double' })` |
 | hidden | `styler({ bl: 'hidden' })` |
+| none | `styler({ bl: 'none' })` |
 
 
 
@@ -353,6 +355,7 @@ Styles: borderRight
 | dotted | `styler({ br: 'dotted' })` |
 | double | `styler({ br: 'double' })` |
 | hidden | `styler({ br: 'hidden' })` |
+| none | `styler({ br: 'none' })` |
 
 
 
@@ -370,6 +373,7 @@ Styles: borderTop
 | dotted | `styler({ bt: 'dotted' })` |
 | double | `styler({ bt: 'double' })` |
 | hidden | `styler({ bt: 'hidden' })` |
+| none | `styler({ bt: 'none' })` |
 
 
 
@@ -387,6 +391,7 @@ Styles: borderBottom
 | dotted | `styler({ bb: 'dotted' })` |
 | double | `styler({ bb: 'double' })` |
 | hidden | `styler({ bb: 'hidden' })` |
+| none | `styler({ bb: 'none' })` |
 
 
 
@@ -404,6 +409,7 @@ Styles: borderLeft, borderRight
 | dotted | `styler({ bx: 'dotted' })` |
 | double | `styler({ bx: 'double' })` |
 | hidden | `styler({ bx: 'hidden' })` |
+| none | `styler({ bx: 'none' })` |
 
 
 
@@ -421,6 +427,7 @@ Styles: borderTop, borderBottom
 | dotted | `styler({ by: 'dotted' })` |
 | double | `styler({ by: 'double' })` |
 | hidden | `styler({ by: 'hidden' })` |
+| none | `styler({ by: 'none' })` |
 
 
 
