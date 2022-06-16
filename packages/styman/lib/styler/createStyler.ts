@@ -4,11 +4,13 @@ import { RuleSet, sheet } from "../main";
 export interface StylerOptions<
   TModifiers extends Record<string, string>,
   TColors extends ColorScheme,
-  TResult
+  TResult,
+  TSpacings extends Record<string, number>
 > {
   modifiers?: TModifiers;
   colors?: TColors;
-  build: (context: BuildContext<TColors, TModifiers>) => TResult;
+  spacings?: TSpacings;
+  build: (context: BuildContext<TColors, TModifiers, TSpacings>) => TResult;
 }
 
 /**
@@ -22,23 +24,27 @@ class CreatePresetWrappedType<T extends Modifiers> {
 
 export type BuildContext<
   TColors extends ColorScheme,
-  TModifiers extends Modifiers
+  TModifiers extends Modifiers,
+  TSpacings extends Record<string, number> = {}
 > = {
   colors: TColors;
-  modifiers?: TModifiers;
+  spacings: TSpacings;
+  modifiers: TModifiers;
 } & ReturnType<CreatePresetWrappedType<TModifiers>["type"]>;
 
 export const createStyler = <
   TModifiers extends Record<string, string>,
   TColors extends ColorScheme,
-  TRuleSet extends RuleSet
+  TRuleSet extends RuleSet,
+  TSpacings extends Record<string, number> = {}
 >({
   modifiers,
   colors = {} as any,
+  spacings = {} as any,
   build,
-}: StylerOptions<TModifiers, TColors, TRuleSet>) => {
+}: StylerOptions<TModifiers, TColors, TRuleSet, TSpacings>) => {
   const context = createPreset({ modifiers });
-  const buildResult = build({ ...context, colors });
+  const buildResult = build({ ...context, colors, spacings });
   const styler = sheet(buildResult);
   return Object.assign(styler, {
     propsBuilder(...args: Parameters<typeof styler>) {

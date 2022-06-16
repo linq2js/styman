@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings } from "../dynamic";
 import { SPACING_SELECTOR } from "../utils";
 import { BuildContext } from "./createStyler";
 
@@ -27,9 +27,15 @@ const getSpacing = (isX: boolean, value: string) => {
   };
 };
 
-export const spaceModule = <C extends ColorScheme, M extends Modifiers>({
+export const spaceModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  S extends Spacings
+>({
   withModifiers,
-}: BuildContext<C, M>) => {
+  withValues,
+  spacings,
+}: BuildContext<C, M, S>) => {
   return {
     ...withModifiers(["s", "sx", "sy"], {
       reverse: (_, { withKey }) =>
@@ -42,6 +48,9 @@ export const spaceModule = <C extends ColorScheme, M extends Modifiers>({
         withKey(SPACE_KEYMAP, (prop) =>
           getSpacing(prop === "x", `${x / 4}rem`)
         ),
+      ...withValues(spacings, (value, { withKey }) =>
+        withKey(SPACE_KEYMAP, (prop) => ({ [prop]: `${value / 4}rem` }))
+      ),
     }),
   };
 };

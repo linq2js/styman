@@ -1,4 +1,4 @@
-import { ColorScheme, Modifiers } from "../dynamic";
+import { ColorScheme, Modifiers, Spacings } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 export const MARGIN_KEYMAP = {
@@ -11,9 +11,15 @@ export const MARGIN_KEYMAP = {
   my: ["marginTop", "marginBottom"],
 };
 
-export const marginModule = <C extends ColorScheme, M extends Modifiers>({
+export const marginModule = <
+  C extends ColorScheme,
+  M extends Modifiers,
+  S extends Spacings
+>({
+  spacings,
   withModifiers,
-}: BuildContext<C, M>) => {
+  withValues,
+}: BuildContext<C, M, S>) => {
   return {
     ...withModifiers(["m", "ml", "mr", "mb", "mt", "mx", "my"], {
       px: (_, { withKey }) =>
@@ -24,6 +30,9 @@ export const marginModule = <C extends ColorScheme, M extends Modifiers>({
         withKey(MARGIN_KEYMAP, (prop) => ({ [prop]: `${value / 4}rem` })),
       $fraction: ([a, b], { withKey }) =>
         withKey(MARGIN_KEYMAP, (prop) => ({ [prop]: `${(a / b) * 100}%` })),
+      ...withValues(spacings, (value, { withKey }) =>
+        withKey(MARGIN_KEYMAP, (prop) => ({ [prop]: `${value / 4}rem` }))
+      ),
     }),
   };
 };

@@ -145,6 +145,8 @@ export interface WithValues {
   };
 }
 
+export type Spacings = Record<string, number>;
+
 export type Modifiers = Record<string, string>;
 
 export interface PresetOptions<TModifiers extends Modifiers> {
