@@ -46,9 +46,7 @@ export const fontModule = <
           "diagonal-fractions",
           "stacked-fractions",
         ],
-        (x) => ({
-          fontVariantNumeric: x,
-        })
+        (x) => ({ fontVariantNumeric: x })
       ),
       // font-style
       ...withValues({ italic: "italic", "non-italic": "normal" }, (x) => ({
