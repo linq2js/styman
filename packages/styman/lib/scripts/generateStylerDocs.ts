@@ -3,12 +3,10 @@ import {
   BORDER_RADIUS_KEYMAP,
   buildDefaultStyler,
   createStyler,
-  defaultColorScheme,
   MARGIN_KEYMAP,
   PADDING_KEYMAP,
 } from "../styler";
 import fs from "fs";
-import { defaultTextSizes } from "../dynamic";
 
 const DEFAULT_EXAMPLE = "`styler({ @style: '@variant' })`";
 
@@ -164,8 +162,6 @@ const VARITANTS = {
 };
 
 const styler = createStyler({
-  colors: defaultColorScheme,
-  textSizes: defaultTextSizes,
   build: buildDefaultStyler,
 });
 

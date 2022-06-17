@@ -1,6 +1,5 @@
 import {
   ColorScheme,
-  defaultModifiers,
   meta,
   Modifiers,
   Side,
@@ -48,7 +47,7 @@ export const layoutModule = <
   T extends TextSizes,
   S extends Spacings
 >({
-  modifiers = defaultModifiers as any,
+  modifiers,
   withModifiers,
   withValues,
 }: BuildContext<C, M, T, S>) => {

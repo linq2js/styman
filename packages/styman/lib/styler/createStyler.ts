@@ -1,9 +1,11 @@
+import { defaultColorScheme } from "../defaultColorScheme";
+import { defaultModifiers } from "../defaultModifiers";
+import { defaultTextSizes } from "../defaultTextSizes";
 import {
   createPreset,
   ColorScheme,
   Modifiers,
   TextSizes,
-  defaultTextSizes,
   Spacings,
 } from "../dynamic";
 import { RuleSet, sheet } from "../main";
@@ -46,15 +48,15 @@ export type BuildContext<
 } & ReturnType<CreatePresetWrappedType<TModifiers>["type"]>;
 
 export const createStyler = <
-  TModifiers extends Record<string, string>,
-  TColors extends ColorScheme,
   TRuleSet extends RuleSet,
-  TTextSizes extends TextSizes,
+  TModifiers extends Record<string, string> = typeof defaultModifiers,
+  TColors extends ColorScheme = typeof defaultColorScheme,
+  TTextSizes extends TextSizes = typeof defaultTextSizes,
   TSpacings extends Record<string, number> = {}
 >({
-  modifiers,
+  modifiers = defaultModifiers as any,
   textSizes = defaultTextSizes as any,
-  colors = {} as any,
+  colors = defaultColorScheme as any,
   spacings = {} as any,
   build,
 }: StylerOptions<TModifiers, TColors, TRuleSet, TTextSizes, TSpacings>) => {

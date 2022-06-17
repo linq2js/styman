@@ -1,4 +1,4 @@
-export * from "./defaultColorScheme";
+export * from "../defaultColorScheme";
 export * from "./createStyler";
 export * from "./defaultStyler";
 // modules

@@ -1,4 +1,4 @@
-import { createSwatch } from "../dynamic";
+import { createSwatch } from "./dynamic";
 
 export const slate = {
   "50": "#f8fafc",

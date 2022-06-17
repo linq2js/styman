@@ -19,7 +19,8 @@
     "dynamic",
     "styler",
     "server",
-    "styled"
+    "styled",
+    "default"
   ],
   "keywords": [
     "styles",
