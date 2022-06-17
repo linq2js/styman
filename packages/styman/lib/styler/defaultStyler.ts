@@ -25,6 +25,7 @@ import { borderRadiusModule } from "./borderRadiusModule";
 import { outlineModule } from "./outlineModule";
 import { boxShadowModule } from "./boxShadowModule";
 import { mixBlendModeModule } from "./mixBlendModeModule";
+import { contentModule } from "./contentModule";
 
 export const buildDefaultStyler = <
   C extends ColorScheme,
@@ -62,5 +63,7 @@ export const buildDefaultStyler = <
     ...boxShadowModule(context),
 
     ...mixBlendModeModule(context),
+
+    ...contentModule(context),
   };
 };
