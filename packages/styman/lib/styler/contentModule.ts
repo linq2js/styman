@@ -8,23 +8,10 @@ export const contentModule = <
   S extends Spacings
 >({
   withModifiers,
-  withValues,
 }: BuildContext<C, M, T, S>) => {
   return {
-    ...withModifiers("content", {
+    ...withModifiers("pcontent", {
       none: () => ({ content: "none" }),
-      // flex content
-      ...withValues(
-        {
-          start: "flex-start",
-          end: "flex-end",
-          center: "center",
-          between: "space-between",
-          around: "space-around",
-          evenly: "space-evenly",
-        },
-        (x) => ({ alignContent: x })
-      ),
       $custom: (value) => ({ content: value }),
     }),
   };

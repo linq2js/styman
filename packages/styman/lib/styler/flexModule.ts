@@ -174,6 +174,20 @@ export const flexModule = <
       })),
     }),
 
+    ...withModifiers("content", {
+      ...withValues(
+        {
+          start: "flex-start",
+          end: "flex-end",
+          center: "center",
+          between: "space-between",
+          around: "space-around",
+          evenly: "space-evenly",
+        },
+        (x) => ({ alignContent: x })
+      ),
+    }),
+
     // align-items
     ...withModifiers("items", {
       ...withValues(["start", "end", "center", "stretch", "baseline"], (x) => ({
