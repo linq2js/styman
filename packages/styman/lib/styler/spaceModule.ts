@@ -49,8 +49,8 @@ export const spaceModule = <
         withKey(SPACE_KEYMAP, (prop) =>
           getSpacing(prop === "x", `${x / 4}rem`)
         ),
-      ...withValues(spacings, (value, { withKey }) =>
-        withKey(SPACE_KEYMAP, (prop) => ({ [prop]: `${value / 4}rem` }))
+      ...withValues(spacings, (x, { withKey }) =>
+        withKey(SPACE_KEYMAP, (prop) => getSpacing(prop === "x", `${x / 4}rem`))
       ),
     }),
   };
