@@ -194,7 +194,7 @@ export const layoutModule = <
     ...withModifiers("block", { $default: () => ({ display: "block" }) }),
     ...withModifiers("inline", { $default: () => ({ display: "inline" }) }),
     ...withModifiers("contents", { $default: () => ({ display: "contents" }) }),
-    ...withModifiers("hidden", { $default: () => ({ display: "hidden" }) }),
+    ...withModifiers("hidden", { $default: () => ({ display: "none" }) }),
     ...withModifiers("list_item", {
       $default: () => ({ display: "list-item" }),
     }),
