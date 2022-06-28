@@ -90,7 +90,10 @@ export const layoutModule = <
     ...withModifiers("relative", () => ({ position: "relative" })),
     ...withModifiers("sticky", {
       $default: () => ({ position: "sticky" }),
-      ...withValues(["left", "top", "right", "bottom"], (x) => ({ [x]: 0 })),
+      ...withValues(["left", "top", "right", "bottom"], (x) => ({
+        [x]: 0,
+        position: "sticky",
+      })),
     }),
     ...withModifiers("zindex", {
       auto: () => ({ zIndex: "auto" }),
