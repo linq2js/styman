@@ -1,10 +1,4 @@
-import {
-  ColorScheme,
-  Modifiers,
-  Spacings,
-  TextSizes,
-  withValues,
-} from "../dynamic";
+import { ColorScheme, Modifiers, Spacings, TextSizes } from "../dynamic";
 import { BuildContext } from "./createStyler";
 
 const GAP_KEYMAP = {
@@ -20,6 +14,8 @@ export const flexModule = <
   S extends Spacings
 >({
   withModifiers,
+  withValues,
+  spacings,
 }: BuildContext<C, M, T, S>) => {
   return {
     ...withModifiers("flex", {
@@ -145,6 +141,9 @@ export const flexModule = <
     ...withModifiers(["g", "gx", "gy"], {
       px: (_, { withKey }) =>
         withKey(GAP_KEYMAP, (prop) => ({ [prop]: "1px" })),
+      ...withValues(spacings, (x, { withKey }) =>
+        withKey(GAP_KEYMAP, (prop) => ({ [prop]: `${x / 4}rem` }))
+      ),
       $number: (x: number, { withKey }) =>
         withKey(GAP_KEYMAP, (prop) => ({ [prop]: `${x / 4}rem` })),
     }),
